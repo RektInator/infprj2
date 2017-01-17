@@ -36,6 +36,9 @@
     <Compile Include="mainmenu.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="translate.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

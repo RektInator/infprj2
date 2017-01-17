@@ -8,6 +8,7 @@ import game
 import options
 import mainmenu
 import button
+import translate
 
 class Game:
     def __init__(self):
@@ -23,6 +24,10 @@ class Game:
         
         # Set the resolution
         self.screen = pygame.display.set_mode((self.width, self.height))
+        
+		# Init game funcs
+        translate.init()
+        print(translate.translate("Q1"))
 
     # sets the current game state
     def set_state(self, state):
