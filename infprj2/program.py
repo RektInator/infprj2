@@ -1,5 +1,9 @@
 # Imports
 import pygame
+
+# Import game states
+import game
+import options
 import mainmenu
 
 def process_events():
@@ -31,11 +35,15 @@ class Game:
     def update(self):
         if self.state == 0:
             mainmenu.update(self)
+        elif self.state == 1:
+            options.update(self)
 
     # draws the current frame
     def draw(self):
         if self.state == 0:
             mainmenu.draw(self)
+        elif self.state == 1:
+            options.draw(self)
 
     # game loop
     def loop(self):
