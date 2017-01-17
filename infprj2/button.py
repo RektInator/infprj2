@@ -16,14 +16,16 @@ class Button:
         self.width = width
         self.height = height
         self.text = text
+        self.size = size
         self.backcolor = backcolor
         self.frontcolor = frontcolor
         self.callback = callback
         self.font = pygame.font.Font(None, size)
     def draw(self):
+        textsize = self.font.size(self.text)
         pygame.draw.rect(self.game.screen, self.backcolor, (self.x, self.y, self.width, self.height))
         self.btn_text = self.font.render(self.text, 1, self.frontcolor)
-        self.game.screen.blit(self.btn_text, (self.x, self.y))
+        self.game.screen.blit(self.btn_text, (self.x + self.width/2 - (textsize[0]/2), self.y + self.height/2 - (textsize[1]/2)))
     def click(self):
         self.callback()
 

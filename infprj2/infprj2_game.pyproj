@@ -23,6 +23,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="button.py" />
+    <Compile Include="end.py" />
+    <Compile Include="escmenu.py" />
     <Compile Include="game.py">
       <SubType>Code</SubType>
     </Compile>
