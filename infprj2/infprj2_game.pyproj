@@ -6,7 +6,7 @@
     <ProjectGuid>73acbc4a-f057-456c-b501-ae83067274c8</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>infprj2.py</StartupFile>
+    <StartupFile>program.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,7 +23,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="infprj2.py" />
+    <Compile Include="program.py" />
+    <Compile Include="mainmenu.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
