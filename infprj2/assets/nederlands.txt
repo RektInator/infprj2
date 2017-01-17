@@ -1,2 +1,20 @@
-QUESTION1,Test123
-QUESTION2,Test456
+QUESTION1,Waar kan je niet terecht om te gaan zwemmen?
+QUESTION2,Hoe lang is de schaatsbaan van de Schaatsbaan Rotterdam?
+QUESTION3,Welke sport kun je in het Drijvend Paviljoen beoefenen?
+QUESTION4,Welke landen kun je behalve Nederland ook in Miniworld Rotterdam zien?
+QUESTION5,Hoe heet de culturele en culinaire ontdekkingstocht door Rotterdam?
+QUESTION6,Voor welk museum staat het monument van Zadkine genaamd "De Verwoeste Stad"?
+QUESTION7,Welk van de volgende restaurantboten in Rotterdam bestaat niet?
+QUESTION8,Hoe heet het grootste trampolinepark in Rotterdam?
+QUESTION9,Waar geeft de Rotterdam Tours onder andere rondleidingen?
+QUESTION10,Welk van de volgende winkels is niet rond de koopgoot?
+QUESTION1_ANSWER1,Euromast Park
+QUESTION1_ANSWER2,400 meter
+QUESTION1_ANSWER3,Tennis
+QUESTION1_ANSWER4,Luxemburg en België
+QUESTION1_ANSWER5,Bike & Bite
+QUESTION1_ANSWER6,Maritiem Museum
+QUESTION1_ANSWER7,De Zwanenboot
+QUESTION1_ANSWER8,FreeStyle Motion
+QUESTION1_ANSWER9,De Markthal
+QUESTION1_ANSWER10,Mediamarkt
