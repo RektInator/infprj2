@@ -46,7 +46,9 @@ def update():
 
 # create new buttons
 def create(game, x, y, width, height, text, size, backcolor, frontcolor, callback):
+    # alloc button
     _btn = Button(game, x, y, width, height, text, size, backcolor, frontcolor, callback)
     _btn.draw()
 
+    # add button to list
     buttons.append(_btn)

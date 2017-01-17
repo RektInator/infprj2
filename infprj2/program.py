@@ -2,20 +2,12 @@
 import pygame
 
 # Import game states
+import escmenu
 import end
 import game
 import options
 import mainmenu
 import button
-
-def process_events():
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            return False
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            button.click(event.pos)
-        
-    return True
 
 class Game:
     def __init__(self):
@@ -48,6 +40,8 @@ class Game:
             game.update(self)
         elif self.state == 3:
             end.update(self)
+        elif self.state == 4:
+            escmenu.update(self)
 
     # draws the current frame
     def draw(self):
@@ -64,6 +58,8 @@ class Game:
             game.draw(self)
         elif self.state == 3:
             end.draw(self)
+        elif self.state == 4:
+            escmenu.draw(self)
 
         # Flip buffer
         pygame.display.flip()
@@ -74,10 +70,26 @@ class Game:
             self.update()
             self.draw()
 
+_game = Game()
+
+def process_events():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            return False
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            button.click(event.pos)
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            if _game.state == 1:
+                _game.state = 4
+            elif _game.state == 4:
+                _game.state = 1
+        
+    return True
+
 # main function
 def Program():
-    game = Game()
-    game.loop()
+    # _game = Game()
+    _game.loop()
 
 # Start the game
 Program()
