@@ -1,2 +1,80 @@
-QUESTION1,Test123
-QUESTION2,Test456
+QUESTION1,Waar kan je niet terecht om te gaan zwemmen?
+QUESTION2,Hoe lang is de schaatsbaan van de Schaatsbaan Rotterdam?
+QUESTION3,Welke sport kun je in het Drijvend Paviljoen beoefenen?
+QUESTION4,Welke landen kun je behalve Nederland ook in Miniworld Rotterdam zien?
+QUESTION5,Hoe heet de culturele en culinaire ontdekkingstocht door Rotterdam?
+QUESTION6,Voor welk museum staat het monument van Zadkine genaamd "De Verwoeste Stad"?
+QUESTION7,Welk van de volgende restaurantboten in Rotterdam bestaat niet?
+QUESTION8,Hoe heet het grootste trampolinepark in Rotterdam?
+QUESTION9,Waar geeft de Rotterdam Tours onder andere rondleidingen?
+QUESTION10,Welk van de volgende winkels is niet rond de koopgoot?
+QUESTION11,Welk van de volgende bioscopen is het oudst?
+QUESTION12,Waar houdt het Philharmonisch Orkest concerten?
+QUESTION13,Wat is de oudste café in Rotterdam?
+QUESTION14,Wat is de oudste café in Rotterdam?
+QUESTION15,Hoeveel kilometer lang is de Rotterdam Street Art Route?
+QUESTION16,Op welk plein vindt jaarlijkse het Najaarskermis Rotterdam plaats?
+QUESTION17,Welke bar in Rotterdam werd in 2009 de beste bar ter wereld benoemd?
+QUESTION18,In welke stad is er geen Red Light District?
+QUESTION19,Hoe heet de bekendste escape room in Rotterdam?
+QUESTION20,Voor welk vervoermiddel is er geen tour door Rotterdam beschikbaar?
+QUESTION21,Welke van de volgende Pathé bioscopen is niet in Rotterdam?
+QUESTION22,In welk museum in Rotterdam krijg je alles over de haven te weten?
+QUESTION23,Hoe heet het vliegveld van Rotterdam?
+QUESTION24,Van welke straat in Rotterdam word de straatnaambord het meest gestolen?
+QUESTION25,Vanaf welk station in Rotterdam kun je internationaal reizen?
+QUESTION26,Hoeveel bezoekers zijn er jaarlijks bij de Marathon Rotterdam?
+QUESTION27,Welk gebouw is het meest recent gebouwd?
+QUESTION28,Hoeveel musea zijn er in Rotterdam?
+QUESTION29,Wanneer begonnen de Hollanders kaas te maken?
+QUESTION30,Wat is niet iconisch voor Nederland?
+QUESTION31,Waar dankt Rotterdam zijn naam aan?
+QUESTION32,Wat is het enige overgebleven Middeleeuws gebouw in de binnenstad van Rotterdam?
+QUESTION33,Wie is de nachtburgemeester van Rotterdam?
+QUESTION34,Waar stond de wijk Katendrecht vroeger om bekend?
+QUESTION35,Wanneer is diergaarde Blijdorp geopend?
+QUESTION36,Wat is de officiële naam van de koopgoot?
+QUESTION37,Welk gebouw stond symbool voor de wederopbouw van de stad?
+QUESTION38,Hoeveel joden woonden er in Rotterdam voor de Tweede Wereldoorlog?
+QUESTION39,Wat was tijdens de Tweede Wereldoorlog de enige weg naar het centrum die de Duitsers probeerden te bereiken?
+QUESTION40,Door welke architect(en) is de Euromast ontworpen?
+QUESTION1_ANSWER1,Euromast Park
+QUESTION1_ANSWER2,400 meter
+QUESTION1_ANSWER3,Tennis
+QUESTION1_ANSWER4,Luxemburg en België
+QUESTION1_ANSWER5,Bike & Bite
+QUESTION1_ANSWER6,Maritiem Museum
+QUESTION1_ANSWER7,De Zwanenboot
+QUESTION1_ANSWER8,FreeStyle Motion
+QUESTION1_ANSWER9,De Markthal
+QUESTION1_ANSWER10,Mediamarkt
+QUESTION1_ANSWER11,LantarenVenster
+QUESTION1_ANSWER12,De Doelen
+QUESTION1_ANSWER13,Melief Bender
+QUESTION1_ANSWER14,Cinerama
+QUESTION1_ANSWER15,7 km
+QUESTION1_ANSWER16,Mullerpier
+QUESTION1_ANSWER17,De Witte Aap
+QUESTION1_ANSWER18,Maastricht
+QUESTION1_ANSWER19,Escape010
+QUESTION1_ANSWER20,Skateboard
+QUESTION1_ANSWER21,Pathé de Kroon
+QUESTION1_ANSWER22,Havenmuseum
+QUESTION1_ANSWER23,Rotterdam Airport
+QUESTION1_ANSWER24,Ajax straat
+QUESTION1_ANSWER25,Centraal Station
+QUESTION1_ANSWER26,925.000 bezoekers
+QUESTION1_ANSWER27,Markthal
+QUESTION1_ANSWER28,37
+QUESTION1_ANSWER29,400 na Christus
+QUESTION1_ANSWER30,Baretten
+QUESTION1_ANSWER31,Aan de rivier de rotte
+QUESTION1_ANSWER32,St. Laurenskerk
+QUESTION1_ANSWER33,Jules Deelder
+QUESTION1_ANSWER34,De prostituees
+QUESTION1_ANSWER35,1855
+QUESTION1_ANSWER36,Beurstraverse
+QUESTION1_ANSWER37,De Bijenkorf
+QUESTION1_ANSWER38,ca. 12000
+QUESTION1_ANSWER39,Maasbrug
+QUESTION1_ANSWER40,Maaskant
