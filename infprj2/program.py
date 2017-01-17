@@ -84,10 +84,10 @@ def process_events():
         elif event.type == pygame.MOUSEBUTTONDOWN:
             button.click(event.pos)
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-            if _game.state == 1:
+            if _game.state == 2:
                 _game.state = 4
             elif _game.state == 4:
-                _game.state = 1
+                _game.state = 2
         
     return True
 

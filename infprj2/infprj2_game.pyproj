@@ -40,6 +40,26 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\" />
+    <Folder Include="assets\img\" />
+    <Folder Include="__pycache__\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\img\die1.png" />
+    <Content Include="assets\img\die2.png" />
+    <Content Include="assets\img\die3.png" />
+    <Content Include="assets\img\die4.png" />
+    <Content Include="assets\img\die5.png" />
+    <Content Include="assets\img\die6.png" />
+    <Content Include="assets\nederlands.txt" />
+    <Content Include="__pycache__\button.cpython-35.pyc" />
+    <Content Include="__pycache__\end.cpython-35.pyc" />
+    <Content Include="__pycache__\escmenu.cpython-35.pyc" />
+    <Content Include="__pycache__\game.cpython-35.pyc" />
+    <Content Include="__pycache__\mainmenu.cpython-35.pyc" />
+    <Content Include="__pycache__\options.cpython-35.pyc" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
