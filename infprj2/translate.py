@@ -17,5 +17,13 @@ def translate(key):
 	return "Error"
 
 def init():
-	translations.append(Translation("Q1", "Thijs is homo"))
-	
+    file = open("assets/nederlands.txt", "r")
+    data = file.read()
+
+    for index in data.split("\n"):
+        # Split key and value
+        values = index.split(",")
+
+        # Add translations to list
+        _idx = Translation(values[0], values[1])
+        translations.append(_idx)
