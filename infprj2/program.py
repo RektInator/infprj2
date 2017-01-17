@@ -9,10 +9,17 @@ import options
 import mainmenu
 import button
 import translate
+import menumusic
+import config
 
 class Game:
     def __init__(self):
         self.state = 0              # state 0 = mainmenu
+
+		# Init game funcs
+        config.init()
+        translate.init()
+        menumusic.init()
 
         # Initiate the game window
         self.width = 800
@@ -24,10 +31,6 @@ class Game:
         
         # Set the resolution
         self.screen = pygame.display.set_mode((self.width, self.height))
-        
-		# Init game funcs
-        translate.init()
-        print(translate.translate("Q1"))
 
     # sets the current game state
     def set_state(self, state):
