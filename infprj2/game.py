@@ -13,13 +13,14 @@ class Dice:
         # zet de begin image van de die naar een lege
         self.image ="assets\img\die0.png"
     def onclick(self,game):
-        # TODO: gefaalde poging tot animatie
+        # TODO: niet display.flip gebruiken
         for x in range(10):
-            self.image = "assets\img\die{}.png".format(random.randrange(1,6))
+            self.image = "assets\img\die{}.png".format(random.randrange(1,7))
             self.draw(game)
+            pygame.display.flip()
             time.sleep(0.1)
         # dit pakt een random nummer van 1 t/m 6 en slaat het op in game.dice_roll
-        game.dice_roll = random.randrange(1, 6)
+        game.dice_roll = random.randrange(1, 7)
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
         self.image = "assets\img\die{}.png".format(game.dice_roll)
     def draw(self,game):
