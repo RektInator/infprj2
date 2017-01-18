@@ -28,13 +28,21 @@ class Dice:
         self.image = "assets\img\die{}.png".format(game.dice_roll)
     def draw(self,game):
         # dit tekent de die
-        button.draw_img(game, game.width - 70, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
+        button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
 dice = Dice()
 
 def draw(game):
+    pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
     dice.draw(game)
     pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
+    font = pygame.font.Font(None, 48)
+    label_1 = font.render("Start", 1, (255,255,255))
+    size = font.size("Start")
+    game.screen.blit(label_1,(45, game.height * 0.9))
+    game.screen.blit(label_1,(175, game.height * 0.9))
+    game.screen.blit(label_1,(305, game.height * 0.9))
+    game.screen.blit(label_1,(435, game.height * 0.9))
