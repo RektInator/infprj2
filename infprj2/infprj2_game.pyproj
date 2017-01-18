@@ -24,6 +24,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="button.py" />
+    <Compile Include="Score.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="end.py" />
     <Compile Include="escmenu.py" />
     <Compile Include="game.py">
