@@ -9,7 +9,7 @@ buttons = []
 
 # button class
 class Button:
-    def __init__(self, game, x, y, width, height, text, size, backcolor, frontcolor, callback):
+    def __init__(self, game, x, y, width, height, text, size, backcolor, frontcolor, callback, image):
         self.game = game
         self.x = x
         self.y = y
@@ -21,9 +21,15 @@ class Button:
         self.frontcolor = frontcolor
         self.callback = callback
         self.font = pygame.font.Font(None, size)
+        self.image = image
     def draw(self):
         textsize = self.font.size(self.text)
-        pygame.draw.rect(self.game.screen, self.backcolor, (self.x, self.y, self.width, self.height))
+        
+        if len(self.image):
+            self.game.screen.blit(pygame.image.load(self.image), (self.x, self.y))
+        else:
+            pygame.draw.rect(self.game.screen, self.backcolor, (self.x, self.y, self.width, self.height))
+
         self.btn_text = self.font.render(self.text, 1, self.frontcolor)
         self.game.screen.blit(self.btn_text, (self.x + self.width/2 - (textsize[0]/2), self.y + self.height/2 - (textsize[1]/2)))
     def click(self):
@@ -47,9 +53,17 @@ def update():
     buttons.clear()
 
 # create new buttons
-def create(game, x, y, width, height, text, size, backcolor, frontcolor, callback):
+def draw(game, x, y, width, height, text, size, backcolor, frontcolor, callback):
     # alloc button
-    _btn = Button(game, x, y, width, height, text, size, backcolor, frontcolor, callback)
+    _btn = Button(game, x, y, width, height, text, size, backcolor, frontcolor, callback, "")
+    _btn.draw()
+
+    # add button to list
+    buttons.append(_btn)
+
+def draw_img(game, x, y, width, height, text, size, image, frontcolor, callback):
+    # alloc button
+    _btn = Button(game, x, y, width, height, text, size, (0, 0, 0), frontcolor, callback, image)
     _btn.draw()
 
     # add button to list
