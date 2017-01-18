@@ -16,6 +16,9 @@ class Game:
     def __init__(self):
         self.state = 0              # state 0 = mainmenu
 
+        # Game variables
+        self.dice_roll = 0
+
 		# Init game funcs
         config.init()
         translate.init()
