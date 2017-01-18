@@ -8,7 +8,8 @@ def update(game):
     pass
 
 def draw(game):
-    bg = pygame.image.load("assets\img\bg.png")
+    bg = pygame.image.load("assets//img//bg.png")
+    game.screen.blit(bg,(0,0))
     # button variables
     btn_width = game.width / 5;
     btn_height = game.height / 10;
