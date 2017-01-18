@@ -14,14 +14,14 @@ class Dice:
         self.image ="assets\img\die0.png"
     def onclick(self,game):
         # TODO: niet display.flip gebruiken
-        for x in range(10):
+        for x in range(20):
             self.newimg = "assets\img\die{}.png".format(random.randrange(1,7))
             while self.newimg == self.image:
                 self.newimg = "assets\img\die{}.png".format(random.randrange(1,7))
             self.image = self.newimg
             self.draw(game)
             pygame.display.flip()
-            time.sleep(0.1)
+            time.sleep(0.05)
         # dit pakt een random nummer van 1 t/m 6 en slaat het op in game.dice_roll
         game.dice_roll = random.randrange(1, 7)
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
