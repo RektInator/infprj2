@@ -83,7 +83,7 @@ _game = Game()
 def process_events():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            return False
+            quit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             button.click(event.pos)
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
