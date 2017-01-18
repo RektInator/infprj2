@@ -15,6 +15,7 @@ import config
 class Game:
     def __init__(self):
         self.state = 0              # state 0 = mainmenu
+        self.last_state = 0
 
         # Game variables
         self.dice_roll = 0
@@ -37,6 +38,7 @@ class Game:
 
     # sets the current game state
     def set_state(self, state):
+        self.last_state = self.state
         self.state = state          # update game state
 
     # updates the game state
