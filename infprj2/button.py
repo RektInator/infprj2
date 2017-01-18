@@ -29,7 +29,6 @@ class Button:
             self.game.screen.blit(pygame.image.load(self.image), (self.x, self.y))
         else:
             pygame.draw.rect(self.game.screen, self.backcolor, (self.x, self.y, self.width, self.height))
-
         self.btn_text = self.font.render(self.text, 1, self.frontcolor)
         self.game.screen.blit(self.btn_text, (self.x + self.width/2 - (textsize[0]/2), self.y + self.height/2 - (textsize[1]/2)))
     def click(self):
