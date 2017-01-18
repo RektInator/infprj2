@@ -34,3 +34,7 @@ dice = Dice()
 
 def draw(game):
     dice.draw(game)
+    pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
+    pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
+    pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
+    pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
