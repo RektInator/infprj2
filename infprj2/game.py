@@ -12,7 +12,12 @@ class Dice:
     def __init__(self):
         # zet de begin image van de die naar een lege
         self.image ="assets\img\die0.png"
+        self.isClickable = True
     def onclick(self,game):
+        if self.isClickable:
+            self.isClickable = False
+            return
+
         # TODO: niet display.flip gebruiken
         for x in range(20):
             self.newimg = "assets\img\die{}.png".format(random.randrange(1,7))
