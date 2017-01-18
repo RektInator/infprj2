@@ -11,7 +11,7 @@ connection = pymysql.connect(host='178.62.226.124',
 def Query(x):
     try:
         with connection.cursor() as cursor:
-            sql = str(x)
+            sql = x
             cursor.execute(sql)
             result = cursor.fetchone()
             connection.commit()
@@ -19,3 +19,4 @@ def Query(x):
 
     finally:
         connection.close()
+res = Query("SELECT * FROM score")
