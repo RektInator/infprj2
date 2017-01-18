@@ -18,4 +18,13 @@ def get(setting):
 # todo, parse config file
 def init():
     # test setting
-    settings.append(Setting("snd_enabled", "1"))
+    file = open("config.cfg", "r")
+    data = file.read()
+   
+    for index in data.split("\n"):
+        # Split key and value
+        values = index.split(",")
+
+        # Add setting to list
+        _idx = Setting(values[0], values[1])
+        settings.append(_idx)
