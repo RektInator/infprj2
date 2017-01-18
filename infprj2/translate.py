@@ -16,10 +16,14 @@ def translate(key):
 
 	return "Error"
 
-def init():
-    file = open("assets/nederlands.txt", "r")
-    data = file.read()
-
+def Splitlist(x):
+    if x == 0:
+        file = open("assets/nederlands.txt", "r")
+        data = file.read()
+    elif x == 1:
+        file = open("assets/english.txt", "r")
+        data = file.read()
+    else: return "No language specified"
     for index in data.split("\n"):
         # Split key and value
         values = index.split(",")
