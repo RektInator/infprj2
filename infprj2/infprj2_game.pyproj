@@ -24,6 +24,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="button.py" />
+    <Compile Include="config.py" />
     <Compile Include="Score.py">
       <SubType>Code</SubType>
     </Compile>
@@ -52,6 +53,7 @@
     <Folder Include="__pycache__\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\background.mp3" />
     <Content Include="assets\img\die1.png" />
     <Content Include="assets\img\die2.png" />
     <Content Include="assets\img\die3.png" />
