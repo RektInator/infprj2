@@ -1,4 +1,5 @@
 import pymysql.cursors  #Importeer PyMySql
+import pygame
 
 
 connection = pymysql.connect(host='178.62.226.124',      #Setup connectie naar de database
@@ -19,4 +20,4 @@ def Query(x):
 
     finally:
         connection.close()
-res = Query("SELECT * FROM score")
+

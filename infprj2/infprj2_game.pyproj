@@ -23,9 +23,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="background.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="button.py" />
     <Compile Include="config.py" />
-    <Compile Include="Score.py">
+    <Compile Include="score.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="end.py" />

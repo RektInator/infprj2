@@ -11,6 +11,8 @@ import button
 import translate
 import menumusic
 import config
+import Score
+import background
 
 class Game:
     def __init__(self):
@@ -43,7 +45,7 @@ class Game:
     def update(self):
         button.update()
 
-        if self.state == 0:
+        if self.state == 0:    
             mainmenu.update(self)
         elif self.state == 1:
             options.update(self)
@@ -57,7 +59,8 @@ class Game:
     # draws the current frame
     def draw(self):
         
-        # Clear the screen
+        # draw the background
+       
         self.screen.fill((0, 0, 0))
 
         # Draw the correct data
