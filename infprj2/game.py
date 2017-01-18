@@ -33,12 +33,19 @@ class Dice:
 dice = Dice()
 
 def draw(game):
+	#Achtergrond kleur
     pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
+
+	#Teken dice
     dice.draw(game)
+
+	#Teken categorie kleur
     pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
+
+	#Start onder categorie
     font = pygame.font.Font(None, 48)
     label_1 = font.render("Start", 1, (255,255,255))
     size = font.size("Start")
