@@ -1,16 +1,29 @@
 # Game python file
 import pygame
 import button
+import random
+import time
 
 def update(game):
     pass
 
+# Deze class zorgt ervoor dat het dice systeem werkt
 class Dice:
     def __init__(self):
-        self.image = "assets\img\die1.png"
-    def onclick(self):
-        self.image = "assets\img\die2.png"
+        # zet de begin image van de die naar een lege
+        self.image ="assets\img\die0.png"
+    def onclick(self,game):
+        # TODO: gefaalde poging tot animatie
+        for x in range(10):
+            self.image = "assets\img\die{}.png".format(random.randrange(1,6))
+            self.draw(game)
+            time.sleep(0.1)
+        # dit pakt een random nummer van 1 t/m 6 en slaat het op in game.dice_roll
+        game.dice_roll = random.randrange(1, 6)
+        # dit zet het plaatje van de die naar hetgeen wat gegooid is
+        self.image = "assets\img\die{}.png".format(game.dice_roll)
     def draw(self,game):
+        # dit tekent de die
         button.draw_img(game, game.width - 70, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
 dice = Dice()
