@@ -32,6 +32,8 @@ class Dice:
         self.image = "assets\img\die{}.png".format(game.dice_roll)
     def draw(self,game):
         # dit tekent de die
+        if game.dice_roll == 0:
+            game.screen.blit((pygame.font.Font(None, 20)).render("Roll the die!", 1, (0,0,0)),(665, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
 dice = Dice()
