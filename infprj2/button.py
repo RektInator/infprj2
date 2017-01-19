@@ -51,7 +51,7 @@ def click(pos):
                 break
 
 # clear buttons this frame
-def update():
+def update(game):
     buttons.clear()
 
 # create new buttons

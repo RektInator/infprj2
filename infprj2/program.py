@@ -63,8 +63,8 @@ class Game:
 
     # updates the game state
     def update(self):
-        button.update()
-        checkbox.update()
+        button.update(self)
+        checkbox.update(self)
 
         if self.state == 0:    
             mainmenu.update(self)

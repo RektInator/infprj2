@@ -10,7 +10,7 @@ def onBackgroundMusicChanged(game):
     pass
 
 def init(game):
-    checkbox.create(game, 64, 64, "Background music", onBackgroundMusicChanged) 
+    checkbox.create(game, 64, 64, "Background music", True, onBackgroundMusicChanged) 
 
 def draw(game):
     checkbox.draw()
