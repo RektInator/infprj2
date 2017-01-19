@@ -16,14 +16,17 @@ def translate(key):
 
 	return "Error"
 
+
+def languageselect(x):
+    if x == 1:
+       return open("assets/nederlands.txt", "r")
+    elif x == 2:
+       return open("assets/english.txt", "r")
+    else: return "No language specified"
+
 def init():
-    #if x == 0:
-    file = open("assets/nederlands.txt", "r")
+    file = languageselect(1)
     data = file.read()
-    #elif x == 1:
-    #    file = open("assets/english.txt", "r")
-    #    data = file.read()
-    #else: return "No language specified"
     for index in data.split("\n"):
         # Split key and value
         values = index.split(",")
