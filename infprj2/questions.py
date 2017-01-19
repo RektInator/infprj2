@@ -29,8 +29,8 @@ def init():
         answers = []
 
         for i in range(1, cnt + 1):
-            str = values[1] + "_ANSWER" + str(i)
-            answers.append(str)
+            _str = values[1] + "_ANSWER" + str(i)
+            answers.append(_str)
 
         # Create the question index
         _idx = Question(values[0], answers)
