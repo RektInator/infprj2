@@ -14,6 +14,7 @@ import config
 import Score
 import background
 import questions
+import checkbox
 
 class Game:
     def __init__(self):
@@ -45,6 +46,7 @@ class Game:
 
     # sets the current game state
     def set_state(self, state):
+        checkbox.remove(self)
         self.last_state = self.state
         self.state = state          # update game state
 
