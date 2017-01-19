@@ -5,6 +5,7 @@ import checkbox
 import config
 import menumusic
 import textbox
+import translate
 
 def update(game):
     pass
@@ -17,12 +18,19 @@ def onBackgroundMusicChanged(game):
         config.set("snd_enabled", "1")
         menumusic.init()
 
+def onLanguageChanged(game):
+    if config.get("lang_select") == "1":
+        config.set("lang_select", "0")
+    else:
+        config.set("lang_select", "1")
+
 def textChanged(game, box):
     pass
 
 def init(game):
     # add checkboxes for settings here
-    checkbox.create(game, 64, 64, "Muziek", int(config.get("snd_enabled")), onBackgroundMusicChanged) 
+    checkbox.create(game, 64, 64, translate.translate("MUSIC"), int(config.get("snd_enabled")), onBackgroundMusicChanged) 
+    checkbox.create(game, 64, 100, translate.translate("LANGUAGE"), int(config.get("lang_select")), onLanguageChanged)
 
     # add textfields for settings here
     textbox.create(game, 64, 100, 200, "test", textChanged)

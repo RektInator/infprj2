@@ -11,7 +11,7 @@ import button
 import translate
 import menumusic
 import config
-import Score
+import score
 import background
 import questions
 import checkbox
