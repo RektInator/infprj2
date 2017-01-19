@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\background.mp3" />
+    <Content Include="assets\Correct answers.txt" />
     <Content Include="assets\english.txt" />
     <Content Include="assets\img\bg.png" />
     <Content Include="assets\img\die0.png" />
@@ -75,6 +76,7 @@
     <Content Include="assets\img\die4.png" />
     <Content Include="assets\img\die5.png" />
     <Content Include="assets\img\die6.png" />
+    <Content Include="assets\juiste antwoorden.txt" />
     <Content Include="assets\nederlands.txt" />
     <Content Include="assets\questions.txt" />
     <Content Include="assets\Wrong Answer.mp3" />

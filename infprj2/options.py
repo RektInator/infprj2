@@ -33,7 +33,7 @@ def init(game):
     checkbox.create(game, 64, 100, translate.translate("LANGUAGE"), int(config.get("lang_select")), onLanguageChanged)
 
     # add textfields for settings here
-    textbox.create(game, 64, 100, 200, "test", textChanged)
+    textbox.create(game, 64, 250, 200, "test", textChanged)
 
 def draw(game):
     bg = pygame.image.load("assets/img/bg.png")
