@@ -1,19 +1,19 @@
 QUESTION1,Where can't you go to swim?
 QUESTION2,How long is the skatingrink of the Rotterdam Skatingrink?
-QUESTION3,Which sport can you do in the 'Drijvend Paviljoen'?
+QUESTION3,Which sport can you practice in the 'Drijvend Paviljoen'?
 QUESTION4,Which countries can you also see in miniworld Rotterdam?
-QUESTION5,How does the culinair and culturair discoverytrip?
-QUESTION6,In which museaum is the monument from Zadkine called "The ruined city"?
-QUESTION7,Which one of these restaurant boots does not exist in Rotterdam?
+QUESTION5,What is the name of the culinair and culturair discoverytrip?
+QUESTION6,In front of which museum is the monument from Zadkine called "The ruined city"?
+QUESTION7,Which one of these restaurant boats does not exist in Rotterdam?
 QUESTION8,What is the name of the biggest trampoline park in Rotterdam?
-QUESTION9,Where does the Rotterdam Tours give Tours?
+QUESTION9,Where does the Rotterdam Tours give guided tours?
 QUESTION10,Which one of the following shops isn't in the Koopgoot?
 QUESTION11,Which cinema is the oldest?
-QUESTION12,Where does the philharomic orcestra hold concerts?
+QUESTION12,Where does the Philharmonic Orcestra hold concerts?
 QUESTION13,What is the oldest Café in Rotterdam?
-QUESTION14,What is the oldest Café in Rotterdam?
+QUESTION14,In which cinema does the Wildlife Film Festival take place?
 QUESTION15,How many kilometers is the Rotterdam Street Art Route?
-QUESTION16,On which plaza does the Rotterdam happen?
+QUESTION16,On which plaza does the Autumn Fair Rotterdam happen?
 QUESTION17,Which bar in Rotterdam was declared the best bar in 2009?
 QUESTION18,In which city isn't a red light district?
 QUESTION19,what is the most famous escape room in Rotterdam?
@@ -37,44 +37,124 @@ QUESTION36,What is the official name of the Koopgoot?
 QUESTION37,Which building stood for the rebuilding of the city?
 QUESTION38,How many jews lived in Rotterdam during the second world war?
 QUESTION39,What was during the second world war the only way to get to the middle of Rotterdam?
-QUESTION40,Which architects build the euromast?
-QUESTION1_ANSWER1,Euromast Park
-QUESTION1_ANSWER2,400 meter
-QUESTION1_ANSWER3,Tennis
-QUESTION1_ANSWER4,Luxembourg en Belgium
-QUESTION1_ANSWER5,Bike & Bite
-QUESTION1_ANSWER6,Maritiem Museum
-QUESTION1_ANSWER7,De Zwanenboot
-QUESTION1_ANSWER8,FreeStyle Motion
-QUESTION1_ANSWER9,De Markthal
-QUESTION1_ANSWER10,Mediamarkt
-QUESTION1_ANSWER11,LantarenVenster
-QUESTION1_ANSWER12,De Doelen
-QUESTION1_ANSWER13,Melief Bender
-QUESTION1_ANSWER14,Cinerama
-QUESTION1_ANSWER15,7 km
-QUESTION1_ANSWER16,Mullerpier
-QUESTION1_ANSWER17,De Witte Aap
-QUESTION1_ANSWER18,Maastricht
-QUESTION1_ANSWER19,Escape010
-QUESTION1_ANSWER20,Skateboard
-QUESTION1_ANSWER21,Pathé de Kroon
-QUESTION1_ANSWER22,Havenmuseum
-QUESTION1_ANSWER23,Rotterdam Airport
-QUESTION1_ANSWER24,Ajax straat
-QUESTION1_ANSWER25,Centraal Station
-QUESTION1_ANSWER26,925.000 bezoekers
-QUESTION1_ANSWER27,Markthal
-QUESTION1_ANSWER28,37
-QUESTION1_ANSWER29,400 na Christus
-QUESTION1_ANSWER30,Baretten
-QUESTION1_ANSWER31,Aan de rivier de rotte
-QUESTION1_ANSWER32,St. Laurenskerk
-QUESTION1_ANSWER33,Jules Deelder
-QUESTION1_ANSWER34,De prostituees
-QUESTION1_ANSWER35,1855
-QUESTION1_ANSWER36,Beurstraverse
-QUESTION1_ANSWER37,De Bijenkorf
-QUESTION1_ANSWER38,ca. 12000
-QUESTION1_ANSWER39,Maasbrug
-QUESTION1_ANSWER40,Maaskant
+QUESTION40,Which architect(s) build the euromast?
+QUESTION1_ANSWER1,Hoek van Holland
+QUESTION1_ANSWER2,Euromast Park
+QUESTION1_ANSWER3,Plaswijckpark
+QUESTION2_ANSWER1,400 meter
+QUESTION2_ANSWER2,500 meter
+QUESTION2_ANSWER3,600 meter
+QUESTION3_ANSWER1,Voetbal
+QUESTION3_ANSWER2,Badminton
+QUESTION3_ANSWER3,Tennis
+QUESTION4_ANSWER1,Luxemburg en België
+QUESTION4_ANSWER2,Duitsland en België
+QUESTION4_ANSWER3,Duitsland en Frankrijk
+QUESTION5_ANSWER1,Drive & Eat
+QUESTION5_ANSWER2,Bicycle Diner
+QUESTION5_ANSWER3,Bike & Bite
+QUESTION6_ANSWER1,Havenmuseum
+QUESTION6_ANSWER2,Mariniersmuseum
+QUESTION6_ANSWER3,Maritiem Museum
+QUESTION7_ANSWER1,De Zwanenboot
+QUESTION7_ANSWER2,De Pannenkoekenboot
+QUESTION7_ANSWER3,De Berenboot
+QUESTION8_ANSWER8,FreeStyle Motion
+QUESTION8_ANSWER8,Jumpstyle 
+QUESTION8_ANSWER8,Motion Style
+QUESTION9_ANSWER1,De Euromast
+QUESTION9_ANSWER2,Museumplein 
+QUESTION9_ANSWER3,De Markthal
+QUESTION10_ANSWER1,H&M
+QUESTION10_ANSWER2,Mediamarkt
+QUESTION10_ANSWER3,The Sting
+QUESTION11_ANSWER1,Cinerama 
+QUESTION11_ANSWER1,Pathé de Kuip
+QUESTION11_ANSWER1,LantarenVenster
+QUESTION12_ANSWER1,De Doelen
+QUESTION12_ANSWER2,Het Oud Luxor Theater
+QUESTION12_ANSWER3,Hofplein Theater
+QUESTION13_ANSWER1,Melief Bender
+QUESTION13_ANSWER2,Café Beurs
+QUESTION13_ANSWER3,Rotown
+QUESTION14_ANSWER1,Cinerama
+QUESTION14_ANSWER2,Pathé de Kuip
+QUESTION14_ANSWER3,Pathé Schouwburgplein
+QUESTION15_ANSWER1,3 km
+QUESTION15_ANSWER2,5 km
+QUESTION15_ANSWER3,7 km
+QUESTION16_ANSWER1,Mullerpier
+QUESTION16_ANSWER2,Pier 
+QUESTION16_ANSWER3,Schouwburgplein
+QUESTION17_ANSWER1,De Witte Aap
+QUESTION17_ANSWER2,Het NRC
+QUESTION17_ANSWER3,Café de Beurs
+QUESTION18_ANSWER1,Amsterdam 
+QUESTION18_ANSWER2,Rotterdam 
+QUESTION18_ANSWER3,Maastricht
+QUESTION19_ANSWER1,R’dam Escape
+QUESTION19_ANSWER2,Escape010
+QUESTION19_ANSWER3,Room Escape
+QUESTION20_ANSWER1,Segway 
+QUESTION20_ANSWER2,Fiets
+QUESTION20_ANSWER3,Skateboard
+QUESTION21_ANSWER1,Pathé de Kuip
+QUESTION21_ANSWER2,Pathé de Kroon
+QUESTION21_ANSWER3,Pathé Schouwburgplein
+QUESTION22_ANSWER1,Mariniersmuseum 
+QUESTION22_ANSWER2,Havenmuseum
+QUESTION22_ANSWER3,Kunsthal
+QUESTION23_ANSWER1,Rotterdam Airport
+QUESTION23_ANSWER2,Rotterdam Ahoy
+QUESTION23_ANSWER3,Schiphol
+QUESTION24_ANSWER1,Engelse straat
+QUESTION24_ANSWER2,1e Middellandsstraat
+QUESTION24_ANSWER3,Ajax straat
+QUESTION25_ANSWER1,Station Blaak
+QUESTION25_ANSWER2,Centraal Station
+QUESTION25_ANSWER3,Station Noord
+QUESTION26_ANSWER1,675.000 bezoekers
+QUESTION26_ANSWER2,830.000 bezoekers
+QUESTION26_ANSWER3,925.000 bezoekers
+QUESTION27_ANSWER1,Markthal
+QUESTION27_ANSWER2,Potloodgebouw 
+QUESTION27_ANSWER3,Kubuswoningen
+QUESTION28_ANSWER1,26
+QUESTION28_ANSWER2,31
+QUESTION28_ANSWER3,37
+QUESTION29_ANSWER1,100 voor Christus
+QUESTION29_ANSWER2,400 na Christus
+QUESTION29_ANSWER3,600 na Christus
+QUESTION30_ANSWER1,Klompen 
+QUESTION30_ANSWER2,Baretten
+QUESTION30_ANSWER3,Molens 
+QUESTION31_ANSWER1,Kooplieden hadden dit vroeger bedacht
+QUESTION31_ANSWER2,Aan de rivier de rotte
+QUESTION31_ANSWER3,Er was een dam aangelegd in de Maas
+QUESTION32_ANSWER1,De oude haven
+QUESTION32_ANSWER2,VOC magazijn
+QUESTION32_ANSWER3,St. Laurenskerk
+QUESTION33_ANSWER1,Ahmed Aboutaleb 
+QUESTION33_ANSWER2,Jules Deelder
+QUESTION33_ANSWER3,Willem Alexander
+QUESTION34_ANSWER1,De beste bakker van de stad was daar gevestigd 
+QUESTION34_ANSWER2,De prostituees
+QUESTION34_ANSWER3,C. De oudste beschermde boom van de stad staat daar 
+QUESTION35_ANSWER1,1855
+QUESTION35_ANSWER2,1975
+QUESTION35_ANSWER3,1915
+QUESTION36_ANSWER1,De ondergrondse winkelstraat
+QUESTION36_ANSWER2,Beurstraverse
+QUESTION36_ANSWER3,Gewoon de koopgoot
+QUESTION37_ANSWER1,De Bijenkorf
+QUESTION37_ANSWER2,De Kubuswoningen
+QUESTION37_ANSWER3,The red apple
+QUESTION38_ANSWER1,ca. 5000
+QUESTION38_ANSWER2,ca. 8000
+QUESTION38_ANSWER3,ca. 12000
+QUESTION39_ANSWER1,De nieuwe Binnenweg
+QUESTION39_ANSWER2,Maasbrug
+QUESTION39_ANSWER3,Koninginnenbrug
+QUESTION40_ANSWER1,Maaskant
+QUESTION40_ANSWER2,Brinkman en van der Vlugt 
+QUESTION40_ANSWER3,Koolhaas

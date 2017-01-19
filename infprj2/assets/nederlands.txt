@@ -10,10 +10,10 @@ QUESTION9,Waar geeft de Rotterdam Tours onder andere rondleidingen?
 QUESTION10,Welk van de volgende winkels is niet rond de koopgoot?
 QUESTION11,Welk van de volgende bioscopen is het oudst?
 QUESTION12,Waar houdt het Philharmonisch Orkest concerten?
-QUESTION13,Wat is de oudste café in Rotterdam?
+QUESTION13,Wat is het oudste café in Rotterdam?
 QUESTION14,In welke bioscoop vindt het Wildlife Film Festival plaats?
 QUESTION15,Hoeveel kilometer lang is de Rotterdam Street Art Route?
-QUESTION16,Op welk plein vindt jaarlijkse het Najaarskermis Rotterdam plaats?
+QUESTION16,Op welk plein vindt jaarlijks het Najaarskermis Rotterdam plaats?
 QUESTION17,Welke bar in Rotterdam werd in 2009 de beste bar ter wereld benoemd?
 QUESTION18,In welke stad is er geen Red Light District?
 QUESTION19,Hoe heet de bekendste escape room in Rotterdam?
@@ -21,7 +21,7 @@ QUESTION20,Voor welk vervoermiddel is er geen tour door Rotterdam beschikbaar?
 QUESTION21,Welke van de volgende Pathé bioscopen is niet in Rotterdam?
 QUESTION22,In welk museum in Rotterdam krijg je alles over de haven te weten?
 QUESTION23,Hoe heet het vliegveld van Rotterdam?
-QUESTION24,Van welke straat in Rotterdam word de straatnaambord het meest gestolen?
+QUESTION24,Van welke straat in Rotterdam word het straatnaambord het meest gestolen?
 QUESTION25,Vanaf welk station in Rotterdam kun je internationaal reizen?
 QUESTION26,Hoeveel bezoekers zijn er jaarlijks bij de Marathon Rotterdam?
 QUESTION27,Welk gebouw is het meest recent gebouwd?
