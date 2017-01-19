@@ -22,7 +22,7 @@ QUESTION21,Which of the following Pathé cinema aren't in Rotterdam?
 QUESTION22,In what museum in Rotterdam do you get to learn everything about the harbour?
 QUESTION23,How is the airport of Rotterdam called?
 QUESTION24,Which street in Rotterdam did get its nameplate stolen most?
-QUESTION25,From which station can you travel international in Rotterdam?
+QUESTION25,From which station can you travel internationally in Rotterdam?
 QUESTION26,How many visitors are there each year at the marathon of Rotterdam?
 QUESTION27,Which building was build the most recently?
 QUESTION28,How many museums are there in Rotterdam?
@@ -44,12 +44,12 @@ QUESTION1_ANSWER3,Plaswijckpark
 QUESTION2_ANSWER1,400 meter
 QUESTION2_ANSWER2,500 meter
 QUESTION2_ANSWER3,600 meter
-QUESTION3_ANSWER1,Voetbal
+QUESTION3_ANSWER1,Soccer
 QUESTION3_ANSWER2,Badminton
 QUESTION3_ANSWER3,Tennis
-QUESTION4_ANSWER1,Luxemburg en België
-QUESTION4_ANSWER2,Duitsland en België
-QUESTION4_ANSWER3,Duitsland en Frankrijk
+QUESTION4_ANSWER1,Luxemburg and Belgium
+QUESTION4_ANSWER2,Germany and Belgium
+QUESTION4_ANSWER3,Germany and France
 QUESTION5_ANSWER1,Drive & Eat
 QUESTION5_ANSWER2,Bicycle Diner
 QUESTION5_ANSWER3,Bike & Bite
@@ -72,7 +72,7 @@ QUESTION11_ANSWER1,Cinerama
 QUESTION11_ANSWER2,Pathé de Kuip
 QUESTION11_ANSWER3,LantarenVenster
 QUESTION12_ANSWER1,De Doelen
-QUESTION12_ANSWER2,Het Oud Luxor Theater
+QUESTION12_ANSWER2,Het Oude Luxor Theater
 QUESTION12_ANSWER3,Hofplein Theater
 QUESTION13_ANSWER1,Melief Bender
 QUESTION13_ANSWER2,Café Beurs
@@ -96,7 +96,7 @@ QUESTION19_ANSWER1,R’dam Escape
 QUESTION19_ANSWER2,Escape010
 QUESTION19_ANSWER3,Room Escape
 QUESTION20_ANSWER1,Segway 
-QUESTION20_ANSWER2,Fiets
+QUESTION20_ANSWER2,Bicycle
 QUESTION20_ANSWER3,Skateboard
 QUESTION21_ANSWER1,Pathé de Kuip
 QUESTION21_ANSWER2,Pathé de Kroon
@@ -113,39 +113,39 @@ QUESTION24_ANSWER3,Ajax straat
 QUESTION25_ANSWER1,Station Blaak
 QUESTION25_ANSWER2,Centraal Station
 QUESTION25_ANSWER3,Station Noord
-QUESTION26_ANSWER1,675.000 bezoekers
-QUESTION26_ANSWER2,830.000 bezoekers
-QUESTION26_ANSWER3,925.000 bezoekers
+QUESTION26_ANSWER1,675.000 visitors
+QUESTION26_ANSWER2,830.000 visitors
+QUESTION26_ANSWER3,925.000 visitors
 QUESTION27_ANSWER1,Markthal
 QUESTION27_ANSWER2,Potloodgebouw 
 QUESTION27_ANSWER3,Kubuswoningen
 QUESTION28_ANSWER1,26
 QUESTION28_ANSWER2,31
 QUESTION28_ANSWER3,37
-QUESTION29_ANSWER1,100 voor Christus
-QUESTION29_ANSWER2,400 na Christus
-QUESTION29_ANSWER3,600 na Christus
-QUESTION30_ANSWER1,Klompen 
-QUESTION30_ANSWER2,Baretten
-QUESTION30_ANSWER3,Molens 
-QUESTION31_ANSWER1,Kooplieden hadden dit vroeger bedacht
+QUESTION29_ANSWER1,100 before Christus
+QUESTION29_ANSWER2,400 after Christus
+QUESTION29_ANSWER3,600 after Christus
+QUESTION30_ANSWER1,Clogs 
+QUESTION30_ANSWER2,Berets
+QUESTION30_ANSWER3,Mills 
+QUESTION31_ANSWER1,Merchants came up with this
 QUESTION31_ANSWER2,Aan de rivier de rotte
-QUESTION31_ANSWER3,Er was een dam aangelegd in de Maas
-QUESTION32_ANSWER1,De oude haven
-QUESTION32_ANSWER2,VOC magazijn
+QUESTION31_ANSWER3,There was a dam build in the Maas
+QUESTION32_ANSWER1,The old harbour
+QUESTION32_ANSWER2,VOC warehouse
 QUESTION32_ANSWER3,St. Laurenskerk
 QUESTION33_ANSWER1,Ahmed Aboutaleb 
 QUESTION33_ANSWER2,Jules Deelder
 QUESTION33_ANSWER3,Willem Alexander
-QUESTION34_ANSWER1,De beste bakker van de stad was daar gevestigd 
-QUESTION34_ANSWER2,De prostituees
-QUESTION34_ANSWER3,C. De oudste beschermde boom van de stad staat daar 
+QUESTION34_ANSWER1,The best baker of Rotterdam was established here 
+QUESTION34_ANSWER2,The prostitutes
+QUESTION34_ANSWER3,The eldest protected tree in the city is there 
 QUESTION35_ANSWER1,1855
 QUESTION35_ANSWER2,1975
 QUESTION35_ANSWER3,1915
-QUESTION36_ANSWER1,De ondergrondse winkelstraat
+QUESTION36_ANSWER1,The underground shoppingstreet
 QUESTION36_ANSWER2,Beurstraverse
-QUESTION36_ANSWER3,Gewoon de koopgoot
+QUESTION36_ANSWER3,Just de koopgoot
 QUESTION37_ANSWER1,De Bijenkorf
 QUESTION37_ANSWER2,De Kubuswoningen
 QUESTION37_ANSWER3,The red apple
