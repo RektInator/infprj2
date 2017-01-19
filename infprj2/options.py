@@ -16,9 +16,19 @@ def onBackgroundMusicChanged(game):
         config.set("snd_enabled", "1")
         menumusic.init()
 
+
+def onLanguageChanged(game):
+    if config.get("lang_select") == "0":
+        config.set("lang_select", "1")
+    else:
+        config.set("lang_select", "0")
+    print("HERSTART SPEL")
+
+
 def init(game):
     # add checkboxes for settings here
-    checkbox.create(game, 64, 64, "Muziek", int(config.get("snd_enabled")), onBackgroundMusicChanged) 
+    checkbox.create(game, 64, 64, "Muziek", int(config.get("snd_enabled")), onBackgroundMusicChanged)
+    checkbox.create(game, 64, 128, "Taal", int(config.get("lang_select")), onLanguageChanged)
 
 def draw(game):
     bg = pygame.image.load("assets/img/bg.png")
