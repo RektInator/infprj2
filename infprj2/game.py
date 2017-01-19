@@ -32,6 +32,8 @@ class Dice:
         self.image = "assets\img\die{}.png".format(game.dice_roll)
     def draw(self,game):
         # dit tekent de die
+        if game.dice_roll == 0:
+            game.screen.blit((pygame.font.Font(None, 20)).render("Roll the die!", 1, (0,0,0)),(665, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
 dice = Dice()
@@ -55,12 +57,15 @@ def draw(game):
 
 	#Start onder categorie
     font = pygame.font.Font(None, 48)
+    font2 = pygame.font.Font(None, 20)
     label_1 = font.render("Start", 1, (255,255,255))
     size = font.size("Start")
     game.screen.blit(label_1,(45, game.height * 0.9))
     game.screen.blit(label_1,(175, game.height * 0.9))
     game.screen.blit(label_1,(305, game.height * 0.9))
     game.screen.blit(label_1,(435, game.height * 0.9))
+    if game.ourturn == False:
+        game.screen.blit(font2.render("Correct!", 1, (255,255,255)), (32,17))
 
     # Teken popup venster
     if game.ourturn:
@@ -76,13 +81,16 @@ def draw(game):
             game.answers.append("QUESTION{}_ANSWER2".format(question))
             game.answers.append("QUESTION{}_ANSWER3".format(question))
             game.answers.append("QUESTION{}".format(question))
+            print(question)
             pass
 
-        game.screen.blit(font.render(translate.translate(game.answers[3]), 1, (255,255,255)), (32,32))
-        button.draw(game, 32,132,120,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
-        button.draw(game, 32,192,120,60, translate.translate(game.answers[1]), 20, (0,0,0), (255,255,255), callback_question1)
-        button.draw(game, 32,252,120,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
-        pass
+        if game.dice_roll != 0:
+            pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
+            game.screen.blit(font2.render(translate.translate(game.answers[3]), 1, (255,255,255)), (32,17))
+            button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
+            button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.answers[1]), 20, (0,0,0), (255,255,255), callback_question1)
+            button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
+            pass
 
 def init(game):
     pass
