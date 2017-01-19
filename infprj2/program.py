@@ -21,6 +21,7 @@ class Game:
 
         # Game variables
         self.dice_roll = 0
+        self.ourturn = True
 
 		# Init game funcs
         config.init()

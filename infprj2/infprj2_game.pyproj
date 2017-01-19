@@ -46,6 +46,9 @@
     <Compile Include="mainmenu.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="textbox.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="translate.py">
       <SubType>Code</SubType>
     </Compile>

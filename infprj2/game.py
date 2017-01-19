@@ -37,6 +37,9 @@ class Dice:
 
 dice = Dice()
 
+def callback_question1(game):
+    pass
+
 def draw(game):
 	#Achtergrond kleur
     pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
@@ -58,3 +61,11 @@ def draw(game):
     game.screen.blit(label_1,(175, game.height * 0.9))
     game.screen.blit(label_1,(305, game.height * 0.9))
     game.screen.blit(label_1,(435, game.height * 0.9))
+
+    # Teken popup venster
+    if game.ourturn:
+        button.draw(game, 32,32,120,60,"a", 20, (0,0,0), (255,255,255), callback_question1)
+        button.draw(game, 32,92,120,60,"b", 20, (0,0,0), (255,255,255), callback_question1)
+        button.draw(game, 32,152,120,60,"c", 20, (0,0,0), (255,255,255), callback_question1)
+        button.draw(game, 32,212,120,60,"d", 20, (0,0,0), (255,255,255), callback_question1)
+        pass
