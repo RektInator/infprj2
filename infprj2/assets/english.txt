@@ -160,3 +160,7 @@ QUESTION40_ANSWER2,Brinkman en van der Vlugt
 QUESTION40_ANSWER3,Koolhaas
 MUSIC,Music
 LANGUAGE,Language
+OPTIONS, Options
+BACK, Back
+QUIT, Quit
+PLAYER_WON, YOU WON!!
