@@ -11,7 +11,7 @@ import button
 import translate
 import menumusic
 import config
-import score
+import Score
 import background
 
 class Game:
