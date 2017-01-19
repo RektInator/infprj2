@@ -1,3 +1,4 @@
+import config
 class Translation:
 	def __init__(self,key,value):
 		self.key = key
@@ -17,16 +18,19 @@ def translate(key):
 	return "Error"
 
 
-def languageselect(x):
-    if x == 1:
-       return open("assets/nederlands.txt", "r")
-    elif x == 2:
-       return open("assets/english.txt", "r")
-    else: return "No language specified"
+#def languageselect(x):
+#    if x == 0:
+#       return open("assets/nederlands.txt", "r")
+#    elif x == 1:
+#       return open("assets/english.txt", "r")
+#    else: return "No language specified"
 
 def init():
-    file = languageselect(1)
-    data = file.read()
+    if config.get("lang_select") == 1:  #Check config voor taal
+        file = open("assets/english.txt", "r") #Open Taal
+    else:
+        file = open("assets/nederlands.txt", "r") #Open Taal
+    data = file.read() #Lees taal
     for index in data.split("\n"):
         # Split key and value
         values = index.split(",")
