@@ -27,7 +27,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="button.py" />
+    <Compile Include="checkbox.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="config.py" />
+    <Compile Include="questions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="score.py">
       <SubType>Code</SubType>
     </Compile>

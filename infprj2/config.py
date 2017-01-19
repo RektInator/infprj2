@@ -1,18 +1,18 @@
-class Setting:
+class ConfigSetting:
     def __init__(self, setting, value):
         self.s = setting
         self.v = value
-    def setting():
+    def setting(self):
         return self.s
-    def value():
+    def value(self):
         return self.v
 
 settings = []
 
 def get(setting):
-    # for x in settings:
-    #    if x.setting() == setting:
-    #        return x.value()
+    for x in settings:
+       if x.setting() == setting:
+           return x.value()
     return ""
 
 # todo, parse config file
@@ -26,5 +26,5 @@ def init():
         values = index.split(",")
 
         # Add setting to list
-        _idx = Setting(values[0], values[1])
+        _idx = ConfigSetting(values[0], values[1])
         settings.append(_idx)

@@ -14,5 +14,5 @@ def stop():
 def init():
     # Check if menu music should be enabled
     if config.get("snd_enabled") == "1":
-        load("background.mp3")
+        load("assets/background.mp3")
         play()

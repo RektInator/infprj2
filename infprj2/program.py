@@ -26,6 +26,10 @@ class Game:
         self.ourturn = True
         self.didgeneratequestions = False
         self.answers = []
+    
+        # Start PyGame
+        pygame.init()
+        pygame.font.init()
 
 		# Init game funcs
         config.init()
@@ -36,10 +40,6 @@ class Game:
         # Initiate the game window
         self.width = 800
         self.height = 600
-        
-        # Start PyGame
-        pygame.init()
-        pygame.font.init()
         
         # Set the resolution
         self.screen = pygame.display.set_mode((self.width, self.height))
