@@ -70,17 +70,16 @@ def draw(game):
             # remove existing answers
             game.answers.clear()
 
-            # add new answers
-            game.answers.append("QUESTION1_ANSWER1")
-            game.answers.append("QUESTION1_ANSWER2")
-            game.answers.append("QUESTION1_ANSWER3")
-            game.answers.append("QUESTION1_ANSWER4")
+            # add new answers   
+            question = random.randrange(1,41)
+            game.answers.append("QUESTION{}_ANSWER1".format(question))
+            game.answers.append("QUESTION{}_ANSWER2".format(question))
+            game.answers.append("QUESTION{}_ANSWER3".format(question))
             pass
 
         button.draw(game, 32,32,120,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
         button.draw(game, 32,92,120,60, translate.translate(game.answers[1]), 20, (0,0,0), (255,255,255), callback_question1)
         button.draw(game, 32,152,120,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
-        button.draw(game, 32,212,120,60, translate.translate(game.answers[3]), 20, (0,0,0), (255,255,255), callback_question1)
         pass
 
 def init(game):
