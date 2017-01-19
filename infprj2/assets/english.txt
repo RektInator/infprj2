@@ -9,8 +9,8 @@ QUESTION8,What is the name of the biggest trampoline park in Rotterdam?
 QUESTION9,Where does the Rotterdam Tours give Tours?
 QUESTION10,Which one of the following shops isn't in the Koopgoot?
 QUESTION11,Which cinema is the oldest?
-QUESTION12,Waar houdt het Philharmonisch Orkest concerten?
-QUESTION13,Wat is de oudste café in Rotterdam?
+QUESTION12,Where does the philharomic orcestra hold concerts?
+QUESTION13,What is the oldest Café in Rotterdam?
 QUESTION14,What is the oldest Café in Rotterdam?
 QUESTION15,How many kilometers is the Rotterdam Street Art Route?
 QUESTION16,On which plaza does the Rotterdam happen?
@@ -19,25 +19,25 @@ QUESTION18,In which city isn't a red light district?
 QUESTION19,what is the most famous escape room in Rotterdam?
 QUESTION20,On which transport vehicle isn't there a tour available?
 QUESTION21,Which of the following Pathé cinema aren't in Rotterdam?
-QUESTION22,In welk museum in Rotterdam krijg je alles over de haven te weten?
-QUESTION23,Hoe heet het vliegveld van Rotterdam?
-QUESTION24,Van welke straat in Rotterdam word de straatnaambord het meest gestolen?
-QUESTION25,Vanaf welk station in Rotterdam kun je internationaal reizen?
-QUESTION26,Hoeveel bezoekers zijn er jaarlijks bij de Marathon Rotterdam?
-QUESTION27,Welk gebouw is het meest recent gebouwd?
-QUESTION28,Hoeveel musea zijn er in Rotterdam?
-QUESTION29,Wanneer begonnen de Hollanders kaas te maken?
-QUESTION30,Wat is niet iconisch voor Nederland?
-QUESTION31,Waar dankt Rotterdam zijn naam aan?
-QUESTION32,Wat is het enige overgebleven Middeleeuws gebouw in de binnenstad van Rotterdam?
-QUESTION33,Wie is de nachtburgemeester van Rotterdam?
-QUESTION34,Waar stond de wijk Katendrecht vroeger om bekend?
-QUESTION35,Wanneer is diergaarde Blijdorp geopend?
-QUESTION36,Wat is de officiële naam van de koopgoot?
-QUESTION37,Welk gebouw stond symbool voor de wederopbouw van de stad?
-QUESTION38,Hoeveel joden woonden er in Rotterdam voor de Tweede Wereldoorlog?
-QUESTION39,Wat was tijdens de Tweede Wereldoorlog de enige weg naar het centrum die de Duitsers probeerden te bereiken?
-QUESTION40,Door welke architect(en) is de Euromast ontworpen?
+QUESTION22,In which musea in Rotterdam do you get to learn everything over the harbour?
+QUESTION23,How does the airport of Rotterdam get called?
+QUESTION24,Which street in Rotterdam did get its nameplate stolen most?
+QUESTION25,From which station can you travel international in Rotterdam?
+QUESTION26,How many visitors are each year at the marathon of Rotterdam?
+QUESTION27,Which building was build the most recently?
+QUESTION28,How many museums are there in Rotterdam?
+QUESTION29,When did the dutch start making cheese?
+QUESTION30,Wat isn't iconic for holland?
+QUESTION31,Thank to what did Rotterdam get its name?
+QUESTION32,What is the last remaining middle-ages building in Rotterdam?
+QUESTION33,Who is the nightmayor of Rotterdam?
+QUESTION34,Where was the street KatenDrecht known for?
+QUESTION35,When did the zoo Blijdorp open?
+QUESTION36,What is the official name of the Koopgoot?
+QUESTION37,Which building stood for the rebuilding of the city?
+QUESTION38,How many jews lived in Rotterdam during the second world war?
+QUESTION39,What was during the second world war the only way to get to the middle of Rotterdam?
+QUESTION40,Which architects build the euromast?
 QUESTION1_ANSWER1,Euromast Park
 QUESTION1_ANSWER2,400 meter
 QUESTION1_ANSWER3,Tennis
