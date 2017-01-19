@@ -15,6 +15,7 @@ import Score
 import background
 import questions
 import checkbox
+import textbox
 
 class Game:
     def __init__(self):
@@ -47,6 +48,8 @@ class Game:
     # sets the current game state
     def set_state(self, state):
         checkbox.remove(self)
+        textbox.remove(self)
+
         self.last_state = self.state
         self.state = state          # update game state
 
@@ -65,6 +68,7 @@ class Game:
     def update(self):
         button.update(self)
         checkbox.update(self)
+        textbox.update(self)
 
         if self.state == 0:    
             mainmenu.update(self)
@@ -117,11 +121,14 @@ def process_events():
         elif event.type == pygame.MOUSEBUTTONDOWN:
             button.click(event.pos)
             checkbox.click(event.pos)
+            textbox.click(event.pos)
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             if _game.state == 2:
                 _game.state = 4
             elif _game.state == 4:
                 _game.state = 2
+        elif event.type == pygame.KEYDOWN:
+            textbox.key_event(event)
         
     return True
 
