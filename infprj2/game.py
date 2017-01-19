@@ -40,6 +40,7 @@ dice = Dice()
 
 def callback_question1(game):
     game.ourturn = False
+    game.state = 3
     pass
 
 def draw(game):
@@ -85,6 +86,7 @@ def draw(game):
             pass
 
         if game.dice_roll != 0:
+            pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
             pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
             game.screen.blit(font2.render(translate.translate(game.answers[3]), 1, (255,255,255)), (32,17))
             button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
