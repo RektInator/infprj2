@@ -12,7 +12,7 @@ class Checkbox:
 
 checkboxes = []
 
-def add_listbox(game, x, y, text, callback):
+def create(game, x, y, text, callback):
     _box = Checkbox(game, x, y, text, callback)
     checkboxes.append(_box)
 

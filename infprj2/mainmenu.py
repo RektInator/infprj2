@@ -7,6 +7,9 @@ import button
 def update(game):
     pass
 
+def init(game):
+    pass
+
 def draw(game):
     bg = pygame.image.load("assets//img//bg.png")
     game.screen.blit(bg,(0,0))

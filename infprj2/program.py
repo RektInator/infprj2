@@ -50,9 +50,21 @@ class Game:
         self.last_state = self.state
         self.state = state          # update game state
 
+        if self.state == 0:    
+            mainmenu.init(self)
+        elif self.state == 1:
+            options.init(self)
+        elif self.state == 2:
+            game.init(self)
+        elif self.state == 3:
+            end.init(self)
+        elif self.state == 4:
+            escmenu.init(self)
+
     # updates the game state
     def update(self):
         button.update()
+        checkbox.update()
 
         if self.state == 0:    
             mainmenu.update(self)
@@ -67,9 +79,7 @@ class Game:
 
     # draws the current frame
     def draw(self):
-        
         # draw the background
-       
         self.screen.fill((0, 0, 0))
 
         # Draw the correct data

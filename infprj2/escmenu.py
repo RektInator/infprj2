@@ -5,6 +5,9 @@ import button
 def update(game):
     pass
 
+def init(game):
+    pass
+
 def draw(game):
     # button variables
     btn_width = game.width / 5;

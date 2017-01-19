@@ -4,6 +4,9 @@ import pygame
 def update(game):
     pass
 
+def init(game):
+    pass
+
 def draw(game):
     # Eindscherm kleur
     game.screen.fill((199, 251, 126))

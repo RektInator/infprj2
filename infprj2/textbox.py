@@ -11,7 +11,6 @@ class Textbox:
         self.backcolor = backcolor
         self.frontcolor = frontcolor
         
-
 textfields = []
 
 # todo....

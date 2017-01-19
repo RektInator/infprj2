@@ -82,3 +82,6 @@ def draw(game):
         button.draw(game, 32,152,120,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
         button.draw(game, 32,212,120,60, translate.translate(game.answers[3]), 20, (0,0,0), (255,255,255), callback_question1)
         pass
+
+def init(game):
+    pass
