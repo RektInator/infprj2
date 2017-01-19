@@ -15,14 +15,14 @@ class Checkbox:
         else:
             self.color = (10, 10, 10)
 
-        pygame.draw.rect(self.game.screen, self.color, (self.x, self.y, self.width, self.height))
+        pygame.draw.rect(self.game.screen, self.color, (self.x, self.y, 32, 32))
     def update(self):
         pass
 
 checkboxes = []
 
-def create(game, x, y, text, callback):
-    _box = Checkbox(game, x, y, text, callback)
+def create(game, x, y, text, state, callback):
+    _box = Checkbox(game, x, y, text, state, callback)
     checkboxes.append(_box)
 
 def remove(game):
