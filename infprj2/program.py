@@ -13,6 +13,7 @@ import menumusic
 import config
 import Score
 import background
+import questions
 
 class Game:
     def __init__(self):
@@ -27,6 +28,7 @@ class Game:
         config.init()
         translate.init()
         menumusic.init()
+        questions.init()
 
         # Initiate the game window
         self.width = 800
