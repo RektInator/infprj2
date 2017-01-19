@@ -17,8 +17,12 @@ def onBackgroundMusicChanged(game):
         menumusic.init()
 
 def init(game):
+    # add checkboxes for settings here
     checkbox.create(game, 64, 64, "Muziek", int(config.get("snd_enabled")), onBackgroundMusicChanged) 
 
 def draw(game):
+    bg = pygame.image.load("assets/img/bg.png")
+    game.screen.blit(bg,(0,0))
+
     checkbox.draw(game)
     button.draw(game, 10, 10, game.width / 10, game.height / 20, "terug", 20, (25,25,25), (255,255,255), lambda x: game.set_state(game.last_state))
