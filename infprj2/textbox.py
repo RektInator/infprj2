@@ -35,13 +35,15 @@ class Textbox:
 
         # enter pressed
         if event.key == 13:
-            self.callback(self.game, self)
             self.isFocussed = False
 
         # backspace pressed
         if event.key == 8:
             if len(self.text) >= 1:
                 self.text = self.text[0:len(self.text) - 1]
+
+        # Execute textChanged callback
+        self.callback(self.game, self, True)
 
     def update(self):
         pass

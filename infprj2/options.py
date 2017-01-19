@@ -24,7 +24,7 @@ def onLanguageChanged(game):
     else:
         config.set("lang_select", "1")
 
-def textChanged(game, box):
+def textChanged(game, box, enterPressed):
     pass
 
 def init(game):
