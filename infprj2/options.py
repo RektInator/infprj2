@@ -22,7 +22,7 @@ def onLanguageChanged(game):
         config.set("lang_select", "1")
     else:
         config.set("lang_select", "0")
-    print("HERSTART SPEL")
+   
 
 
 def init(game):
@@ -33,6 +33,7 @@ def init(game):
 def draw(game):
     bg = pygame.image.load("assets/img/bg.png")
     game.screen.blit(bg,(0,0))
-
+    game.screen.blit((pygame.font.Font(None, 20)).render("Herstart spel voor verandering", 1, (98,212,123)),(game.height * 0.5,game.width * 0.5))
     checkbox.draw(game)
     button.draw(game, 10, 10, game.width / 10, game.height / 20, "terug", 20, (25,25,25), (255,255,255), lambda x: game.set_state(game.last_state))
+    
