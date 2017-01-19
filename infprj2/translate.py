@@ -18,18 +18,15 @@ def translate(key):
 	return "Error"
 
 
-#def languageselect(x):
-#    if x == 0:
-#       return open("assets/nederlands.txt", "r")
-#    elif x == 1:
-#       return open("assets/english.txt", "r")
-#    else: return "No language specified"
+
 
 def init():
-    if config.get("lang_select") == 1:  #Check config voor taal
+    if config.get("lang_select") == "1":  #Check config voor taal
         file = open("assets/english.txt", "r") #Open Taal
+        print("Engels Geladen")
     else:
         file = open("assets/nederlands.txt", "r") #Open Taal
+        print("Nederlands Geladen")
     data = file.read() #Lees taal
     for index in data.split("\n"):
         # Split key and value
