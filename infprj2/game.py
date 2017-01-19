@@ -3,6 +3,7 @@ import pygame
 import button
 import random
 import time
+import translate
 
 def update(game):
     pass
@@ -63,8 +64,21 @@ def draw(game):
 
     # Teken popup venster
     if game.ourturn:
-        button.draw(game, 32,32,120,60,"a", 20, (0,0,0), (255,255,255), callback_question1)
-        button.draw(game, 32,92,120,60,"b", 20, (0,0,0), (255,255,255), callback_question1)
-        button.draw(game, 32,152,120,60,"c", 20, (0,0,0), (255,255,255), callback_question1)
-        button.draw(game, 32,212,120,60,"d", 20, (0,0,0), (255,255,255), callback_question1)
+        if not game.didgeneratequestions:
+            game.didgeneratequestions = True
+
+            # remove existing answers
+            game.answers.clear()
+
+            # add new answers
+            game.answers.append("QUESTION1_ANSWER1")
+            game.answers.append("QUESTION1_ANSWER2")
+            game.answers.append("QUESTION1_ANSWER3")
+            game.answers.append("QUESTION1_ANSWER4")
+            pass
+
+        button.draw(game, 32,32,120,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
+        button.draw(game, 32,92,120,60, translate.translate(game.answers[1]), 20, (0,0,0), (255,255,255), callback_question1)
+        button.draw(game, 32,152,120,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
+        button.draw(game, 32,212,120,60, translate.translate(game.answers[3]), 20, (0,0,0), (255,255,255), callback_question1)
         pass

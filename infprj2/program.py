@@ -23,6 +23,8 @@ class Game:
         # Game variables
         self.dice_roll = 0
         self.ourturn = True
+        self.didgeneratequestions = False
+        self.answers = []
 
 		# Init game funcs
         config.init()
