@@ -1,5 +1,6 @@
 # Main menu python file
 import pygame
+import translate
 
 # Import button lib
 import button

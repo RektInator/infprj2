@@ -13,6 +13,7 @@ class Textbox:
         self.height = 32
         self.font = pygame.font.Font(None, 20)
     def draw(self):
+        pygame.draw.rect(self.game.screen, (0,0,0), (self.x-1, self.y-1, self.width+2, self.height+2))
         pygame.draw.rect(self.game.screen, self.color, (self.x, self.y, self.width, self.height))
         textsize = self.font.size(self.text)
         self.btn_text = self.font.render(self.text, 1, (0,0,0))
