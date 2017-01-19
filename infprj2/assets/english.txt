@@ -13,30 +13,30 @@ QUESTION12,Where does the Philharmonic Orcestra hold concerts?
 QUESTION13,What is the oldest Café in Rotterdam?
 QUESTION14,In which cinema does the Wildlife Film Festival take place?
 QUESTION15,How many kilometers is the Rotterdam Street Art Route?
-QUESTION16,On which plaza does the Autumn Fair Rotterdam happen?
+QUESTION16,On which plaza does the Autumn Fair Rotterdam take place?
 QUESTION17,Which bar in Rotterdam was declared the best bar in 2009?
-QUESTION18,In which city isn't a red light district?
-QUESTION19,what is the most famous escape room in Rotterdam?
+QUESTION18,In which city isn't there a red light district?
+QUESTION19,What is the most famous escape room in Rotterdam?
 QUESTION20,On which transport vehicle isn't there a tour available?
 QUESTION21,Which of the following Pathé cinema aren't in Rotterdam?
-QUESTION22,In which musea in Rotterdam do you get to learn everything over the harbour?
-QUESTION23,How does the airport of Rotterdam get called?
+QUESTION22,In what museum in Rotterdam do you get to learn everything about the harbour?
+QUESTION23,How is the airport of Rotterdam called?
 QUESTION24,Which street in Rotterdam did get its nameplate stolen most?
 QUESTION25,From which station can you travel international in Rotterdam?
-QUESTION26,How many visitors are each year at the marathon of Rotterdam?
+QUESTION26,How many visitors are there each year at the marathon of Rotterdam?
 QUESTION27,Which building was build the most recently?
 QUESTION28,How many museums are there in Rotterdam?
-QUESTION29,When did the dutch start making cheese?
-QUESTION30,Wat isn't iconic for holland?
-QUESTION31,Thank to what did Rotterdam get its name?
-QUESTION32,What is the last remaining middle-ages building in Rotterdam?
-QUESTION33,Who is the nightmayor of Rotterdam?
-QUESTION34,Where was the street KatenDrecht known for?
+QUESTION29,When did the Dutch start making cheese?
+QUESTION30,Wat isn't iconic for Holland?
+QUESTION31,Thanks to what did Rotterdam get its name?
+QUESTION32,What is the last remaining building from the middle-ages in Rotterdam?
+QUESTION33,Who is the Night Mayor of Rotterdam?
+QUESTION34,What was the district Katendrecht known for?
 QUESTION35,When did the zoo Blijdorp open?
 QUESTION36,What is the official name of the Koopgoot?
-QUESTION37,Which building stood for the rebuilding of the city?
-QUESTION38,How many jews lived in Rotterdam during the second world war?
-QUESTION39,What was during the second world war the only way to get to the middle of Rotterdam?
+QUESTION37,Which building symbolized the rebuilding of the city?
+QUESTION38,How many Jews lived in Rotterdam during the second world war?
+QUESTION39,What was the only way to get to the middle of Rotterdam which the Germans where trying to reach during the second world war?
 QUESTION40,Which architect(s) build the euromast?
 QUESTION1_ANSWER1,Hoek van Holland
 QUESTION1_ANSWER2,Euromast Park
