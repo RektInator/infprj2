@@ -17,8 +17,8 @@ def translate(key):
 
 	return "Error"
 
-
-
+def clear():
+    translations.clear()
 
 def init():
     if config.get("lang_select") == "1":  #Check config voor taal

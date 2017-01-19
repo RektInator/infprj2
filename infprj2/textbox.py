@@ -33,6 +33,10 @@ class Textbox:
         if event.key >= 48 and event.key <= 57:
             self.text += chr(event.key)
 
+        # other keys
+        if event.key == 32:
+            self.text += chr(event.key)
+
         # enter pressed
         if event.key == 13:
             self.isFocussed = False

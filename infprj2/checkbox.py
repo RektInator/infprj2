@@ -20,7 +20,7 @@ class Checkbox:
             self.color = (10, 10, 10)
 
         textsize = self.font.size(self.text)
-        self.btn_text = self.font.render(self.text, 1, (255,0,0))
+        self.btn_text = self.font.render(self.text, 1, (255,255,255))
         self.game.screen.blit(self.btn_text, (self.x + 48, self.y + self.height/2 - (textsize[1]/2)))
 
         pygame.draw.rect(self.game.screen, self.color, (self.x, self.y, self.width, self.height))
