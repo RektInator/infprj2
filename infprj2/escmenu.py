@@ -21,4 +21,4 @@ def draw(game):
     #             scr,  x offset,  y offset,     width,          height,          text,  fontsize,  backcolor,  frontcolor,    callback
     button.draw(game, btn_x_off, btn_y_off(2), int(btn_width), int(btn_height), "Terug", 20,      (25,25,25), (255,255,255), lambda x: game.set_state(2))
     button.draw(game, btn_x_off, btn_y_off(3), int(btn_width), int(btn_height), "Opties", 20,      (25,25,25), (255,255,255), lambda x: game.set_state(1))
-    button.draw(game, btn_x_off, btn_y_off(4), int(btn_width), int(btn_height), "Afsluiten", 20,      (25,25,25), (255,255,255), lambda x: quit())
+    button.draw(game, btn_x_off, btn_y_off(4), int(btn_width), int(btn_height), "Afsluiten", 20,      (25,25,25), (255,255,255), lambda x: game.exit())

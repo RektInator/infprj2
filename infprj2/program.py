@@ -103,12 +103,17 @@ class Game:
             self.update()
             self.draw()
 
+    # Add all functions that require shutdown here
+    def exit(self):
+        config.quit()
+        quit()
+
 _game = Game()
 
 def process_events():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            quit()
+            _game.exit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             button.click(event.pos)
             checkbox.click(event.pos)

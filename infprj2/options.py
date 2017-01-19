@@ -2,15 +2,22 @@
 import pygame
 import button
 import checkbox
+import config
+import menumusic
 
 def update(game):
     pass
 
 def onBackgroundMusicChanged(game):
-    pass
+    if config.get("snd_enabled") == "1":
+        config.set("snd_enabled", "0")
+        menumusic.stop()
+    else:
+        config.set("snd_enabled", "1")
+        menumusic.init()
 
 def init(game):
-    checkbox.create(game, 64, 64, "Background music", True, onBackgroundMusicChanged) 
+    checkbox.create(game, 64, 64, "Muziek", int(config.get("snd_enabled")), onBackgroundMusicChanged) 
 
 def draw(game):
     checkbox.draw(game)
