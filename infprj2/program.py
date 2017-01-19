@@ -111,6 +111,7 @@ def process_events():
             quit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             button.click(event.pos)
+            checkbox.click(event.pos)
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             if _game.state == 2:
                 _game.state = 4
