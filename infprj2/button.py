@@ -9,7 +9,7 @@ buttons = []
 
 # button class
 class Button:
-    def __init__(self, game, x, y, width, height, text, size, backcolor, frontcolor, callback, image):
+    def __init__(self, game, x, y, width, height, text, size, backcolor, frontcolor, callback, image, outline=True):
         self.game = game
         self.x = x
         self.y = y
@@ -22,13 +22,15 @@ class Button:
         self.callback = callback
         self.font = pygame.font.Font(None, size)
         self.image = image
+        self.outline = outline
     def draw(self):
         textsize = self.font.size(self.text)
         
         if len(self.image):
             self.game.screen.blit(pygame.image.load(self.image), (self.x, self.y))
         else:
-            pygame.draw.rect(self.game.screen, (255,255,255), (self.x-1, self.y-1, self.width+2, self.height+2))
+            if self.outline == True:
+                pygame.draw.rect(self.game.screen, (255,255,255), (self.x-1, self.y-1, self.width+2, self.height+2))
             pygame.draw.rect(self.game.screen, self.backcolor, (self.x, self.y, self.width, self.height))
         self.btn_text = self.font.render(self.text, 1, self.frontcolor)
         self.game.screen.blit(self.btn_text, (self.x + self.width/2 - (textsize[0]/2), self.y + self.height/2 - (textsize[1]/2)))

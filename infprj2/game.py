@@ -14,7 +14,7 @@ class Dice:
         self.image ="assets\img\die0.png"
         self.isClickable = True
     def onclick(self,game):
-        if self.isClickable:
+        if not self.isClickable:
             self.isClickable = False
             return
 
