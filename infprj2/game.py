@@ -85,11 +85,12 @@ def draw(game):
             pass
 
         if game.dice_roll != 0:
+            pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
             game.screen.blit(font2.render(translate.translate(game.answers[3]), 1, (255,255,255)), (32,17))
-            button.draw(game, 32,132,120,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
-            button.draw(game, 32,192,120,60, translate.translate(game.answers[1]), 20, (0,0,0), (255,255,255), callback_question1)
-            button.draw(game, 32,252,120,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
-        pass
+            button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
+            button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.answers[1]), 20, (0,0,0), (255,255,255), callback_question1)
+            button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
+            pass
 
 def init(game):
     pass
