@@ -55,12 +55,15 @@ def draw(game):
 
 	#Start onder categorie
     font = pygame.font.Font(None, 48)
+    font2 = pygame.font.Font(None, 20)
     label_1 = font.render("Start", 1, (255,255,255))
     size = font.size("Start")
     game.screen.blit(label_1,(45, game.height * 0.9))
     game.screen.blit(label_1,(175, game.height * 0.9))
     game.screen.blit(label_1,(305, game.height * 0.9))
     game.screen.blit(label_1,(435, game.height * 0.9))
+    if game.ourturn == False:
+        game.screen.blit(font2.render("Correct!", 1, (255,255,255)), (32,17))
 
     # Teken popup venster
     if game.ourturn:
@@ -76,9 +79,10 @@ def draw(game):
             game.answers.append("QUESTION{}_ANSWER2".format(question))
             game.answers.append("QUESTION{}_ANSWER3".format(question))
             game.answers.append("QUESTION{}".format(question))
+            print(question)
             pass
 
-        game.screen.blit(font.render(translate.translate(game.answers[3]), 1, (255,255,255)), (32,32))
+        game.screen.blit(font2.render(translate.translate(game.answers[3]), 1, (255,255,255)), (32,17))
         button.draw(game, 32,132,120,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
         button.draw(game, 32,192,120,60, translate.translate(game.answers[1]), 20, (0,0,0), (255,255,255), callback_question1)
         button.draw(game, 32,252,120,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
