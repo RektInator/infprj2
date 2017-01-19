@@ -12,10 +12,8 @@ class Dice:
     def __init__(self):
         # zet de begin image van de die naar een lege
         self.image ="assets\img\die0.png"
-        self.isClickable = True
     def onclick(self,game):
-        if not self.isClickable:
-            self.isClickable = False
+        if not game.ourturn:
             return
 
         # TODO: niet display.flip gebruiken
@@ -38,6 +36,7 @@ class Dice:
 dice = Dice()
 
 def callback_question1(game):
+    game.ourturn = False
     pass
 
 def draw(game):
