@@ -19,7 +19,10 @@ class Player:
         self.answers = []           # hols the current answers the player can choose from
         self.pos = None
         self.name = ""
+        self.isAI = False
     def setpos(self, col, x, y):
         self.pos = Position(col, x, y)
     def setname(self, name):
         self.name = name
+    def setai(self, ai):
+        self.isAI = ai

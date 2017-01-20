@@ -26,7 +26,7 @@ class Checkbox:
         pygame.draw.rect(self.game.screen, self.color, (self.x, self.y, self.width, self.height))
     def click(self):
         self.isChecked = not self.isChecked
-        self.callback(self.game)
+        self.callback(self.game, self)
     def update(self):
         pass
 
