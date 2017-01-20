@@ -58,13 +58,40 @@ def callback_question3(game):
     question_chosen(game, 3)
 
 def SetPlayerCount(game, idx):
-    for x in range(0, idx):
+    #for x in range(0, idx):
+    #    game.players.append(player.Player())
+    #    textbox.create(game, 32, 32 + (32 * x), 100, "", lambda game,box,isEnterPressed: SetName(x, game, box))
+     
+    if idx == 2:
         game.players.append(player.Player())
-        textbox.create(game, 32, 32 + (32 * x), 100, "", lambda game,box,isEnterPressed: SetName(x, game, box))
-        
+        game.players.append(player.Player())
+        textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
+        textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
+    if idx == 3:
+        game.players.append(player.Player())
+        game.players.append(player.Player())
+        game.players.append(player.Player())
+        textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
+        textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
+        textbox.create(game, 32, 32 + (32 * 2), 100, "", lambda game,box,isEnterPressed: SetName(2, game, box))
+    if idx == 4:
+        game.players.append(player.Player())
+        game.players.append(player.Player())
+        game.players.append(player.Player())
+        game.players.append(player.Player())
+        textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
+        textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
+        textbox.create(game, 32, 32 + (32 * 2), 100, "", lambda game,box,isEnterPressed: SetName(2, game, box))
+        textbox.create(game, 32, 32 + (32 * 3), 100, "", lambda game,box,isEnterPressed: SetName(3, game, box))
+
     game.playercount = idx
 
 def StartGame(game):
+    
+    for x in range(0, game.playercount):
+        if not len(game.players[x].name):
+            return
+
     game.has_started = True
 
 def draw(game):
@@ -87,12 +114,17 @@ def draw(game):
 	    # Start onder categorie
         font = pygame.font.Font(None, 48)
         font2 = pygame.font.Font(None, 20)
+        font3 = pygame.font.Font(None, 28)
         label_1 = font.render("Start", 1, (255,255,255))
         size = font.size("Start")
         game.screen.blit(label_1,(45, game.height * 0.9))
         game.screen.blit(label_1,(175, game.height * 0.9))
         game.screen.blit(label_1,(305, game.height * 0.9))
         game.screen.blit(label_1,(435, game.height * 0.9))
+
+        # Player turn info
+        turnlabel = font3.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
+        game.screen.blit(turnlabel, (0, 0))
 
         # Teken popup venster
     elif game.playercount:
@@ -105,6 +137,7 @@ def draw(game):
         button.draw(game, 32, 100 + (100 - 32), 64, 32, "4", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 4))
 
 def SetName(idx, game, box):
+    # print("Name for player {} is {}".format(idx, box.text))
     game.players[idx].setname(box.text)
 
 def init(game):
