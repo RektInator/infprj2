@@ -15,7 +15,7 @@ def add(name,callback):
 
 # command thread
 def cmdthread(srv):
-    while True:
+    while srv.isActive:
         command = input("> ")
         
         cmddata = []
@@ -43,5 +43,3 @@ def Cmd_Kick_f(srv, args):
 def init():
     add("start", Cmd_Start_f)
     add("kick", Cmd_Kick_f)
-
-    # add("quit", Cmd_Quit_f)

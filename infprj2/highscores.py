@@ -16,7 +16,7 @@ def update(game):
     pass
 
 def init(game):
-    # refresh(game)
+    refresh(game)
     pass
 
 def refresh(game):

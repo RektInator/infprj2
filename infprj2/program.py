@@ -18,6 +18,7 @@ import checkbox
 import textbox
 import player
 import highscores
+import listbox
 
 class Game:
     def __init__(self):
@@ -74,6 +75,7 @@ class Game:
     def set_state(self, state):
         checkbox.remove(self)
         textbox.remove(self)
+        listbox.remove(self)
 
         self.last_state = self.state
         self.state = state          # update game state
@@ -88,12 +90,15 @@ class Game:
             end.init(self)
         elif self.state == 4:
             escmenu.init(self)
+        elif self.state == 5:
+            highscores.init(self)
 
     # updates the game state
     def update(self):
         button.update(self)
         checkbox.update(self)
         textbox.update(self)
+        listbox.update(self)
 
         if self.state == 0:    
             mainmenu.update(self)
