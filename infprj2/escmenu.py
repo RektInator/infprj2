@@ -1,6 +1,7 @@
 # Escape menu
 import pygame
 import button
+import translate
 
 def update(game):
     pass
