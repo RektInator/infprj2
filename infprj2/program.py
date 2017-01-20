@@ -19,6 +19,7 @@ import textbox
 import player
 import highscores
 import listbox
+import serverlist
 
 class Game:
     def __init__(self):
@@ -92,6 +93,8 @@ class Game:
             escmenu.init(self)
         elif self.state == 5:
             highscores.init(self)
+        elif self.state == 6:
+            serverlist.init(self)
 
     # updates the game state
     def update(self):
@@ -112,6 +115,8 @@ class Game:
             escmenu.update(self)
         elif self.state == 5:
             highscores.update(self)
+        elif self.state == 6:
+            serverlist.update(self)
 
     # draws the current frame
     def draw(self):
@@ -131,6 +136,8 @@ class Game:
             escmenu.draw(self)
         elif self.state == 5:
             highscores.draw(self)
+        elif self.state == 6:
+            serverlist.draw(self)
 
         # Flip buffer
         pygame.display.flip()
