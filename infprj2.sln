@@ -7,8 +7,6 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "infprj2_game", "infprj2\inf
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "infprj2_dedi", "infprj2_dedi\infprj2_dedi.pyproj", "{7B0FFEAD-B06C-4A11-A5C3-6B3F4E4657DE}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "infprj2_master", "infprj2_master\infprj2_master.pyproj", "{820B7717-7C55-428D-87F5-B8E339F34D1C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,8 +17,6 @@ Global
 		{73ACBC4A-F057-456C-B501-AE83067274C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B0FFEAD-B06C-4A11-A5C3-6B3F4E4657DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7B0FFEAD-B06C-4A11-A5C3-6B3F4E4657DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{820B7717-7C55-428D-87F5-B8E339F34D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{820B7717-7C55-428D-87F5-B8E339F34D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

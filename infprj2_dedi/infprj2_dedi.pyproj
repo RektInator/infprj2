@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7b0ffead-b06c-4a11-a5c3-6b3f4e4657de</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>infprj2_dedi.py</StartupFile>
+    <StartupFile>program.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="infprj2_dedi.py" />
+    <Compile Include="client.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="commands.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="inforequest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="program.py" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
