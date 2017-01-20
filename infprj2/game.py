@@ -38,6 +38,9 @@ class Dice:
 
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
         self.image = "assets\img\die{}.png".format(game.get_current_player().dice_roll)
+
+        game.set_next_player()
+
     def draw(self,game):
         # dit tekent de die
         if game.get_current_player().dice_roll == 0:
