@@ -37,6 +37,9 @@
     <Compile Include="highscores.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="listbox.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="player.py">
       <SubType>Code</SubType>
     </Compile>
