@@ -28,6 +28,7 @@ class Game:
         self.playercount = 0
         self.current_player = 0
         self.has_started = False
+        self.question = 0
     
         # Start PyGame
         pygame.init()
@@ -48,6 +49,12 @@ class Game:
 
     def get_current_player(self):
         return self.players[self.current_player]
+
+    def set_next_player(self):
+        self.current_player += 1
+
+        if self.current_player == self.playercount:
+            self.current_player = 0
 
     def set_current_player(self, idx):
         self.current_player = idx

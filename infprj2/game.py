@@ -39,11 +39,11 @@ class Dice:
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
         self.image = "assets\img\die{}.png".format(game.get_current_player().dice_roll)
 
-        game.set_next_player()
-
+        game.question = random.randrange(1,41)
+        
     def draw(self,game):
         # dit tekent de die
-        if game.get_current_player().dice_roll == 0:
+        if self.image == "assets\img\die0.png":
             game.screen.blit((pygame.font.Font(None, 20)).render("Roll the die!", 1, (0,0,0)),(665, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
