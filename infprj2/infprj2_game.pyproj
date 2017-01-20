@@ -34,13 +34,16 @@
     <Compile Include="game.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="highscores.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="player.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="questions.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="score.py">
+    <Compile Include="database.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="end.py" />

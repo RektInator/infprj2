@@ -1,14 +1,13 @@
 import pymysql.cursors  #Importeer PyMySql
 import pygame
 
-
 connection = pymysql.connect(host='178.62.226.124',      #Setup connectie naar de database
                              user='infprj2',
                              password='banaan',
                              db='opseilen',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
-
+"""
 def Query(x):
     try:
         with connection.cursor() as cursor:   #Geen idee
@@ -20,4 +19,4 @@ def Query(x):
 
     finally:
         connection.close()
-
+"""
