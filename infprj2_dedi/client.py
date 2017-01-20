@@ -16,7 +16,7 @@ class Client:
     def send(self, command):
         self.sock.send(command)
 
-def create(serv,sock):
+def thread(serv,sock):
     # create client class
     client = Client(sock)
 
@@ -24,11 +24,11 @@ def create(serv,sock):
     serv.add_client(client)
 
     # let the others know about our presence
-    serv.send_all("newclient {} {}{}".format(client.index, "Speler", client.index + 1))
+    # serv.send_all(bytes("newclient {} {}{}".format(client.index, "Speler", client.index + 1), 'utf-8'))
 
     # start listening to client
     while True:
-        data = sock.receive(1024)
+        data = str(sock.recv(1024))
 
         # if there is no more data to receive, disconnect the client.
         if not data:
@@ -40,6 +40,8 @@ def create(serv,sock):
             args = data.split(" ")
         else:
             args.append(data)
+
+        sock.sendall(b"getrektfam")
 
         # run the packet
         if not packets.run(serv, client, args):

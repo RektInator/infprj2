@@ -10,7 +10,7 @@ class Server:
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         # bind our server to a port
-        self.sock.bind(("localhost", 61022))
+        self.sock.bind(("", 61022))
 
         # start listening to incoming requests
         self.sock.listen(10)
@@ -40,16 +40,16 @@ class Server:
         clnt.set_index(self.clientcount())
         self.clients.append(clnt)
 
-        print("[INFO]: Client {} connected to the server!".format(self.clientcount))
-        self.clientcount += 1
+        print("[INFO]: Client {} connected to the server!".format(self.clientcount()))
 
     def start_match(self):
         # let the clients know that the match has been started.
-        self.send_all("startmatch")
+        self.send_all(b"startmatch")
         pass
     def connection_loop(self):
         while self.isActive:
             conn, addr = self.accept()
+            print("Incoming connection received!")
             clientthread = threading.Thread(target = client.thread, args = (self,conn))
             clientthread.start()
     def accept(self):

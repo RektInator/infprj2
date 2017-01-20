@@ -29,7 +29,7 @@ def Packet_Setname(srv,client,args):
     client.name = args[1]
 
     # let other clients know about the namechange
-    srv.send_all("namechange {} {}".format(client.index, client.name))
+    srv.send_all(bytes("namechange {} {}".format(client.index, client.name), 'utf-8'))
 
     return True
 
