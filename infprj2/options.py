@@ -10,7 +10,7 @@ import translate
 def update(game):
     pass
 
-def onBackgroundMusicChanged(game):
+def onBackgroundMusicChanged(game,box):
     if config.get("snd_enabled") == "1":
         config.set("snd_enabled", "0")
         menumusic.stop()
@@ -18,7 +18,7 @@ def onBackgroundMusicChanged(game):
         config.set("snd_enabled", "1")
         menumusic.init()
 
-def onLanguageChanged(game):
+def onLanguageChanged(game,box):
     if config.get("lang_select") == "1":
         config.set("lang_select", "0")
         translate.clear()

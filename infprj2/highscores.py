@@ -32,24 +32,31 @@ def refresh(game):
         scores.append(idx)
 
 def draw(game):
-    button.draw(game, 32, 32, 100, 32, "Refresh", 20, (0,0,0), (255,255,255), refresh)
+    button.draw(game, 670, 32, 100, 32, translate.translate("REFRESH"), 20, (0,0,0), (255,255,255), refresh)
+    button.draw(game, 32, 32, 100, 32, translate.translate("BACK"), 20, (0,0,0), (255,255,255), lambda game: game.set_state(0))
 
     font = pygame.font.Font(None, 36)
     font2 = pygame.font.Font(None, 28)
 
-    name = font.render("SPELER", 1, (255,255,255))
+    name = font.render(translate.translate("PLAYER"), 1, (255,255,255))
     score = font.render("SCORE", 1, (255,255,255))
+
+    pygame.draw.line(game.screen,(255,255,255),(180,91),(320,91))
+    pygame.draw.line(game.screen,(255,255,255),(480,91),(610,91))
 
     game.screen.blit(name, (200, 64))
     game.screen.blit(score, (500, 64))
 
     idx = 0;
     for x in scores:
+        if idx >= 10:
+            break
+
         uname = font2.render(x.name, 1, (255,255,255))
         pscore = font2.render(str(x.score), 1, (255,255,255))
 
-        game.screen.blit(uname, (200, 94 + (idx * 28)))
-        game.screen.blit(pscore, (500, 94 + (idx * 28)))
+        game.screen.blit(uname, (200, 100 + (idx * 28)))
+        game.screen.blit(pscore, (500, 100 + (idx * 28)))
 
         idx += 1
 
