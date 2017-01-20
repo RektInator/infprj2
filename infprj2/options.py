@@ -36,9 +36,6 @@ def init(game):
     checkbox.create(game, 64, 64, translate.translate("MUSIC"), int(config.get("snd_enabled")), onBackgroundMusicChanged) 
     checkbox.create(game, 64, 100, translate.translate("LANGUAGE"), int(config.get("lang_select")), onLanguageChanged)
 
-    # add textfields for settings here
-    textbox.create(game, 64, 250, 200, "test", textChanged)
-
 def draw(game):
     # bg = pygame.image.load("assets/img/bg.png")
     # game.screen.blit(bg,(0,0))

@@ -1,22 +1,19 @@
-import pymysql.cursors  #Importeer PyMySql
+import pymysql.cursors
 import pygame
 
-connection = pymysql.connect(host='178.62.226.124',      #Setup connectie naar de database
+db = pymysql.connect(host='178.62.226.124',
                              user='infprj2',
                              password='banaan',
-                             db='opseilen',
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
-"""
-def Query(x):
-    try:
-        with connection.cursor() as cursor:   #Geen idee
-            sql = x      #De query zelf ingeput bij de functie
-            cursor.execute(sql)
-            result = cursor.fetchone()     #Resultaat
-            connection.commit()
-            return result     #Het resultaat van de query teruggeven
+                             db='opseilen')
 
-    finally:
-        connection.close()
-"""
+def init():
+    pass
+
+def execute_query(sql):
+    cur = db.cursor(pymysql.cursors.DictCursor)
+    cur.execute(sql)
+    db.commit()
+    return cur.fetchall()
+
+def quit():
+    db.close()

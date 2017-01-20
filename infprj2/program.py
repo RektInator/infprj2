@@ -17,6 +17,7 @@ import questions
 import checkbox
 import textbox
 import player
+import highscores
 
 class Game:
     def __init__(self):
@@ -34,6 +35,7 @@ class Game:
         pygame.font.init()
 
 		# Init game funcs
+        database.init()
         config.init()
         translate.init()
         menumusic.init()
@@ -96,6 +98,8 @@ class Game:
             end.update(self)
         elif self.state == 4:
             escmenu.update(self)
+        elif self.state == 5:
+            highscores.update(self)
 
     # draws the current frame
     def draw(self):
@@ -113,6 +117,8 @@ class Game:
             end.draw(self)
         elif self.state == 4:
             escmenu.draw(self)
+        elif self.state == 5:
+            highscores.draw(self)
 
         # Flip buffer
         pygame.display.flip()
@@ -126,6 +132,7 @@ class Game:
     # Add all functions that require shutdown here
     def exit(self):
         config.quit()
+        database.quit()
         quit()
 
 _game = Game()
