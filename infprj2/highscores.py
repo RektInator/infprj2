@@ -30,7 +30,6 @@ def refresh(game):
     for row in res:
         idx = ScoreDef(row["name"], row["score"])
         scores.append(idx)
-        print("Player {} has a highscore of {}".format(row["name"], row["score"]))
 
 def draw(game):
     button.draw(game, 32, 32, 100, 32, "Refresh", 20, (0,0,0), (255,255,255), refresh)
