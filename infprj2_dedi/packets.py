@@ -1,4 +1,5 @@
 import socket
+import inforequest
 
 # packet class that holds packet information and callback
 class Packet:
@@ -35,3 +36,4 @@ def Packet_Setname(srv,client,args):
 # init function, registers packet handlers
 def init():
     add("setname", Packet_Setname)
+    add("getinfo", inforequest.Packet_GetInfo)

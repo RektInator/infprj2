@@ -21,6 +21,9 @@ class Server:
         # This will hold an array of connected clients
         self.clients = []
 
+        # Server name
+        self.name = ""
+
     # sends a message to all clients
     def send_all(self, command):
         for client in self.clients:
@@ -77,6 +80,9 @@ def init():
 
     # info
     print("[INFO]: Dedicated server initialization complete.");
+
+    # Ask for a lobby name
+    srv.name = input("Please enter the name of the lobby: ")
 
     # start command thread
     commandthread = threading.Thread(target = commands.cmdthread, args = (srv,))
