@@ -1,8 +1,8 @@
 import socket
-import sys
 import client
 import commands
 import threading
+import packets
 
 class Server:
     def __init__(self, host, port):
@@ -41,7 +41,8 @@ class Server:
         self.clientcount += 1
 
     def start_match(self):
-        print("Starting match...")
+        # let the clients know that the match has been started.
+        self.send_all("startmatch")
         pass
     def connection_loop(self):
         while self.isActive:
@@ -72,6 +73,7 @@ def init():
 
     # add commands to command array
     commands.init()
+    packets.init()
 
     # info
     print("[INFO]: Dedicated server initialization complete.");
