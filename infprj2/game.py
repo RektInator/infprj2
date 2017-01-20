@@ -4,6 +4,9 @@ import button
 import random
 import time
 import translate
+import questions
+import textbox
+import player
 
 def update(game):
     pass
@@ -14,7 +17,9 @@ class Dice:
         # zet de begin image van de die naar een lege
         self.image ="assets\img\die0.png"
     def onclick(self,game):
-        if not game.ourturn:
+        game.get_last_player().did_roll = False
+
+        if game.get_current_player().did_roll:
             return
 
         # TODO: niet display.flip gebruiken
@@ -27,72 +32,80 @@ class Dice:
             pygame.display.flip()
             time.sleep(0.05)
         # dit pakt een random nummer van 1 t/m 6 en slaat het op in game.dice_roll
-        game.dice_roll = random.randrange(1, 7)
+        game.get_current_player().dice_roll = random.randrange(1, 7)
+        game.get_current_player().did_roll = True
+
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
-        self.image = "assets\img\die{}.png".format(game.dice_roll)
+        self.image = "assets\img\die{}.png".format(game.get_current_player().dice_roll)
     def draw(self,game):
         # dit tekent de die
-        if game.dice_roll == 0:
+        if game.get_current_player().dice_roll == 0:
             game.screen.blit((pygame.font.Font(None, 20)).render("Roll the die!", 1, (0,0,0)),(665, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
 dice = Dice()
 
-def callback_question1(game):
+def question_chosen(game, idx):
     game.ourturn = False
-    game.state = 3
-    pass
+
+def callback_question1(game):
+    question_chosen(game, 1)
+    
+def callback_question2(game):
+    question_chosen(game, 2)
+
+def callback_question3(game):
+    question_chosen(game, 3)
+
+def SetPlayerCount(game, idx):
+    for x in range(0, idx):
+        game.players.append(player.Player())
+        textbox.create(game, 32, 32 + (32 * x), 100, "", lambda game,box,isEnterPressed: SetName(x, game, box))
+        
+    game.playercount = idx
+
+def StartGame(game):
+    game.has_started = True
 
 def draw(game):
-	#Achtergrond kleur
-    pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
+    if game.has_started:
+        # Make sure the playername boxes are gone
+        textbox.remove(game)
 
-	#Teken dice
-    dice.draw(game)
+	    # Achtergrond kleur
+        pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
 
-	#Teken categorie kleur
-    pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
-    pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
-    pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
-    pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
+	    # Teken dice
+        dice.draw(game)
 
-	#Start onder categorie
-    font = pygame.font.Font(None, 48)
-    font2 = pygame.font.Font(None, 20)
-    label_1 = font.render("Start", 1, (255,255,255))
-    size = font.size("Start")
-    game.screen.blit(label_1,(45, game.height * 0.9))
-    game.screen.blit(label_1,(175, game.height * 0.9))
-    game.screen.blit(label_1,(305, game.height * 0.9))
-    game.screen.blit(label_1,(435, game.height * 0.9))
-    if game.ourturn == False:
-        game.screen.blit(font2.render("Correct!", 1, (255,255,255)), (32,17))
+	    # Teken categorie kleur
+        pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
+        pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
+        pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
+        pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
 
-    # Teken popup venster
-    if game.ourturn:
-        if not game.didgeneratequestions:
-            game.didgeneratequestions = True
+	    # Start onder categorie
+        font = pygame.font.Font(None, 48)
+        font2 = pygame.font.Font(None, 20)
+        label_1 = font.render("Start", 1, (255,255,255))
+        size = font.size("Start")
+        game.screen.blit(label_1,(45, game.height * 0.9))
+        game.screen.blit(label_1,(175, game.height * 0.9))
+        game.screen.blit(label_1,(305, game.height * 0.9))
+        game.screen.blit(label_1,(435, game.height * 0.9))
 
-            # remove existing answers
-            game.answers.clear()
+        # Teken popup venster
+    elif game.playercount:
+        # Draw the boxes for the player names
+        textbox.draw(game)
+        button.draw(game, 32, 200, 64, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: StartGame(game))
+    else:
+        button.draw(game, 32, 32, 64, 32, "2", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 2))
+        button.draw(game, 32, 100, 64, 32, "3", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 3))
+        button.draw(game, 32, 100 + (100 - 32), 64, 32, "4", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 4))
 
-            # add new answers   
-            question = random.randrange(1,41)
-            game.answers.append("QUESTION{}_ANSWER1".format(question))
-            game.answers.append("QUESTION{}_ANSWER2".format(question))
-            game.answers.append("QUESTION{}_ANSWER3".format(question))
-            game.answers.append("QUESTION{}".format(question))
-            print(question)
-            pass
-
-        if game.dice_roll != 0:
-            pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
-            pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
-            game.screen.blit(font2.render(translate.translate(game.answers[3]), 1, (255,255,255)), (32,17))
-            button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
-            button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.answers[1]), 20, (0,0,0), (255,255,255), callback_question1)
-            button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.answers[2]), 20, (0,0,0), (255,255,255), callback_question1)
-            pass
+def SetName(idx, game, box):
+    game.players[idx].setname(box.text)
 
 def init(game):
     pass

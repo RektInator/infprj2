@@ -31,6 +31,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="config.py" />
+    <Compile Include="game.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="player.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="questions.py">
       <SubType>Code</SubType>
     </Compile>
@@ -39,7 +45,7 @@
     </Compile>
     <Compile Include="end.py" />
     <Compile Include="escmenu.py" />
-    <Compile Include="game.py">
+    <Compile Include="game_backup.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="menumusic.py">

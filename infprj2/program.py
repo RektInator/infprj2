@@ -16,6 +16,7 @@ import background
 import questions
 import checkbox
 import textbox
+import player
 
 class Game:
     def __init__(self):
@@ -23,10 +24,10 @@ class Game:
         self.last_state = 0
 
         # Game variables
-        self.dice_roll = 0
-        self.ourturn = True
-        self.didgeneratequestions = False
-        self.answers = []
+        self.players = []
+        self.playercount = 0
+        self.current_player = 0
+        self.has_started = False
     
         # Start PyGame
         pygame.init()
@@ -44,6 +45,18 @@ class Game:
         
         # Set the resolution
         self.screen = pygame.display.set_mode((self.width, self.height))
+
+    def get_current_player(self):
+        return self.players[self.current_player]
+
+    def get_last_player(self):
+        idx = self.current_player
+        if idx == 0:
+            idx = self.playercount - 1
+        else:
+            idx -= 1
+
+        return self.players[idx]
 
     # sets the current game state
     def set_state(self, state):
