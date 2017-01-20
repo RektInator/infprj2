@@ -1,5 +1,8 @@
 import pygame
 
+def update(game):
+    pass
+
 class Column:
     def __init__(self, width, title):
         self.width = width
