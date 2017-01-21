@@ -41,8 +41,6 @@ def thread(serv,sock):
         else:
             args.append(data)
 
-        sock.sendall(b"getrektfam")
-
         # run the packet
         if not packets.run(serv, client, args):
             break
