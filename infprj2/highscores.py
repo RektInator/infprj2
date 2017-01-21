@@ -59,5 +59,3 @@ def draw(game):
         game.screen.blit(pscore, (500, 100 + (idx * 28)))
 
         idx += 1
-
-    pass

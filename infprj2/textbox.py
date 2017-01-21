@@ -72,23 +72,28 @@ def click(pos):
         else:
             btn.unfocus()
 
+# trigger keyevent for the focussed textfield
 def key_event(event):
     for btn in textfields:
         if btn.isFocussed:
             btn.key_pressed(event)
             break
 
+# creates a text field
 def create(game, x, y, width, text, callback):
     _box = Textbox(game, x, y, width, text, callback)
     textfields.append(_box)
 
+# removes all textfields
 def remove(game):
     textfields.clear()   
 
+# updates all textfields
 def update(game):
     for box in textfields:
         box.update()
 
+# draws all textfields
 def draw(game):
     for box in textfields:
         box.draw()

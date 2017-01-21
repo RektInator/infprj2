@@ -10,6 +10,7 @@ class Translation:
 
 translations = []
 
+# find the translation for the specified key
 def translate(key):
 	for idx in translations:
 		if idx.GetKey() == key:
@@ -17,9 +18,11 @@ def translate(key):
 
 	return "Error"
 
+# clear all translations from the list
 def clear():
     translations.clear()
 
+# init the translation stuff
 def init():
     if config.get("lang_select") == "1":  #Check config voor taal
         file = open("assets/english.txt", "r") #Open Taal

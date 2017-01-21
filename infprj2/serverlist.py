@@ -17,6 +17,8 @@ class RawServerEntry:
 
 servers = []
 
+# this function is called when a server response is received
+# entry contains the reference to the server entry
 def OnServerInfoReceived(entry):
     curtime = datetime.datetime.now().microsecond
 
@@ -31,6 +33,7 @@ def OnServerInfoReceived(entry):
 def update(game):
     pass
 
+# obtains the amount of online servers
 def GetOnlineServerCount():
     idx = 0
     for x in servers:
@@ -39,6 +42,7 @@ def GetOnlineServerCount():
 
     return idx
 
+# refreshes the serverlist
 def refresh(game):
     servers.clear()
 
@@ -51,6 +55,7 @@ def refresh(game):
         clientsockets.recv_async_single(_rawentry.ip, _rawentry.port, b"getinfo", OnServerInfoReceived, _rawentry)
         servers.append(_rawentry)
 
+# asks for the text for the current row / column combination
 def serverlist_gettext(game, row, column):
     if column == 0:
         return servers[row].name
@@ -59,9 +64,11 @@ def serverlist_gettext(game, row, column):
     elif column == 2:
         return str(servers[row].ping)
 
+# this is being called when a serverlist item is being clicked
 def serverlist_click(game, row, column):
     pass
 
+# this is being called when the serverlist should update itself
 def serverlist_update(game, box):
     serverbox.set_rows(GetOnlineServerCount())
 

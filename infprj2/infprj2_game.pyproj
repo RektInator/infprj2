@@ -30,6 +30,9 @@
     <Compile Include="checkbox.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="clientsockets.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="config.py" />
     <Compile Include="game.py">
       <SubType>Code</SubType>
@@ -64,6 +67,7 @@
     <Compile Include="mainmenu.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="serverlist.py" />
     <Compile Include="textbox.py">
       <SubType>Code</SubType>
     </Compile>

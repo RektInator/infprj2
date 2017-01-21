@@ -148,9 +148,11 @@ def draw(game):
         button.draw(game, 32, 100, 64, 32, "3", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 3))
         button.draw(game, 32, 100 + (100 - 32), 64, 32, "4", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 4))
 
+# This function is being called when the text in a name box changes
 def SetName(idx, game, box):
     game.players[idx].setname(box.text)
 
+# This function is called when an AI checkbox is clicked.
 def SetAI(idx, game, box):
     print("Player {} AI state is {}".format(idx, box.isChecked))
     game.players[idx].setai(box.isChecked)
