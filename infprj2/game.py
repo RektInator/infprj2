@@ -89,9 +89,9 @@ class GameLogic:
             button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
         elif game.get_current_player().moves_left:
             # draw movement buttons
-            button.draw_img(game, game.width - (145 + 40), game.height - 200, 64, 64, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: game.get_current_player().go_left())
-            button.draw_img(game, game.width - (145 - 40), game.height - 200, 64, 64, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().go_right())
-            button.draw_img(game, game.width - 145, game.height - 264, 64, 64, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().go_up())
+            button.draw_img(game, game.width - (145 + 40), game.height - 200, 80, 80, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: game.get_current_player().go_left())
+            button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().go_right())
+            button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().go_up())
             # button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             pass
 
