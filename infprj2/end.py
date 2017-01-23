@@ -19,7 +19,7 @@ def draw(game):
     size = font.size(translate.translate("PLAYER_WON"))
 
     # Placement text in screen
-    game.screen.blit(label_1,(int(game.width/2 - (size[0]/2)), game.height/2 - (size[1]/2)))
+    game.screen.blit(label_1,(int(game.width/2 - (size[0]/2)), game.height*0.2 - (size[1]/2)))
     
     # button variables
     btn_width = game.width / 5;
@@ -27,4 +27,4 @@ def draw(game):
     btn_x_off = (game.width / 2) - (btn_width / 2)
     btn_y_off = lambda idx: (game.height / 10) * (idx + 1) + (idx * 10)
 
-    button.draw(game, btn_x_off, btn_y_off(4), int(btn_width), int(btn_height), translate.translate("BACK"), 20, (25,25,25), (255,255,255), lambda x: game.set_state(0))
+    button.draw(game, btn_x_off, btn_y_off(6), int(btn_width), int(btn_height), translate.translate("BACK"), 20, (25,25,25), (255,255,255), lambda x: game.set_state(0))
