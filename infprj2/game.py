@@ -19,6 +19,7 @@ class Dice:
         self.image ="assets\img\die0.png"
     def onclick(self,game):
         game.get_last_player().did_roll = False
+        game.get_last_player().did_answer = False
 
         if game.get_current_player().did_roll:
             return
@@ -32,6 +33,7 @@ class Dice:
             self.draw(game)
             pygame.display.flip()
             time.sleep(0.05)
+
         # dit pakt een random nummer van 1 t/m 6 en slaat het op in game.dice_roll
         game.get_current_player().dice_roll = random.randrange(1, 7)
         game.get_current_player().did_roll = True
@@ -47,7 +49,17 @@ class Dice:
             game.screen.blit((pygame.font.Font(None, 20)).render("Roll the die!", 1, (0,0,0)),(665, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
-dice = Dice()
+class GameLogic:
+    def __init__(self):
+        self.dice = Dice()
+    def draw(self, game):
+        if game.get_current_player().did_roll and not game.get_current_player().did_answer:
+            # Draw question screen here
+            pass
+
+        self.dice.draw(game)
+
+gamelogic = GameLogic()
 
 def question_chosen(game, idx):
     game.ourturn = False
@@ -114,7 +126,7 @@ def draw(game):
         pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
 
 	    # Teken dice
-        dice.draw(game)
+        gamelogic.draw(game)
 
 	    # Teken categorie kleur
         pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))

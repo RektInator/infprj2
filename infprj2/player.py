@@ -16,6 +16,7 @@ class Player:
         self.did_generate_question = False
         self.dice_roll = 0
         self.did_roll = False
+        self.did_answer = False
         self.answers = []           # hols the current answers the player can choose from
         self.pos = None
         self.name = ""
