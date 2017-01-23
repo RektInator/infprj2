@@ -27,4 +27,5 @@ def recv_async_single_thread(ip, port, command, callback, id):
 # this function creates a thread to send and receive a single command
 def recv_async_single(ip, port, command, callback, id):
     recvthread = threading.Thread(target = recv_async_single_thread, args = (ip, port, command, callback, id, ))
+    recvthread.setDaemon(True)
     recvthread.start()
