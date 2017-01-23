@@ -205,11 +205,7 @@ BACK,Back
 QUIT,Quit
 PLAYER_WON,YOU WON!!
 REFRESH,Refresh
-<<<<<<< HEAD
 PLAYER,PLAYER
 ROLL,Roll the dice!!
 INSTRUCTIONS,Instructions
 
-=======
-PLAYER,PLAYER
->>>>>>> parent of ca69a54... Translate added. (Was nodig om te syncen)
