@@ -56,6 +56,11 @@ class Game:
         return self.players[self.current_player]
 
     def set_next_player(self):
+
+        self.get_current_player().did_roll = False
+        self.get_current_player().did_answer = False
+        self.get_current_player().did_generate_question = False
+
         self.current_player += 1
 
         if self.current_player == self.playercount:
