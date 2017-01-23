@@ -46,8 +46,10 @@ class Dice:
         
     def draw(self,game):
         # dit tekent de die
+        label = (pygame.font.Font(None, 20)).render(translate.translate("ROLL"),1,(0,0,0))
+        self.size = (pygame.font.Font(None, 20)).size(translate.translate("ROLL"))
         if self.image == "assets\img\die0.png":
-            game.screen.blit((pygame.font.Font(None, 20)).render(translate.translate("ROLL"), 1, (0,0,0)),(665, 515))
+            game.screen.blit(label, (702 - self.size[0]/2, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
 def question_chosen(game, idx):
@@ -99,7 +101,7 @@ class GameLogic:
 gamelogic = GameLogic()
 
 def question_chosen(game, idx):
-    game.ourturn = False
+    game.set_next_player()
 
 def callback_question1(game):
     question_chosen(game, 1)
