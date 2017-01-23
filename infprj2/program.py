@@ -52,6 +52,15 @@ class Game:
         # Set the resolution
         self.screen = pygame.display.set_mode((self.width, self.height))
 
+    def save(self):
+
+        # todo:
+        # save the amount of players in a text file, then store
+        # all the data of all players in the same file and save
+        # current player turn.
+
+        pass
+
     def get_current_player(self):
         return self.players[self.current_player]
 
