@@ -1,0 +1,40 @@
+Voor het spelen van het spel:
+Er zijn 2-4 spelers (leeftijd 14+)
+Er is een speelbord (De Euromast)
+Er is een zandloper.
+Voor het meten van de 50 seconden om een vraag te beantwoorden. 
+Er is één dobbelsteen. De dobbelsteen bevat de nummers 1 t/m 6. Elk nummer heeft zijn eigen soort vraag.
+-----
+Er zijn vier verschillende categorieën, elk met zijn eigen kleur en vragen:
+Blauw = Sport
+Groen = Geografie
+Rood = Entertainment
+Geel = Geschiedenis
+-----
+Elke speler kiest zijn poppetje.
+Elke speler rolt de dobbelsteen, de speler met het hoogste cijfer kiest als eerste zijn/haar categorie. 
+Wanneer twee of meer spelers het hoogste cijfer gooien, zullen deze spelers de dobbelsteen nogmaals gooien totdat één van die spelers het hoogste cijfer gooit.
+De rest van de spelers kiezen een categorie van de overgebleven categorieën (er is maar 1 speler per categorie mogelijk aan het begin van het spel).
+De speler wie het hoogste cijfer heeft gegooid, zal als eerste beginnen met zijn/haar beurt. Nadat deze speler klaar is met zijn/haar beurt, vervolgt het spel zich met de klok mee. 
+-----
+Tijdens het spel:
+Kies een als eerst een richting (links, rechts, omhoog, omlaag). Nadat er een richting is gekozen word de dobbelsteen gegooid om te bepalen hoeveel stappen er genomen mogen worden. (Het is alleen toegestaan om een poppetje in horizontale of verticale richting te verplaatsen)
+- cijfers 1 en 2 = 1 stap in gekozen richting
+- cijfers 3 en 4 = 2 stappen in gekozen richting
+- cijfers 5 en 6 = 3 stappen in gekozen richting
+-----
+Er is 1 speler per gaatje toegestaan.
+Als een speler op het gaatje komt waar al een andere speler in staat. Gooit de speler wie al in het gaatje stond een dobbelsteen. Het cijfer op de dobbelsteen na het gooien bepaalt het aantal stappen dat de speler omlaag moet. 
+-----
+Vragen beantwoorden
+- Wanneer een speler een fout antwoord geeft, de vraag niet begrijpt of geen antwoord binnen de 50 seconden geeft zal dit fout worden gerekend en gaat de beurt naar de volgende speler.
+- Wanneer een speler de vraag correct beantwoord, zal hij/zij het poppetje verplaatsen met het aantal stappen in de gekozen richting.
+Als de vragen van een categorie op zijn, verplaatst elke speler op de desbetreffende categorie zijn/haar poppetje naar de categorie rechts van hen.
+-----
+-----
+Hoe win je en wat doe je als je gewonnen hebt:
+Je poppetje moet het laatste gaatje passeren om het spel te winnen. (Gaatje 15 in niet het einde!)
+Het spel heeft maar één winnaar.
+-----
+Wanneer je het laatste gaatje passeert:
+Plaats je poppetje bovenop de Euromast en plaats de vlag in de hand van je poppetje.
