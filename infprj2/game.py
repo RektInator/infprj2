@@ -16,7 +16,7 @@ def update(game):
 class Dice:
     def __init__(self):
         # zet de begin image van de die naar een lege
-        self.image ="assets\img\die0.png"
+        self.image = "assets\img\die0.png"
     def onclick(self,game):
         game.get_last_player().did_roll = False
         game.get_last_player().did_answer = False
@@ -56,19 +56,20 @@ def question_chosen(game, idx):
     game.get_current_player().did_answer = True
     game.set_next_player()
 
-def callback_question1(game):
-    question_chosen(game, 1)
-
-def callback_question2(game):
-    question_chosen(game, 2)
-
-def callback_question3(game):
-    question_chosen(game, 3)
+def start_chosen(game, idx):
+    game.get_current_player().setpos(idx, 0, 0)
+    game.get_current_player().did_choose_row = True
+    game.set_next_player()
 
 class GameLogic:
     def __init__(self):
         self.dice = Dice()
     def draw(self, game):
+        # draw players in rows
+        for plr in game.players:
+            plr.draw()
+
+        # draw questions etc
         if game.get_current_player().did_roll and not game.get_current_player().did_answer:
             if not game.get_current_player().did_generate_question:
 
@@ -91,17 +92,26 @@ class GameLogic:
             pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
             pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
             game.screen.blit(font.render(translate.translate(game.get_current_player().answers[3]), 1, (255,255,255)), (32,17))
-            button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
-            button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), callback_question2)
-            button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), callback_question3)
+            button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
+            button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
+            button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
             # else:    
 
-        self.dice.draw(game)
+        elif not game.get_current_player().did_roll and not game.get_current_player().did_choose_row:
+            button.draw(game, 45, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 1))
+            button.draw(game, 175, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 2))
+            button.draw(game, 305, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 3))
+            button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
+
+        # Draw dice
+        if game.get_current_player().did_choose_row:
+            self.dice.draw(game)
 
 gamelogic = GameLogic()
 
 def question_chosen(game, idx):
     game.set_next_player()
+    gamelogic.dice.image = "assets\img\die0.png"
 
 def callback_question1(game):
     question_chosen(game, 1)
@@ -114,25 +124,25 @@ def callback_question3(game):
 
 def SetPlayerCount(game, idx):
     if idx == 2:
-        game.players.append(player.Player())
-        game.players.append(player.Player())
+        game.players.append(player.Player(game))
+        game.players.append(player.Player(game))
         textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
         textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
         checkbox.create(game, 32 + 100 + 10, 32 + (32 * 1), "AI", False, lambda game,box: SetAI(1, game, box))
     if idx == 3:
-        game.players.append(player.Player())
-        game.players.append(player.Player())
-        game.players.append(player.Player())
+        game.players.append(player.Player(game))
+        game.players.append(player.Player(game))
+        game.players.append(player.Player(game))
         textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
         textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
         textbox.create(game, 32, 32 + (32 * 2), 100, "", lambda game,box,isEnterPressed: SetName(2, game, box))
         checkbox.create(game, 32 + 100 + 10, 32 + (32 * 1), "AI", False, lambda game,box: SetAI(1, game, box))
         checkbox.create(game, 32 + 100 + 10, 32 + (32 * 2), "AI", False, lambda game,box: SetAI(2, game, box))
     if idx == 4:
-        game.players.append(player.Player())
-        game.players.append(player.Player())
-        game.players.append(player.Player())
-        game.players.append(player.Player())
+        game.players.append(player.Player(game))
+        game.players.append(player.Player(game))
+        game.players.append(player.Player(game))
+        game.players.append(player.Player(game))
         textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
         textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
         textbox.create(game, 32, 32 + (32 * 2), 100, "", lambda game,box,isEnterPressed: SetName(2, game, box))
@@ -170,12 +180,12 @@ def draw(game):
         font = pygame.font.Font(None, 48)
         font2 = pygame.font.Font(None, 20)
         font3 = pygame.font.Font(None, 28)
-        label_1 = font.render("Start", 1, (255,255,255))
-        size = font.size("Start")
-        game.screen.blit(label_1,(45, game.height * 0.9))
-        game.screen.blit(label_1,(175, game.height * 0.9))
-        game.screen.blit(label_1,(305, game.height * 0.9))
-        game.screen.blit(label_1,(435, game.height * 0.9))
+        # label_1 = font.render("Start", 1, (255,255,255))
+        # size = font.size("Start")
+        # game.screen.blit(label_1,(45, game.height * 0.9))
+        # game.screen.blit(label_1,(175, game.height * 0.9))
+        # game.screen.blit(label_1,(305, game.height * 0.9))
+        # game.screen.blit(label_1,(435, game.height * 0.9))
 
         # Player turn info
         turnlabel = font3.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))

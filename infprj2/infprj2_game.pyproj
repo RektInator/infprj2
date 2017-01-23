@@ -103,6 +103,7 @@
     <Content Include="assets\juiste antwoorden.txt" />
     <Content Include="assets\nederlands.txt" />
     <Content Include="assets\questions.txt" />
+    <Content Include="assets\regels.png" />
     <Content Include="assets\Wrong Answer.mp3" />
     <Content Include="config.cfg" />
     <Content Include="__pycache__\button.cpython-35.pyc" />
