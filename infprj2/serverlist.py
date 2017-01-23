@@ -4,6 +4,7 @@ import listbox
 import database
 import clientsockets
 import datetime
+import translate
 
 class RawServerEntry:
     def __init__(self, ip, port):
@@ -78,10 +79,12 @@ def init(game):
     columns.append(listbox.Column(400, "Lobby"))
     columns.append(listbox.Column(200, "Spelers"))
     columns.append(listbox.Column(100, "Ping"))
-    listbox.create(game, 32, 32, 800 - 64, 20, columns, serverlist_gettext, serverlist_click, serverlist_update)
+    listbox.create(game, 32, 96, 800 - 64, 20, columns, serverlist_gettext, serverlist_click, serverlist_update)
 
     # refresh servers
     refresh(game)
 
 def draw(game):
     listbox.draw(game)
+    button.draw(game, 670, 32, 100, 32, translate.translate("REFRESH"), 20, (0,0,0), (255,255,255), refresh)
+    button.draw(game, 32, 32, 100, 32, translate.translate("BACK"), 20, (0,0,0), (255,255,255), lambda game: game.set_state(0))
