@@ -206,8 +206,6 @@ QUIT,Quit
 PLAYER_WON,YOU WON!!
 REFRESH,Refresh
 PLAYER,PLAYER
-<<<<<<< HEAD
 ROLL,Roll the dice!!
-=======
 INSTRUCTIONS,Instructions
->>>>>>> origin/master
+

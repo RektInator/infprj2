@@ -206,8 +206,6 @@ QUIT,Afsluiten
 PLAYER_WON,GEWONNEN!!
 REFRESH,Herladen
 PLAYER,SPELER
-<<<<<<< HEAD
 ROLL,Gooi de dobbelsteen!!
-=======
 INSTRUCTIONS,Instructies
->>>>>>> origin/master
+
