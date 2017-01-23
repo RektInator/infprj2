@@ -20,6 +20,7 @@ class Dice:
     def onclick(self,game):
         game.get_last_player().did_roll = False
         game.get_last_player().did_answer = False
+        game.get_last_player().did_generate_question = False
 
         if game.get_current_player().did_roll:
             return
@@ -49,13 +50,49 @@ class Dice:
             game.screen.blit((pygame.font.Font(None, 20)).render("Roll the die!", 1, (0,0,0)),(665, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
+def question_chosen(game, idx):
+    game.get_current_player().did_answer = True
+    game.set_next_player()
+
+def callback_question1(game):
+    question_chosen(game, 1)
+
+def callback_question2(game):
+    question_chosen(game, 2)
+
+def callback_question3(game):
+    question_chosen(game, 3)
+
 class GameLogic:
     def __init__(self):
         self.dice = Dice()
     def draw(self, game):
         if game.get_current_player().did_roll and not game.get_current_player().did_answer:
-            # Draw question screen here
-            pass
+            if not game.get_current_player().did_generate_question:
+
+                # remove existing answers
+                game.get_current_player().answers.clear()
+
+                # add new answers   
+                question = random.randrange(1,41)
+                game.get_current_player().answers.append("QUESTION{}_ANSWER1".format(question))
+                game.get_current_player().answers.append("QUESTION{}_ANSWER2".format(question))
+                game.get_current_player().answers.append("QUESTION{}_ANSWER3".format(question))
+                game.get_current_player().answers.append("QUESTION{}".format(question))
+
+                # do not re-generate question
+                game.get_current_player().did_generate_question = True
+
+            # draw question popup
+            # if game.get_current_player().did_choose_row:
+            font = pygame.font.Font(None, 20)
+            pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
+            pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
+            game.screen.blit(font.render(translate.translate(game.get_current_player().answers[3]), 1, (255,255,255)), (32,17))
+            button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), callback_question1)
+            button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), callback_question2)
+            button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), callback_question3)
+            # else:    
 
         self.dice.draw(game)
 
@@ -74,10 +111,6 @@ def callback_question3(game):
     question_chosen(game, 3)
 
 def SetPlayerCount(game, idx):
-    #for x in range(0, idx):
-    #    game.players.append(player.Player())
-    #    textbox.create(game, 32, 32 + (32 * x), 100, "", lambda game,box,isEnterPressed: SetName(x, game, box))
-     
     if idx == 2:
         game.players.append(player.Player())
         game.players.append(player.Player())
@@ -125,9 +158,6 @@ def draw(game):
 	    # Achtergrond kleur
         pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
 
-	    # Teken dice
-        gamelogic.draw(game)
-
 	    # Teken categorie kleur
         pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
         pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
@@ -149,7 +179,8 @@ def draw(game):
         turnlabel = font3.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
         game.screen.blit(turnlabel, (0, 0))
 
-        # Teken popup venster
+        # Gamelogic drawing
+        gamelogic.draw(game)
     elif game.playercount:
         # Draw the boxes for the player names
         textbox.draw(game)
