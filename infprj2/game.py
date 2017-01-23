@@ -26,7 +26,7 @@ class Dice:
             return
 
         # TODO: niet display.flip gebruiken
-        for x in range(20):
+        for x in range(15):
             self.newimg = "assets\img\die{}.png".format(random.randrange(1,7))
             while self.newimg == self.image:
                 self.newimg = "assets\img\die{}.png".format(random.randrange(1,7))

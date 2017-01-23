@@ -21,6 +21,8 @@ def recv_async_single_thread(ip, port, command, callback, id):
 
         # if "inforesponse" in resp:
         callback(id)
+    except:
+        sock.close()
     finally:
         sock.close()
 
