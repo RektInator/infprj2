@@ -20,6 +20,7 @@ import player
 import highscores
 import listbox
 import serverlist
+import instructions
 
 class Game:
     def __init__(self):
@@ -95,6 +96,8 @@ class Game:
             highscores.init(self)
         elif self.state == 6:
             serverlist.init(self)
+        elif self.state == 7:
+            instructions.init(self)
 
     # updates the game state
     def update(self):
@@ -117,6 +120,8 @@ class Game:
             highscores.update(self)
         elif self.state == 6:
             serverlist.update(self)
+        elif self.state == 7:
+            instructions.update(self)
 
     # draws the current frame
     def draw(self):
@@ -138,6 +143,8 @@ class Game:
             highscores.draw(self)
         elif self.state == 6:
             serverlist.draw(self)
+        elif self.state == 7:
+            instructions.draw(self)
 
         # Flip buffer
         pygame.display.flip()

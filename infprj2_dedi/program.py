@@ -51,6 +51,7 @@ class Server:
             conn, addr = self.accept()
             print("Incoming connection received!")
             clientthread = threading.Thread(target = client.thread, args = (self,conn))
+            clientthread.setDaemon(True)
             clientthread.start()
     def accept(self):
         return self.sock.accept()
@@ -86,6 +87,7 @@ def init():
 
     # start command thread
     commandthread = threading.Thread(target = commands.cmdthread, args = (srv,))
+    commandthread.setDaemon(True)
     commandthread.start()
 
     # wait for clients to connect...

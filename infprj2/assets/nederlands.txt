@@ -206,3 +206,5 @@ QUIT,Afsluiten
 PLAYER_WON,GEWONNEN!!
 REFRESH,Herladen
 PLAYER,SPELER
+ROLL,Gooi de dobbelsteen!!
+INSTRUCTIONS,Instructies

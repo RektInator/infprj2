@@ -40,6 +40,9 @@
     <Compile Include="highscores.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="instructions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="listbox.py">
       <SubType>Code</SubType>
     </Compile>
@@ -92,6 +95,7 @@
     <Content Include="assets\img\die4.png" />
     <Content Include="assets\img\die5.png" />
     <Content Include="assets\img\die6.png" />
+    <Content Include="assets\instructions.txt" />
     <Content Include="assets\img\pijllinks.png" />
     <Content Include="assets\img\pijlomhoog.png" />
     <Content Include="assets\img\pijlomlaag.png" />

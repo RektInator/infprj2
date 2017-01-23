@@ -1,0 +1,32 @@
+Voor het spelen van het spel:
+Er zijn 2-4 spelers (leeftijd 14+)
+Er is een speelbord (De Euromast)
+Er is een zandloper.
+Voor het meten van de 50 seconden om een vraag te beantwoorden. 
+Er is één dobbelsteen. De dobbelsteen bevat de nummers 1 t/m 6. Elk nummer heeft zijn eigen soort vraag.
+Er zijn vier verschillende categorieën, elk met zijn eigen kleur en vragen:
+Blauw = Sport
+Groen = Geografie
+Rood = Entertainment
+Geel = Geschiedenis
+Elke speler heeft zijn poppetje.
+Elke speler rolt de dobbelsteen, de speler met het hoogste cijfer kiest als eerste zijn/haar categorie. 
+-----
+Tijdens het spel:
+Kies een als eerst een richting (links, rechts, omhoog, omlaag). 
+Nadat er een richting is gekozen word de dobbelsteen gegooid om te bepalen hoeveel stappen er genomen mogen worden. 
+- cijfers 1 en 2 = 1 stap in gekozen richting
+- cijfers 3 en 4 = 2 stappen in gekozen richting
+- cijfers 5 en 6 = 3 stappen in gekozen richting
+Er is 1 speler per gaatje toegestaan.
+Als een speler op het gaatje komt waar al een andere speler in staat, gooit de speler wie al in het gaatje stond een dobbelsteen.
+Het cijfer op de dobbelsteen na het gooien bepaalt het aantal stappen dat de speler omlaag moet. 
+-----
+Vragen beantwoorden
+- Wanneer een speler een fout antwoord binnen de 50 seconden geeft zal dit fout worden gerekend en gaat de beurt naar de volgende speler.
+- Wanneer een speler de vraag correct beantwoord, zal hij/zij het poppetje verplaatsen met het aantal stappen in de gekozen richting.
+-----
+Hoe win je en wat doe je als je gewonnen hebt:
+Je poppetje moet het laatste gaatje passeren om het spel te winnen. (Gaatje 15 in niet het einde!)
+Het spel heeft maar één winnaar.
+Plaats je poppetje bovenop de Euromast.
