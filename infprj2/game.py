@@ -189,9 +189,14 @@ def draw(game):
         checkbox.draw(game)
         button.draw(game, 32, 200, 64, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: StartGame(game))
     else:
-        button.draw(game, 32, 32, 64, 32, "2", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 2))
-        button.draw(game, 32, 100, 64, 32, "3", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 3))
-        button.draw(game, 32, 100 + (100 - 32), 64, 32, "4", 20, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 4))
+        button.draw(game, 10, 10, game.width / 10, game.height / 20, translate.translate("BACK"), 20, (25,25,25), (255,255,255), lambda x: game.set_state(game.last_state))
+        font = pygame.font.Font(None, 30)
+        label_1 = font.render("Kies aantal spelers:", 1, (255,255,255))
+        size = font.size("Kies aantal spelers:")
+        game.screen.blit(label_1,(game.width * 0.37, game.height * 0.2))
+        button.draw(game, game.width * 0.42, game.height * 0.3, 128, 64, "2", 30, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 2))
+        button.draw(game, game.width * 0.42, game.height * 0.45, 128, 64, "3", 30, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 3))
+        button.draw(game, game.width * 0.42, game.height * 0.60, 128, 64, "4", 30, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 4))
 
 # This function is being called when the text in a name box changes
 def SetName(idx, game, box):
