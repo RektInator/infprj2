@@ -126,30 +126,30 @@ def SetPlayerCount(game, idx):
     if idx == 2:
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
-        textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
-        checkbox.create(game, 32 + 100 + 10, 32 + (32 * 1), "AI", False, lambda game,box: SetAI(1, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
+        checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
     if idx == 3:
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
-        textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
-        textbox.create(game, 32, 32 + (32 * 2), 100, "", lambda game,box,isEnterPressed: SetName(2, game, box))
-        checkbox.create(game, 32 + 100 + 10, 32 + (32 * 1), "AI", False, lambda game,box: SetAI(1, game, box))
-        checkbox.create(game, 32 + 100 + 10, 32 + (32 * 2), "AI", False, lambda game,box: SetAI(2, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
+        textbox.create(game,game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: SetName(2, game, box))
+        checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
+        checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))
     if idx == 4:
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
-        textbox.create(game, 32, 32 + (32 * 0), 100, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game, 32, 32 + (32 * 1), 100, "", lambda game,box,isEnterPressed: SetName(1, game, box))
-        textbox.create(game, 32, 32 + (32 * 2), 100, "", lambda game,box,isEnterPressed: SetName(2, game, box))
-        textbox.create(game, 32, 32 + (32 * 3), 100, "", lambda game,box,isEnterPressed: SetName(3, game, box))
-        checkbox.create(game, 32 + 100 + 10, 32 + (32 * 1), "AI", False, lambda game,box: SetAI(1, game, box))
-        checkbox.create(game, 32 + 100 + 10, 32 + (32 * 2), "AI", False, lambda game,box: SetAI(2, game, box))
-        checkbox.create(game, 32 + 100 + 10, 32 + (32 * 3), "AI", False, lambda game,box: SetAI(3, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: SetName(2, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.65, 250, "", lambda game,box,isEnterPressed: SetName(3, game, box))
+        checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
+        checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))
+        checkbox.create(game, game.width * 0.7, game.height * 0.65, "AI", False, lambda game,box: SetAI(3, game, box))
 
     game.playercount = idx
 
@@ -166,7 +166,6 @@ def draw(game):
         # Make sure the playername boxes are gone
         textbox.remove(game)
         checkbox.remove(game)
-
 	    # Achtergrond kleur
         pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
 
@@ -197,7 +196,7 @@ def draw(game):
         # Draw the boxes for the player names
         textbox.draw(game)
         checkbox.draw(game)
-        button.draw(game, 32, 200, 64, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: StartGame(game))
+        button.draw(game, game.width * 0.4, game.height * 0.8, 64, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: StartGame(game))
     else:
         button.draw(game, 10, 10, game.width / 10, game.height / 20, translate.translate("BACK"), 20, (25,25,25), (255,255,255), lambda x: game.set_state(game.last_state))
         font = pygame.font.Font(None, 30)
