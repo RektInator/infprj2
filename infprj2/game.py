@@ -92,8 +92,9 @@ class GameLogic:
                 button.draw(game, 305, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 3))
                 button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             else:
+                time.sleep(0.4)
                 start_chosen(game, random.randrange(1, 5))
-        elif game.get_current_player().moves_left:
+        elif game.get_current_player().moves_left: 
             if not game.get_current_player().isAI:
                 # draw movement buttons
                 button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().go_up())
