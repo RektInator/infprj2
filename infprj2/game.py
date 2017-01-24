@@ -109,7 +109,7 @@ def question_chosen(game, idx):
     
     # increment score for correct question, and set the amount of moves we can make.
     game.get_current_player().score += 15
-    game.get_current_player().moves_left = game.get_current_player().dice_roll
+    game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
 
 def start_chosen(game, idx):
     game.get_current_player().setpos(idx, 0, 0)
@@ -177,6 +177,7 @@ def draw(game):
         pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
         pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
         pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
+        game.screen.blit(pygame.image.load("assets\img\dots.png"), (60, 98))
 
 	    # Start onder categorie
         font = pygame.font.Font(None, 48)
