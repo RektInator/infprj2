@@ -21,7 +21,7 @@ def draw(game):
     # Placement text in screen
     game.screen.blit(label_1,(int(game.width/2 - (size[0]/2)), game.height*0.1 - (size[1]/2)))
     
-    bg = pygame.image.load("assets/Lego_met_vlag4.png")
+    bg = pygame.image.load("assets/img/Lego_met_vlag4.png")
     game.screen.blit(bg,(game.width/2.4 ,game.height*0.2 ))
 
     # button variables
