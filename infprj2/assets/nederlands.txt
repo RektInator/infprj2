@@ -41,6 +41,21 @@ QUESTION40,Door welke architect(en) is de Euromast ontworpen?
 QUESTION41,Na 1872 is de stad Rotterdam snel groot geworden, Pieter Caland had een plan om Rotterdam met de zee te verbinden. Hoe noemde hij die verbinding?
 QUESTION42,In welk jaar heeft Rotterdam stadsrechten gekregen?
 QUESTION43,Hoe heette de haven van Rotterdam oorspronkelijk tijdens zijn ontstaan?
+QUESTION44,In welk jaar startte de Tour de France in Rotterdam?
+QUESTION45,Welk tennistoernooi word er elk jaar in Ahoy gehouden?
+QUESTION46,Wat is een hockeyclub uit Rotterdam?
+QUESTION47,Welke manier van sport word het meest beoefend in Rotterdam?
+QUESTION48,Welke Olympiër groeide op in Rotterdam? 
+QUESTION49,Op welke baan vond het WK roeien in 2016 plaats?
+QUESTION50,Voor welke 3 sporten is de Willem Alexander baan het meest geschikt?
+QUESTION51,Op welke positie in het veld speelde Coen Moulijn voor zowel Feyenoord als het Nederlands elftal? 
+QUESTION52,Een speler staat bij voetbal in buitenspelpositie als deze…. 
+QUESTION53,Hoe heet het stadion van Sparta Rotterdam?
+QUESTION54,Hoe lang is de NN Marathon van Rotterdam?
+QUESTION55,Hoeveel spelers staan er per team bij lacrosse op het veld?
+QUESTION56,In welk jaar is de honkbalclub Neptunes opgericht?
+QUESTION57,Een honkbal is groter dan een softbal.
+QUESTION58,Hoeveel mensen staan er achter de slagman bij honkbal?
 QUESTION1_ANSWER1,Hoek van Holland
 QUESTION1_ANSWER2,Euromast Park
 QUESTION1_ANSWER3,Plaswijckpark
@@ -170,6 +185,51 @@ QUESTION42_ANSWER3,1590
 QUESTION43_ANSWER1,Waalhaven
 QUESTION43_ANSWER2,De Maashaven
 QUESTION43_ANSWER3,Europoort
+QUESTION44_ANSWER1,2000
+QUESTION44_ANSWER2,2005
+QUESTION44_ANSWER3,2010
+QUESTION45_ANSWER1,ABN AMRO World Tennis Tournament
+QUESTION45_ANSWER2,Ahoy Open
+QUESTION45_ANSWER3,Heineken Open
+QUESTION46_ANSWER1,HVGR
+QUESTION46_ANSWER2,Focus
+QUESTION46_ANSWER3,HC Rotterdam
+QUESTION47_ANSWER1,Fitness
+QUESTION47_ANSWER2,Voetbal
+QUESTION47_ANSWER3,Basketbal
+QUESTION48_ANSWER1,Dorian van Rijsselberghe
+QUESTION48_ANSWER2,Marhinde Verkerk
+QUESTION48_ANSWER3,Edith Bosch
+QUESTION49_ANSWER1,Willem Alexander baan
+QUESTION49_ANSWER2,Beatrix baan
+QUESTION49_ANSWER3,Juliana baan
+QUESTION50_ANSWER1,Watersporten, Wielrennen en hardlopen
+QUESTION50_ANSWER2,Voetbal, Hockey en basketbal
+QUESTION50_ANSWER3,Fitness, hardlopen en basketbal
+QUESTION51_ANSWER1,Rechtsback
+QUESTION51_ANSWER2,Linksback
+QUESTION51_ANSWER3,Linksbuiten
+QUESTION52_ANSWER1,Zich verder van het doel bevindt dan de keeper.
+QUESTION52_ANSWER2,Zich dichter bij de doellijn van de tegenstander bevindt dan de bal en de vóórlaatste tegenstander.
+QUESTION52_ANSWER3,Zich buiten de lijn van het veld bevindt en de bal in het spel is.
+QUESTION53_ANSWER1,De Toren
+QUESTION53_ANSWER2,Het Kasteel
+QUESTION53_ANSWER3,De Arena
+QUESTION54_ANSWER1,42,125 km
+QUESTION54_ANSWER2,42,450 km
+QUESTION54_ANSWER3,42,680 km
+QUESTION55_ANSWER1,9
+QUESTION55_ANSWER2,10
+QUESTION55_ANSWER3,11
+QUESTION56_ANSWER1,1850
+QUESTION56_ANSWER2,1875
+QUESTION56_ANSWER3,1900
+QUESTION57_ANSWER1,Waar
+QUESTION57_ANSWER2,Niet waar
+QUESTION57_ANSWER3,Even groot
+QUESTION58_ANSWER1,1
+QUESTION58_ANSWER2,2
+QUESTION58_ANSWER3,3
 QUESTIONANSWER1,Euromast park
 QUESTIONANSWER2,400 mtr
 QUESTIONANSWER3,Tennis
@@ -213,6 +273,21 @@ QUESTIONANSWER40,Maaskant
 QUESTIONANSWER41,De Nieuwe Waterweg
 QUESTIONANSWER42,1340
 QUESTIONANSWER43,Waalhaven
+QUESTIONANSWER44,2010
+QUESTIONANSWER45,ABN AMRO World Tennis Tournament
+QUESTIONANSWER46,HC Rotterdam
+QUESTIONANSWER47,Fitness
+QUESTIONANSWER48,Marhinde Verkerk
+QUESTIONANSWER49,Willem Alexander baan
+QUESTIONANSWER50,Watersporten, Wielrennen en hardlopen
+QUESTIONANSWER51,Linksbuiten
+QUESTIONANSWER52,Zich dichter bij de doellijn van de tegenstander bevindt dan de bal en de vóórlaatste tegenstander.
+QUESTIONANSWER53,Het Kasteel
+QUESTIONANSWER54,42,125 km
+QUESTIONANSWER55,10
+QUESTIONANSWER56,1900
+QUESTIONANSWER57,Niet Waar
+QUESTIONANSWER58,2
 MUSIC,Muziek
 LANGUAGE,Taal
 OPTIONS,Opties
