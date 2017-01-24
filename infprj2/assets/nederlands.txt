@@ -38,6 +38,9 @@ QUESTION37,Welk gebouw stond symbool voor de wederopbouw van de stad?
 QUESTION38,Hoeveel joden woonden er in Rotterdam voor de Tweede Wereldoorlog?
 QUESTION39,Wat was tijdens de Tweede Wereldoorlog de enige weg naar het centrum die de Duitsers probeerden te bereiken?
 QUESTION40,Door welke architect(en) is de Euromast ontworpen?
+QUESTION41,Na 1872 is de stad Rotterdam snel groot geworden, Pieter Caland had een plan om Rotterdam met de zee te verbinden. Hoe noemde hij die verbinding?
+QUESTION42,In welk jaar heeft Rotterdam stadsrechten gekregen?
+QUESTION43,Hoe heette de haven van Rotterdam oorspronkelijk tijdens zijn ontstaan?
 QUESTION1_ANSWER1,Hoek van Holland
 QUESTION1_ANSWER2,Euromast Park
 QUESTION1_ANSWER3,Plaswijckpark
@@ -158,6 +161,15 @@ QUESTION39_ANSWER3,Koninginnenbrug
 QUESTION40_ANSWER1,Maaskant
 QUESTION40_ANSWER2,Brinkman en van der Vlugt 
 QUESTION40_ANSWER3,Koolhaas
+QUESTION41_ANSWER1,De Nieuwe Waterweg
+QUESTION41_ANSWER2,De Maas zeeverbinding
+QUESTION41_ANSWER3,Het Nieuwe Water kanaal
+QUESTION42_ANSWER1,1250
+QUESTION42_ANSWER2,1340
+QUESTION42_ANSWER3,1590
+QUESTION43_ANSWER1,Waalhaven
+QUESTION43_ANSWER2,De Maashaven
+QUESTION43_ANSWER3,Europoort
 QUESTIONANSWER1,Euromast park
 QUESTIONANSWER2,400 mtr
 QUESTIONANSWER3,Tennis
@@ -198,6 +210,9 @@ QUESTIONANSWER37,De Bijenkorf
 QUESTIONANSWER38,ca. 12000
 QUESTIONANSWER39,Maasbrug
 QUESTIONANSWER40,Maaskant
+QUESTIONANSWER41,De Nieuwe Waterweg
+QUESTIONANSWER42,1340
+QUESTIONANSWER43,Waalhaven
 MUSIC,Muziek
 LANGUAGE,Taal
 OPTIONS,Opties
