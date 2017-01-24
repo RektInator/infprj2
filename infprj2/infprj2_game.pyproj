@@ -70,6 +70,7 @@
     <Compile Include="mainmenu.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="savegames.py" />
     <Compile Include="serverlist.py" />
     <Compile Include="textbox.py">
       <SubType>Code</SubType>
@@ -95,12 +96,14 @@
     <Content Include="assets\img\die4.png" />
     <Content Include="assets\img\die5.png" />
     <Content Include="assets\img\die6.png" />
+    <Content Include="assets\img\dots.png" />
     <Content Include="assets\instructions.txt" />
     <Content Include="assets\img\pijllinks.png" />
     <Content Include="assets\img\pijlomhoog.png" />
     <Content Include="assets\img\pijlomlaag.png" />
     <Content Include="assets\img\pijlrechts.png" />
     <Content Include="assets\juiste antwoorden.txt" />
+    <Content Include="assets\Lego_met_vlag4.png" />
     <Content Include="assets\nederlands.txt" />
     <Content Include="assets\questions.txt" />
     <Content Include="assets\regels.png" />

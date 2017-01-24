@@ -45,7 +45,7 @@ class Dice:
         # dit tekent de die
         label = (pygame.font.Font(None, 20)).render(translate.translate("ROLL"),1,(0,0,0))
         self.size = (pygame.font.Font(None, 20)).size(translate.translate("ROLL"))
-        if self.image == "assets\img\die0.png":
+        if game.get_current_player().did_roll == False:
             game.screen.blit(label, (702 - self.size[0]/2, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
@@ -64,12 +64,11 @@ class GameLogic:
                 # remove existing answers
                 game.get_current_player().answers.clear()
 
-                # add new answers   
-                question = random.randrange(1,41)
-                game.get_current_player().answers.append("QUESTION{}_ANSWER1".format(question))
-                game.get_current_player().answers.append("QUESTION{}_ANSWER2".format(question))
-                game.get_current_player().answers.append("QUESTION{}_ANSWER3".format(question))
-                game.get_current_player().answers.append("QUESTION{}".format(question))
+                # add new answers
+                game.get_current_player().answers.append("QUESTION{}_ANSWER1".format(game.question))
+                game.get_current_player().answers.append("QUESTION{}_ANSWER2".format(game.question))
+                game.get_current_player().answers.append("QUESTION{}_ANSWER3".format(game.question))
+                game.get_current_player().answers.append("QUESTION{}".format(game.question))
 
                 # do not re-generate question
                 game.get_current_player().did_generate_question = True
@@ -90,9 +89,9 @@ class GameLogic:
             button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
         elif game.get_current_player().moves_left:
             # draw movement buttons
+            button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().go_up())
             button.draw_img(game, game.width - (145 + 40), game.height - 200, 80, 80, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: game.get_current_player().go_left())
             button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().go_right())
-            button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().go_up())
             # button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             pass
 
@@ -108,8 +107,12 @@ def question_chosen(game, idx):
     # check if the question was answerred correctly
     
     # increment score for correct question, and set the amount of moves we can make.
-    game.get_current_player().score += 15
-    game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
+    if translate.translate(game.get_current_player().answers[idx-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
+        game.get_current_player().score += 15
+        game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
+    else:
+        game.get_current_player().score -= 10
+        game.set_next_player()
 
 def start_chosen(game, idx):
     game.get_current_player().setpos(idx, 0, 0)
