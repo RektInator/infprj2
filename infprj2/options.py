@@ -33,13 +33,15 @@ def textChanged(game, box, enterPressed):
 
 def init(game):
     # add checkboxes for settings here
-    checkbox.create(game, 64, 64, translate.translate("MUSIC"), int(config.get("snd_enabled")), onBackgroundMusicChanged) 
-    checkbox.create(game, 64, 100, translate.translate("LANGUAGE"), int(config.get("lang_select")), onLanguageChanged)
+    checkbox.create(game, game.width * 0.3 , game.height * 0.4, translate.translate("MUSIC"), int(config.get("snd_enabled")), onBackgroundMusicChanged) 
+    checkbox.create(game, game.width * 0.3, game.height * 0.55, translate.translate("LANGUAGE"), int(config.get("lang_select")), onLanguageChanged)
 
 def draw(game):
-    # bg = pygame.image.load("assets/img/bg.png")
-    # game.screen.blit(bg,(0,0))
-
+    pygame.draw.rect(game.screen,(255,255,255),(game.width * 0.2,game.height * 0.2,game.width * 0.55,game.height * 0.6))
+    pygame.draw.rect(game.screen,(0,0,0),(game.width * 0.22,game.height * 0.23,game.width * 0.51,game.height * 0.55))
+    bg = pygame.image.load("assets/euros.png")
+    game.screen.blit(bg,(game.width * 0.7 ,game.height * 0.35))
     checkbox.draw(game)
     textbox.draw(game)
     button.draw(game, 10, 10, game.width / 10, game.height / 20, translate.translate("BACK"), 20, (25,25,25), (255,255,255), lambda x: game.set_state(game.last_state))
+

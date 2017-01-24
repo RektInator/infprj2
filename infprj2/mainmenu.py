@@ -2,7 +2,8 @@
 import pygame
 import translate
 import database
-
+import options
+import instructions
 # Import button lib
 import button
 
