@@ -31,7 +31,8 @@ class Player:
         self.isAI = False
         self.did_choose_row = False
         self.moves_left = 0
-        self.score = 0
+        self.score = 0  
+        self.direction = None
     def setpos(self, col, x, y):
         self.pos = Position(col, x, y)
     def setname(self, name):
@@ -50,7 +51,8 @@ class Player:
         self.moves_left = row["moves_left"]
         self.score = row["score"]
         pass
-
+    def set_direction(self,dir):
+        self.direction = dir
     # save current player to file
     def save(self, sid):
 

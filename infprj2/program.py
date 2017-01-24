@@ -33,6 +33,7 @@ class Game:
         self.current_player = 0
         self.has_started = False
         self.question = 0
+        self.chosen = []
     
         # Start PyGame
         pygame.init()
@@ -95,6 +96,7 @@ class Game:
         self.get_current_player().did_generate_question = False
         self.get_current_player().dice_roll = 0
         self.get_current_player().our_turn = False
+        self.get_current_player().set_direction(None)
 
         self.current_player += 1
 

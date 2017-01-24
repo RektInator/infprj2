@@ -45,7 +45,7 @@ class Dice:
         # dit tekent de die
         label = (pygame.font.Font(None, 20)).render(translate.translate("ROLL"),1,(0,0,0))
         self.size = (pygame.font.Font(None, 20)).size(translate.translate("ROLL"))
-        if game.get_current_player().did_roll == False:
+        if game.get_current_player().did_roll == False and not game.get_current_player().direction == None:
             game.screen.blit(label, (702 - self.size[0]/2, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
@@ -87,27 +87,44 @@ class GameLogic:
         elif not game.get_current_player().did_roll and not game.get_current_player().did_choose_row:
             # draw start buttons
             if not game.get_current_player().isAI:
-                button.draw(game, 45, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 1))
-                button.draw(game, 175, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 2))
-                button.draw(game, 305, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 3))
-                button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
+                if 1 not in game.chosen:
+                    button.draw(game, 45, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 1))
+                if 2 not in game.chosen:
+                    button.draw(game, 175, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 2))
+                if 3 not in game.chosen:
+                    button.draw(game, 305, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 3))
+                if 4 not in game.chosen:
+                    button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             else:
                 time.sleep(0.4)
-                start_chosen(game, random.randrange(1, 5))
-        elif game.get_current_player().moves_left: 
+                chosen = False
+                while not chosen:
+                    number = random.randrange(1,5)
+                    if not number in game.chosen:
+                        start_chosen(game,number)
+                        chosen = True
+        elif game.get_current_player().direction == None: 
             if not game.get_current_player().isAI:
                 # draw movement buttons
-                button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().go_up())
-                button.draw_img(game, game.width - (145 + 40), game.height - 200, 80, 80, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: game.get_current_player().go_left())
-                button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().go_right())
+                button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().set_direction("up"))
+                button.draw_img(game, game.width - (145 + 40), game.height - 200, 80, 80, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: game.get_current_player().set_direction("left"))
+                button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().set_direction("right"))
                 # button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             else:
                 time.sleep(0.3)
+                game.get_current_player().set_direction("up")
+        elif game.get_current_player().moves_left:
+            if game.get_current_player().direction == "up":
                 game.get_current_player().go_up()
+            elif game.get_current_player().direction == "left":
+                game.get_current_player().go_left()
+            elif game.get_current_player().direction == "right":
+                game.get_current_player().go_right()
 
         # Draw dice
-        if game.get_current_player().did_choose_row:
+        if game.get_current_player().did_choose_row and not game.get_current_player().direction == None:
             if game.get_current_player().isAI:
+                pygame.display.flip()
                 if not game.get_current_player().did_roll:
                     pygame.display.flip()
                     time.sleep(0.4)
@@ -133,6 +150,7 @@ def question_chosen(game, idx):
 def start_chosen(game, idx):
     game.get_current_player().setpos(idx, 0, 0)
     game.get_current_player().did_choose_row = True
+    game.chosen.append(idx)
     game.set_next_player()
 
 def SetPlayerCount(game, idx):
