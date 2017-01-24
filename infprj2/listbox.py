@@ -53,6 +53,7 @@ class Listbox:
             column_idx += 1
 
     def click(self, pos):
+        pass
 
     def update(self):
         self.onupdate(self.game, self)

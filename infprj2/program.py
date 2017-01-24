@@ -94,8 +94,11 @@ class Game:
         self.get_current_player().did_answer = False
         self.get_current_player().did_generate_question = False
         self.get_current_player().dice_roll = 0
+        self.get_current_player().our_turn = False
 
         self.current_player += 1
+
+        self.get_current_player().our_turn = True
 
         if self.current_player == self.playercount:
             self.current_player = 0

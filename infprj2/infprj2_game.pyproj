@@ -70,9 +70,6 @@
     <Compile Include="mainmenu.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="savegames.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="serverlist.py" />
     <Compile Include="textbox.py">
       <SubType>Code</SubType>
