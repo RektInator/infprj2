@@ -102,7 +102,7 @@ class GameLogic:
                 button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().go_right())
                 # button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             else:
-                time.sleep(0.1)
+                time.sleep(0.3)
                 game.get_current_player().go_up()
 
         # Draw dice
@@ -134,15 +134,6 @@ def start_chosen(game, idx):
     game.get_current_player().setpos(idx, 0, 0)
     game.get_current_player().did_choose_row = True
     game.set_next_player()
-
-def callback_question1(game):
-    question_chosen(game, 1)
-    
-def callback_question2(game):
-    question_chosen(game, 2)
-
-def callback_question3(game):
-    question_chosen(game, 3)
 
 def SetPlayerCount(game, idx):
     if idx == 2:
