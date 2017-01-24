@@ -106,7 +106,10 @@ class Player:
 
             # draw player name
             font = pygame.font.Font(None, 20)
-            playername = font.render(self.name, 1, (0,0,0))
+            if not self.our_turn:
+                playername = font.render(self.name, 1, (0,0,0))
+            else:
+                playername = font.render(self.name, 1, (255,255,255))
             size = font.size(self.name)
             self.game.screen.blit(playername, (xpos - size[0]/2, ypos - 22))
 

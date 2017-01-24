@@ -98,10 +98,9 @@ class Game:
 
         self.current_player += 1
 
-        self.get_current_player().our_turn = True
-
         if self.current_player == self.playercount:
             self.current_player = 0
+        self.get_current_player().our_turn = True
 
     def set_current_player(self, idx):
         self.current_player = idx
