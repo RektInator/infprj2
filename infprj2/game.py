@@ -101,10 +101,17 @@ class GameLogic:
                 button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().go_right())
                 # button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             else:
+                time.sleep(0.1)
                 game.get_current_player().go_up()
 
         # Draw dice
         if game.get_current_player().did_choose_row:
+            if game.get_current_player().isAI:
+                if not game.get_current_player().did_roll:
+                    pygame.display.flip()
+                    time.sleep(0.4)
+                    self.dice.onclick(game)
+    
             self.dice.draw(game)
 
 gamelogic = GameLogic()

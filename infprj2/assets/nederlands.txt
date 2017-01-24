@@ -353,3 +353,4 @@ REFRESH,Herladen
 PLAYER,SPELER
 ROLL,Gooi de dobbelsteen!!
 INSTRUCTIONS,Instructies
+LOAD,Laad

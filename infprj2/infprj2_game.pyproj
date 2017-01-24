@@ -87,6 +87,7 @@
     <Content Include="assets\background.mp3" />
     <Content Include="assets\Correct answers.txt" />
     <Content Include="assets\english.txt" />
+    <Content Include="assets\euros.png" />
     <Content Include="assets\img\bg.png" />
     <Content Include="assets\img\die0.png" />
     <Content Include="assets\img\die1.png" />
