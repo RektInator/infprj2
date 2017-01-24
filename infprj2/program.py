@@ -21,7 +21,6 @@ import highscores
 import listbox
 import serverlist
 import instructions
-import savegames
 
 class Game:
     def __init__(self):
@@ -63,8 +62,7 @@ class Game:
 
         # go to the main menu after saving our data
         self.set_state(0)
-
-        pass
+        self.has_started = False
 
     def load(self, sid):
         # load game data into the database
@@ -75,14 +73,17 @@ class Game:
         self.current_player = res[0]["currentplayer"]
 
         # get info for each player
-        res = database.execute_query("SELECT * FROM savegames WHERE sid = '{}'".format(sid))
+        res = database.execute_query("SELECT * FROM savegames_player WHERE sid = '{}'".format(sid))
 
         # loop through all players and load playerdata
         for x in res:
             plr = player.Player(self)
             plr.load(x)
             self.players.append(plr)
-            
+
+        # set state to ingame
+        self.set_state(2)
+        self.has_started = True
 
     def get_current_player(self):
         return self.players[self.current_player]

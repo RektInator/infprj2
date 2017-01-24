@@ -52,6 +52,8 @@ class Listbox:
             column_width_start += col.width
             column_idx += 1
 
+    def click(self, pos):
+
     def update(self):
         self.onupdate(self.game, self)
 
@@ -75,6 +77,15 @@ def draw(game):
     for listbox in listboxes:
         listbox.draw()
 
+# this function is fired when a mouse button is clicked
 def click(pos):
-    # todo
-    pass
+    # loop through buttons
+    for btn in listboxes:
+        # check if mouse position is within our range of interest
+        if pos[0] > btn.x and pos[0] < btn.width + btn.x:
+            if pos[1] > btn.y and pos[1] < btn.height + btn.y:
+                # execute button callback
+                btn.click(pos)
+
+                # Buttons shouldn't overlap. Break loop to increase performance
+                break

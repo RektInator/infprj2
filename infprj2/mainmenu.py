@@ -1,6 +1,7 @@
 # Main menu python file
 import pygame
 import translate
+import database
 
 # Import button lib
 import button
@@ -10,6 +11,11 @@ def update(game):
 
 def init(game):
     pass
+
+def loadgame(game):
+    game.players.clear()
+    res = database.execute_query("SELECT * FROM savegames ORDER BY id DESC")
+    game.load(res[0]["id"])
 
 def draw(game):
     bg = pygame.image.load("assets/img/bg.png")
@@ -23,7 +29,7 @@ def draw(game):
 
     #             scr,  x offset,  y offset,     width,          height,          text,  fontsize,  backcolor,  frontcolor,    callback
     button.draw(game, btn_x_off, btn_y_off(0), int(btn_width), int(btn_height), "Start", 20,      (25,25,25), (255,255,255), lambda x: game.set_state(2))
-    button.draw(game, btn_x_off, btn_y_off(1), int(btn_width), int(btn_height), "Load", 20,      (25,25,25), (255,255,255), lambda x: game.set_state(6))    
+    button.draw(game, btn_x_off, btn_y_off(1), int(btn_width), int(btn_height), "Load", 20,      (25,25,25), (255,255,255), lambda x: loadgame(x))    
     button.draw(game, btn_x_off, btn_y_off(2), int(btn_width), int(btn_height), "Multiplayer", 20,      (25,25,25), (255,255,255), lambda x: game.set_state(6))    
     button.draw(game, btn_x_off, btn_y_off(3), int(btn_width), int(btn_height), translate.translate("OPTIONS"), 20,     (25,25,25), (255,255,255), lambda x: game.set_state(1))
     button.draw(game, btn_x_off, btn_y_off(4), int(btn_width), int(btn_height), translate.translate("INSTRUCTIONS"), 20,      (25,25,25), (255,255,255), lambda x: game.set_state(7))
