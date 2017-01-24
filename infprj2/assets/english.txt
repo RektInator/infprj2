@@ -354,3 +354,5 @@ PLAYER,PLAYER
 ROLL,Roll the dice!!
 INSTRUCTIONS,Instructions
 LOAD,Load
+AMOUNT,Choose amount of players:
+MAKE,Make new players:

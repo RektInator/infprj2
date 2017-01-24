@@ -225,19 +225,21 @@ def draw(game):
         # Gamelogic drawing
         gamelogic.draw(game)
     elif game.playercount:
+        game.screen.fill((60,60,60))
         font = pygame.font.Font(None, 30)
-        label_1 = font.render("Maak nieuwe spelers:", 1, (255,255,255))
-        size = font.size("Maak nieuwe spelers:")
+        label_1 = font.render(translate.translate("MAKE"), 1, (255,255,255))
+        size = font.size(translate.translate("MAKE"))
         game.screen.blit(label_1,(game.width * 0.32, game.height * 0.1))
         # Draw the boxes for the player names
         textbox.draw(game)
         checkbox.draw(game)
         button.draw(game, game.width * 0.4, game.height * 0.8, 64, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: StartGame(game))
     else:
+        game.screen.fill((60,60,60))
         button.draw(game, 10, 10, game.width / 10, game.height / 20, translate.translate("BACK"), 20, (25,25,25), (255,255,255), lambda x: game.set_state(game.last_state))
         font = pygame.font.Font(None, 30)
-        label_1 = font.render("Kies aantal spelers:", 1, (255,255,255))
-        size = font.size("Kies aantal spelers:")
+        label_1 = font.render(translate.translate("AMOUNT"), 1, (255,255,255))
+        size = font.size(translate.translate("AMOUNT"))
         game.screen.blit(label_1,(game.width * 0.37, game.height * 0.2))
         button.draw(game, game.width * 0.42, game.height * 0.3, 128, 64, "2", 30, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 2))
         button.draw(game, game.width * 0.42, game.height * 0.45, 128, 64, "3", 30, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 3))
