@@ -1,4 +1,5 @@
 import pygame
+import database
 
 # constant variables
 row_xoff = [32, 162, 292, 422]
@@ -37,6 +38,30 @@ class Player:
         self.name = name
     def setai(self, ai):
         self.isAI = ai
+    def load(self, row):
+        self.name = row["name"]
+        self.our_turn = bool(row["ourturn"])
+        self.pos = Position(row["poscol"], row["posx"], row["posy"])
+        self.did_generate_question = False # bool(row["did_generate_question"])
+        self.dice_roll = row["dice_roll"]
+        self.did_answer = bool(row["did_answer"])
+        self.isAI = bool(row["isAI"])
+        self.did_choose_row = bool(row["did_choose_row"])
+        self.moves_left = row["moves_left"]
+        self.score = row["score"]
+        pass
+
+    # save current player to file
+    def save(self, sid):
+
+        # query data
+        cols = "(sid, name, ourturn, posx, posy, poscol, did_generate_question, dice_roll, did_answer, isAI, did_choose_row, moves_left, score)"
+        vals = "('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')".format(
+            sid, self.name, int(self.our_turn), self.pos.x, self.pos.y, self.pos.col, int(self.did_generate_question), self.dice_roll, int(self.did_answer),
+            int(self.isAI), int(self.did_choose_row), self.moves_left, self.score)
+
+        # execute query
+        database.execute_query("INSERT INTO savegames_player " + cols + " VALUES " + vals)
 
     # player movement funcs
     def go_left(self):
@@ -80,10 +105,10 @@ class Player:
             ypos = (480 - (self.pos.y * 27))
 
             # draw player name
-            font = pygame.font.Font(None, 26)
+            font = pygame.font.Font(None, 20)
             playername = font.render(self.name, 1, (0,0,0))
             size = font.size(self.name)
-            self.game.screen.blit(playername, (xpos - size[0]/2, ypos - 30))
+            self.game.screen.blit(playername, (xpos - size[0]/2, ypos - 22))
 
             # draw player circle
             pygame.draw.circle(self.game.screen, (0, 0, 0), (xpos, ypos), 10, 10)

@@ -16,6 +16,12 @@ def execute_query(sql):
     db.commit()
     return cur.fetchall()
 
+def insert(sql):
+    cur = db.cursor(pymysql.cursors.DictCursor)
+    cur.execute(sql)
+    db.commit()
+    return cur.lastrowid
+
 # closes the database connection when the game quits
 def quit():
     db.close()

@@ -21,6 +21,7 @@ import highscores
 import listbox
 import serverlist
 import instructions
+import savegames
 
 class Game:
     def __init__(self):
@@ -53,13 +54,35 @@ class Game:
         self.screen = pygame.display.set_mode((self.width, self.height))
 
     def save(self):
+        # save game information in the database
+        sid = database.insert("INSERT INTO savegames (players, currentplayer) VALUES ('{}', '{}')".format(self.playercount, self.current_player))
+        
+        # save each player in the database
+        for x in self.players:
+            x.save(sid)
 
-        # todo:
-        # save the amount of players in a text file, then store
-        # all the data of all players in the same file and save
-        # current player turn.
+        # go to the main menu after saving our data
+        self.set_state(0)
 
         pass
+
+    def load(self, sid):
+        # load game data into the database
+        res = database.execute_query("SELECT * FROM savegames WHERE id = '{}'".format(sid))
+
+        # get game info
+        self.playercount = res[0]["players"]
+        self.current_player = res[0]["currentplayer"]
+
+        # get info for each player
+        res = database.execute_query("SELECT * FROM savegames WHERE sid = '{}'".format(sid))
+
+        # loop through all players and load playerdata
+        for x in res:
+            plr = player.Player(self)
+            plr.load(x)
+            self.players.append(plr)
+            
 
     def get_current_player(self):
         return self.players[self.current_player]
@@ -112,6 +135,8 @@ class Game:
             serverlist.init(self)
         elif self.state == 7:
             instructions.init(self)
+        elif self.state == 8:
+            savegames.init(self)
 
     # updates the game state
     def update(self):
@@ -136,6 +161,8 @@ class Game:
             serverlist.update(self)
         elif self.state == 7:
             instructions.update(self)
+        elif self.state == 8:
+            savegames.update(self)
 
     # draws the current frame
     def draw(self):
@@ -159,6 +186,8 @@ class Game:
             serverlist.draw(self)
         elif self.state == 7:
             instructions.draw(self)
+        elif self.state == 8:
+            savegames.draw(self)
 
         # Flip buffer
         pygame.display.flip()
