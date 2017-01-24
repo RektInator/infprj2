@@ -208,6 +208,10 @@ def draw(game):
         # Gamelogic drawing
         gamelogic.draw(game)
     elif game.playercount:
+        font = pygame.font.Font(None, 30)
+        label_1 = font.render("Maak nieuwe spelers:", 1, (255,255,255))
+        size = font.size("Maak nieuwe spelers:")
+        game.screen.blit(label_1,(game.width * 0.32, game.height * 0.1))
         # Draw the boxes for the player names
         textbox.draw(game)
         checkbox.draw(game)
