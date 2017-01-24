@@ -12,16 +12,16 @@ def init(game):
 def draw(game):
     # Termination screen colour
     game.screen.fill((160, 187, 194))
-    font = pygame.font.Font("Helvetica", 72)
+    font = pygame.font.Font(None, 72)
 
     # Termination screen text + colour
-    label_1 = font.render(translate.translate("PLAYER_WON"), 1, (255,8,148))
+    label_1 = font.render(translate.translate("PLAYER_WON"), 1, (212,175,55))
     size = font.size(translate.translate("PLAYER_WON"))
 
     # Placement text in screen
     game.screen.blit(label_1,(int(game.width/2 - (size[0]/2)), game.height*0.1 - (size[1]/2)))
     
-    bg = pygame.image.load("assets/Lego_met_vlag4.png")
+    bg = pygame.image.load("assets/img/Lego_met_vlag4.png")
     game.screen.blit(bg,(game.width/2.4 ,game.height*0.2 ))
 
     # button variables

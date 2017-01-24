@@ -93,6 +93,7 @@ class Game:
         self.get_current_player().did_roll = False
         self.get_current_player().did_answer = False
         self.get_current_player().did_generate_question = False
+        self.get_current_player().dice_roll = 0
 
         self.current_player += 1
 

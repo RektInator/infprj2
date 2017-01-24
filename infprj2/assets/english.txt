@@ -38,6 +38,24 @@ QUESTION37,Which building symbolized the rebuilding of the city?
 QUESTION38,How many Jews lived in Rotterdam during the second world war?
 QUESTION39,What was the only way to get to the middle of Rotterdam which the Germans where trying to reach during the second world war?
 QUESTION40,Which architect(s) build the euromast?
+QUESTION41, After 1872, Pieter Caland had a plan to connect Rotterdam to the sea. What name did he give this connection?
+QUESTION42,In what year did Rotterdam receive its city rights?
+QUESTION43,What was the original name of the harbour of Rotterdam?
+QUESTION44,In what year did the Tour de France start in Rotterdam?                    
+QUESTION45,Which tennistournament is held every year in Ahoy?                      
+QUESTION46,Which of these clubs is the hockeyclub from Rotterdam?
+QUESTION47,Which sport is practiced the most in Rotterdam?
+QUESTION48,Which Olympian grew up in Rotterdam? 
+QUESTION49,On which track did the World Championship rowing take place in 2016?                         
+QUESTION50,For which 3 sports is the Willem Alexander track the most suitable?                    
+QUESTION51,On what position did Coen Moulijn play both for Feyenoord as wel as the Dutch team? 
+QUESTION52,A player is offside when they....
+QUESTION53,What is the name of the stadium of Sparta Rotterdam?                           
+QUESTION54,What is the length of the NN Marathon of Rotterdam?                                
+QUESTION55,In lacrosse, how many players are there on the field per team?
+QUESTION56,In what year has the baseballclub Neptunes been established?
+QUESTION57,Is a baseball larger than a softball? 
+QUESTION58,How many people stand behind the batter in Baseball?
 QUESTION1_ANSWER1,Hoek van Holland
 QUESTION1_ANSWER2,Euromast Park
 QUESTION1_ANSWER3,Plaswijckpark
@@ -158,6 +176,60 @@ QUESTION39_ANSWER3,Koninginnenbrug
 QUESTION40_ANSWER1,Maaskant
 QUESTION40_ANSWER2,Brinkman en van der Vlugt 
 QUESTION40_ANSWER3,Koolhaas
+QUESTION41_ANSWER1,The Nieuwe Waterweg
+QUESTION41_ANSWER2,The Maas zeeverbinding
+QUESTION41_ANSWER3,The Nieuwe Water kanaal
+QUESTION42_ANSWER1,1250
+QUESTION42_ANSWER2,1340
+QUESTION42_ANSWER3,1590
+QUESTION43_ANSWER1,Waalhaven
+QUESTION43_ANSWER2,The Maashaven
+QUESTION43_ANSWER3,Europoort
+QUESTION44_ANSWER1,2000
+QUESTION44_ANSWER2,2005
+QUESTION44_ANSWER3,2010
+QUESTION45_ANSWER1,ABN AMRO World Tennis Tournament
+QUESTION45_ANSWER2,Ahoy Open
+QUESTION45_ANSWER3,Heineken Open
+QUESTION46_ANSWER1,HVGR
+QUESTION46_ANSWER2,Focus
+QUESTION46_ANSWER3,HC Rotterdam
+QUESTION47_ANSWER1,Fitness
+QUESTION47_ANSWER2,Soccer
+QUESTION47_ANSWER3,Basketball
+QUESTION48_ANSWER1,Dorian van Rijsselberghe
+QUESTION48_ANSWER2,Marhinde Verkerk
+QUESTION48_ANSWER3,Edith Bosch
+QUESTION49_ANSWER1,Willem Alexander track
+QUESTION49_ANSWER2,Beatrix track
+QUESTION49_ANSWER3,Juliana track
+QUESTION50_ANSWER1,Watersports, cycle racing and running
+QUESTION50_ANSWER2,Soccer, hockey and basketball
+QUESTION50_ANSWER3,Fitness, running and basketball
+QUESTION51_ANSWER1,Right back
+QUESTION51_ANSWER2,Left back
+QUESTION51_ANSWER3,Left winger
+QUESTION52_ANSWER1,are further from the goal than the keeper.
+QUESTION52_ANSWER2,are closer to the goal line of the opponent than the ball and the second last opponent.   
+QUESTION52_ANSWER3,are outside the lines of the field and the ball is in the field.  
+QUESTION53_ANSWER1,The Toren
+QUESTION53_ANSWER2,The Kasteel
+QUESTION53_ANSWER3,The Arena
+QUESTION54_ANSWER1,42,125 km
+QUESTION54_ANSWER2,42,450 km
+QUESTION54_ANSWER3,42,680 km
+QUESTION55_ANSWER1,9
+QUESTION55_ANSWER2,10
+QUESTION55_ANSWER3,11
+QUESTION56_ANSWER1,1850
+QUESTION56_ANSWER2,1875
+QUESTION56_ANSWER3,1900
+QUESTION57_ANSWER1,True
+QUESTION57_ANSWER2,Not true
+QUESTION57_ANSWER3,Same size
+QUESTION58_ANSWER1,1
+QUESTION58_ANSWER2,2
+QUESTION58_ANSWER3,3
 QUESTIONANSWER1,Euromast park
 QUESTIONANSWER2,400 mtr
 QUESTIONANSWER3,Tennis
@@ -198,6 +270,24 @@ QUESTIONANSWER37,De Bijenkorf
 QUESTIONANSWER38,ca. 12000
 QUESTIONANSWER39,Maasbrug
 QUESTIONANSWER40,Maaskant
+QUESTIONANSWER41,The Nieuwe Waterweg
+QUESTIONANSWER42,1340
+QUESTIONANSWER43,Waalhaven
+QUESTIONANSWER44,Euromast park
+QUESTIONANSWER45,400 mtr
+QUESTIONANSWER46,Tennis
+QUESTIONANSWER47,Luxemburg & Belgium
+QUESTIONANSWER48,Bike & Bite
+QUESTIONANSWER49,Maritiem Museum
+QUESTIONANSWER50,De Zwanenboot
+QUESTIONANSWER51,FreeStyle Motion
+QUESTIONANSWER52,De Markthal
+QUESTIONANSWER53,Mediamarkt
+QUESTIONANSWER54,LantarenVenster
+QUESTIONANSWER55,De Doelen
+QUESTIONANSWER56,Melief Bender
+QUESTIONANSWER57,Cinerama
+QUESTIONANSWER58,7 km
 MUSIC,Music
 LANGUAGE,Language
 OPTIONS,Options
