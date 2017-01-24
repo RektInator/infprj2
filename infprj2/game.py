@@ -8,6 +8,7 @@ import questions
 import textbox
 import player
 import checkbox
+import math
 
 def update(game):
     pass
