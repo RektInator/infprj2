@@ -56,6 +56,17 @@ QUESTION55,In lacrosse, how many players are there on the field per team?
 QUESTION56,In what year has the baseballclub Neptunes been established?
 QUESTION57,Is a baseball larger than a softball? 
 QUESTION58,How many people stand behind the batter in Baseball?
+QUESTION59,Which bridge in Rotterdam has the nickname: The swan?
+QUESTION60,What is the most important means of transportation in Rotterdam?
+QUESTION61,How many millimeters of rain falls annually in Rotterdam?
+QUESTION62,How many houses are there in Rotterdam?
+QUESTION63,What is the oldest building in Rotterdam?
+QUESTION64,How many people use public transportation daily in Rotterdam?
+QUESTION65,What is the oldest bridge in Rotterdam?
+QUESTION66,Rotterdam is also known as the .....
+QUESTION67,In which provence is Rotterdam located?
+QUESTION68,What is de name of the river that borders Rotterdam?
+QUESTION69,What is the distance between Rotterdam and Amsterdam?
 QUESTION1_ANSWER1,Hoek van Holland
 QUESTION1_ANSWER2,Euromast Park
 QUESTION1_ANSWER3,Plaswijckpark
@@ -230,6 +241,39 @@ QUESTION57_ANSWER3,Same size
 QUESTION58_ANSWER1,1
 QUESTION58_ANSWER2,2
 QUESTION58_ANSWER3,3
+QUESTION59_ANSWER1,The Willemsbrug
+QUESTION59_ANSWER2,The Erasmusbrug
+QUESTION59_ANSWER3,The van Briennenoordbrug
+QUESTION60_ANSWER1,Metro
+QUESTION60_ANSWER2,Car
+QUESTION60_ANSWER3,Bike
+QUESTION61_ANSWER1,760 to 780 mm
+QUESTION61_ANSWER2,780 to 800 mm
+QUESTION61_ANSWER3,800 to 820 mm
+QUESTION62_ANSWER1,150.000
+QUESTION62_ANSWER2,300.000
+QUESTION62_ANSWER3,450.000
+QUESTION63_ANSWER1,Kerktoren Hillegondakerk
+QUESTION63_ANSWER2,St. Laurenskerk
+QUESTION63_ANSWER3,Cityhall of Rotterdam
+QUESTION64_ANSWER1,800.000
+QUESTION64_ANSWER2,900.000
+QUESTION64_ANSWER3,1.000.000
+QUESTION65_ANSWER1,The Willemsbrug
+QUESTION65_ANSWER2,The Koninginnebrug
+QUESTION65_ANSWER3,The van Briennenoordbrug
+QUESTION66_ANSWER1,City of wonder
+QUESTION66_ANSWER2,City of cities
+QUESTION66_ANSWER3,Harbor city
+QUESTION67_ANSWER1,Noord-Holland
+QUESTION67_ANSWER2,Zuid-Holland
+QUESTION67_ANSWER3,Noord-Brabant
+QUESTION68_ANSWER1,The Maas
+QUESTION68_ANSWER2,The Rijn
+QUESTION68_ANSWER3,The Waal
+QUESTION69_ANSWER1,50 to 60 km
+QUESTION69_ANSWER2,60 to 70 km
+QUESTION69_ANSWER3,70 to 80 km
 QUESTIONANSWER1,Euromast park
 QUESTIONANSWER2,400 mtr
 QUESTIONANSWER3,Tennis
@@ -288,6 +332,17 @@ QUESTIONANSWER55,De Doelen
 QUESTIONANSWER56,Melief Bender
 QUESTIONANSWER57,Cinerama
 QUESTIONANSWER58,7 km
+QUESTIONANSWER59,The Erasmusbrug
+QUESTIONANSWER60,Metro
+QUESTIONANSWER61,800 to 820 mm
+QUESTIONANSWER62,300.000
+QUESTIONANSWER63,Kerktoren Hillegondakerk
+QUESTIONANSWER64,1.000.000
+QUESTIONANSWER65,The Koninginnebrug
+QUESTIONANSWER66,Harbor City
+QUESTIONANSWER67,Zuid-Holland
+QUESTIONANSWER68,The Maas
+QUESTIONANSWER69,70 to 80 km
 MUSIC,Music
 LANGUAGE,Language
 OPTIONS,Options
