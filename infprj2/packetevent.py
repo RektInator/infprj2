@@ -102,6 +102,17 @@ def OnClientPresenceReceived(client, data):
         # append player
         client.game.players.append(plr)
 
+def OnClientDisconnected(client, data):
+    if DoesPlayerExist(client.game, int(data[1])):
+        # get player
+        plr = client.game.get_player_by_index(int(data[1]))
+
+        # debug output
+        print("Player {} ({}) has left the lobby.".format(plr.index, plr.name))
+
+        # remove the client from our internal array
+        client.game.players.remove(plr)
+
 def OnClientNameReceived(client, data):
     plr = client.game.get_player_by_index(int(data[1]))
     plr.name = data[2]
@@ -114,6 +125,9 @@ def init(game):
 
     # This packet tells us that there's another client connected
     register_callback("playerconnected", OnClientPresenceReceived)
+
+    # This packet tells us that a client has been disconnected
+    register_callback("playerdisconnect", OnClientDisconnected)
     
     # This packet will keep us up-to-date about other clients their names
     register_callback("namechange", OnClientNameReceived)

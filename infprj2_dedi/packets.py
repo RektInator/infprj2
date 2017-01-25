@@ -32,8 +32,6 @@ def run(srv, client, args):
 def Packet_Setname(srv,client,args):
     client.name = args[1]
 
-    print("Setname packet received")
-
     # let other clients know about the namechange
     srv.send_all(Packet("namechange:{}:{}".format(client.index, client.name)).get())
 
