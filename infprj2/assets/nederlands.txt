@@ -21,7 +21,7 @@ QUESTION20,Voor welk vervoermiddel is er geen tour door Rotterdam beschikbaar?
 QUESTION21,Welke van de volgende Pathé bioscopen is niet in Rotterdam?
 QUESTION22,In welk museum in Rotterdam krijg je alles over de haven te weten?
 QUESTION23,Hoe heet het vliegveld van Rotterdam?
-QUESTION24,Van welke straat in Rotterdam word het straatnaambord het meest gestolen?
+QUESTION24,Van welke straat in Rotterdam wordt het straatnaambord het meest gestolen?
 QUESTION25,Vanaf welk station in Rotterdam kun je internationaal reizen?
 QUESTION26,Hoeveel bezoekers zijn er jaarlijks bij de Marathon Rotterdam?
 QUESTION27,Welk gebouw is het meest recent gebouwd?
@@ -42,9 +42,9 @@ QUESTION41,Na 1872 had Pieter Caland een plan om Rotterdam met de zee te verbind
 QUESTION42,In welk jaar heeft Rotterdam stadsrechten gekregen?
 QUESTION43,Hoe heette de haven van Rotterdam oorspronkelijk tijdens zijn ontstaan?
 QUESTION44,In welk jaar startte de Tour de France in Rotterdam?
-QUESTION45,Welk tennistoernooi word er elk jaar in Ahoy gehouden?
+QUESTION45,Welk tennistoernooi wordt er elk jaar in Ahoy gehouden?
 QUESTION46,Wat is een hockeyclub uit Rotterdam?
-QUESTION47,Welke manier van sport word het meest beoefend in Rotterdam?
+QUESTION47,Welke manier van sport wordt het meest beoefend in Rotterdam?
 QUESTION48,Welke Olympiër groeide op in Rotterdam? 
 QUESTION49,Op welke baan vond het WK roeien in 2016 plaats?
 QUESTION50,Voor welke 3 sporten is de Willem Alexander baan het meest geschikt?
@@ -63,7 +63,7 @@ QUESTION62,Hoeveel woningen zijn er ongeveer in Rotterdam?
 QUESTION63,Wat is het oudste gebouw van Rotterdam?
 QUESTION64,Hoeveel mensen maken dagelijks gebruik van het openbaar vervoer in Rotterdam?
 QUESTION65,Wat is de oudste brug van Rotterdam?
-QUESTION66,Rotterdam word ook wel de …. genoemd
+QUESTION66,Rotterdam wordt ook wel de …. genoemd
 QUESTION67,In welke provincie ligt Rotterdam?
 QUESTION68,Hoe heet de grootste rivier waar Rotterdam aan grenst?
 QUESTION69,Wat is de afstand tussen Rotterdam en Amsterdam?
@@ -214,8 +214,8 @@ QUESTION48_ANSWER3,Edith Bosch
 QUESTION49_ANSWER1,Willem Alexander baan
 QUESTION49_ANSWER2,Beatrix baan
 QUESTION49_ANSWER3,Juliana baan
-QUESTION50_ANSWER1,Watersporten Wielrennen en hardlopen
-QUESTION50_ANSWER2,Voetbal Hockey en basketbal
+QUESTION50_ANSWER1,Watersporten wielrennen en hardlopen
+QUESTION50_ANSWER2,Voetbal hockey en basketbal
 QUESTION50_ANSWER3,Fitness hardlopen en basketbal
 QUESTION51_ANSWER1,Rechtsback
 QUESTION51_ANSWER2,Linksback
@@ -323,7 +323,7 @@ QUESTIONANSWER46,HC Rotterdam
 QUESTIONANSWER47,Fitness
 QUESTIONANSWER48,Marhinde Verkerk
 QUESTIONANSWER49,Willem Alexander baan
-QUESTIONANSWER50,Watersporten, Wielrennen en hardlopen
+QUESTIONANSWER50,Watersporten wielrennen en hardlopen
 QUESTIONANSWER51,Linksbuiten
 QUESTIONANSWER52,Zich dichter bij de doellijn van de tegenstander bevindt dan de bal en de vóórlaatste tegenstander.
 QUESTIONANSWER53,Het Kasteel
