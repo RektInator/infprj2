@@ -24,6 +24,7 @@ import instructions
 import lobby
 import console
 import packetevent
+import game_mp
 
 class Game:
     def __init__(self):
@@ -39,6 +40,7 @@ class Game:
         self.chosen = []
         self.winner = ""
         self.drawconsole = False
+        self.isMP = False
     
         # Start PyGame
         pygame.init()
@@ -91,6 +93,7 @@ class Game:
         # set state to ingame
         self.set_state(2)
         self.has_started = True
+        self.isMP = False
 
     def get_current_player(self):
         return self.players[self.current_player]
@@ -149,6 +152,8 @@ class Game:
             instructions.init(self)
         elif self.state == 8:
             lobby.init(self)
+        elif self.state == 9:
+            game_mp.init(self)
 
     # updates the game state
     def update(self):
@@ -175,6 +180,8 @@ class Game:
             instructions.update(self)
         elif self.state == 8:
             lobby.update(self)
+        elif self.stae == 9:
+            game_mp.update(self)
 
     # draws the current frame
     def draw(self):
@@ -200,6 +207,8 @@ class Game:
             instructions.draw(self)
         elif self.state == 8:
             lobby.draw(self)
+        elif self.state == 9:
+            game_mp.draw(self)
 
         if self.drawconsole:
             console.draw(self)

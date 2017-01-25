@@ -1,4 +1,5 @@
-# Game python file
+# game_mp python file
+# todo: make this class work together with the networking stuff.
 import pygame
 import button
 import random
@@ -9,6 +10,7 @@ import textbox
 import player
 import checkbox
 import math
+import packetevent
 
 def update(game):
     pass
@@ -217,57 +219,36 @@ def StartGame(game):
     game.has_started = True
 
 def draw(game):
-    if game.has_started:
-        # Make sure the playername boxes are gone
-        textbox.remove(game)
-        checkbox.remove(game)
-	    # Achtergrond kleur
-        pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
+    # Make sure the playername boxes are gone
+    textbox.remove(game)
+    checkbox.remove(game)
+    # Achtergrond kleur
+    pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
 
-	    # Teken categorie kleur
-        pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
-        pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
-        pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
-        pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
-        game.screen.blit(pygame.image.load("assets\img\dots.png"), (60, 98))
+    # Teken categorie kleur
+    pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
+    pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
+    pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
+    pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
+    game.screen.blit(pygame.image.load("assets\img\dots.png"), (60, 98))
 
-	    # Start onder categorie
-        font = pygame.font.Font(None, 48)
-        font2 = pygame.font.Font(None, 20)
-        font3 = pygame.font.Font(None, 28)
-        # label_1 = font.render("Start", 1, (255,255,255))
-        # size = font.size("Start")
-        # game.screen.blit(label_1,(45, game.height * 0.9))
-        # game.screen.blit(label_1,(175, game.height * 0.9))
-        # game.screen.blit(label_1,(305, game.height * 0.9))
-        # game.screen.blit(label_1,(435, game.height * 0.9))
+    # Start onder categorie
+    font = pygame.font.Font(None, 48)
+    font2 = pygame.font.Font(None, 20)
+    font3 = pygame.font.Font(None, 28)
+    # label_1 = font.render("Start", 1, (255,255,255))
+    # size = font.size("Start")
+    # game.screen.blit(label_1,(45, game.height * 0.9))
+    # game.screen.blit(label_1,(175, game.height * 0.9))
+    # game.screen.blit(label_1,(305, game.height * 0.9))
+    # game.screen.blit(label_1,(435, game.height * 0.9))
 
-        # Player turn info
-        turnlabel = font3.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
-        game.screen.blit(turnlabel, (0, 0))
+    # Player turn info
+    turnlabel = font3.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
+    game.screen.blit(turnlabel, (0, 0))
 
-        # Gamelogic drawing
-        gamelogic.draw(game)
-    elif game.playercount:
-        game.screen.fill((60,60,60))
-        font = pygame.font.Font(None, 30)
-        label_1 = font.render(translate.translate("MAKE"), 1, (255,255,255))
-        size = font.size(translate.translate("MAKE"))
-        game.screen.blit(label_1,(game.width * 0.32, game.height * 0.1))
-        # Draw the boxes for the player names
-        textbox.draw(game)
-        checkbox.draw(game)
-        button.draw(game, game.width * 0.4, game.height * 0.8, 64, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: StartGame(game))
-    else:
-        game.screen.fill((60,60,60))
-        button.draw(game, 10, 10, game.width / 10, game.height / 20, translate.translate("BACK"), 20, (25,25,25), (255,255,255), lambda x: game.set_state(game.last_state))
-        font = pygame.font.Font(None, 30)
-        label_1 = font.render(translate.translate("AMOUNT"), 1, (255,255,255))
-        size = font.size(translate.translate("AMOUNT"))
-        game.screen.blit(label_1,(game.width * 0.37, game.height * 0.2))
-        button.draw(game, game.width * 0.42, game.height * 0.3, 128, 64, "2", 30, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 2))
-        button.draw(game, game.width * 0.42, game.height * 0.45, 128, 64, "3", 30, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 3))
-        button.draw(game, game.width * 0.42, game.height * 0.60, 128, 64, "4", 30, (0,0,0), (255,255,255), lambda game: SetPlayerCount(game, 4))
+    # Gamelogic drawing
+    gamelogic.draw(game)
 
 # This function is being called when the text in a name box changes
 def SetName(idx, game, box):
@@ -279,4 +260,4 @@ def SetAI(idx, game, box):
     game.players[idx].setai(box.isChecked)
 
 def init(game):
-    game.isMP = False
+    game.isMP = True

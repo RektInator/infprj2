@@ -44,12 +44,11 @@ class Server:
 
     def start_match(self):
         # let the clients know that the match has been started.
-        self.send_all(b"startmatch")
+        self.send_all(bytes("startmatch", "utf-8"))
         pass
     def connection_loop(self):
         while self.isActive:
             conn, addr = self.accept()
-            print("Incoming connection received!")
             clientthread = threading.Thread(target = client.thread, args = (self,conn))
             clientthread.setDaemon(True)
             clientthread.start()
