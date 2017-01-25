@@ -38,7 +38,7 @@ QUESTION37,Welk gebouw stond symbool voor de wederopbouw van de stad?
 QUESTION38,Hoeveel joden woonden er in Rotterdam voor de Tweede Wereldoorlog?
 QUESTION39,Wat was tijdens de Tweede Wereldoorlog de enige weg naar het centrum die de Duitsers probeerden te bereiken?
 QUESTION40,Door welke architect(en) is de Euromast ontworpen?
-QUESTION41,Na 1872 is de stad Rotterdam snel groot geworden, Pieter Caland had een plan om Rotterdam met de zee te verbinden. Hoe noemde hij die verbinding?
+QUESTION41,Na 1872 had Pieter Caland een plan om Rotterdam met de zee te verbinden. Hoe noemde hij die verbinding?
 QUESTION42,In welk jaar heeft Rotterdam stadsrechten gekregen?
 QUESTION43,Hoe heette de haven van Rotterdam oorspronkelijk tijdens zijn ontstaan?
 QUESTION44,In welk jaar startte de Tour de France in Rotterdam?
@@ -113,7 +113,7 @@ QUESTION15_ANSWER1,3 km
 QUESTION15_ANSWER2,5 km
 QUESTION15_ANSWER3,7 km
 QUESTION16_ANSWER1,Mullerpier
-QUESTION16_ANSWER2,Pier 
+QUESTION16_ANSWER2,Pier 80
 QUESTION16_ANSWER3,Schouwburgplein
 QUESTION17_ANSWER1,De Witte Aap
 QUESTION17_ANSWER2,Het NRC
@@ -168,7 +168,7 @@ QUESTION33_ANSWER2,Jules Deelder
 QUESTION33_ANSWER3,Willem Alexander
 QUESTION34_ANSWER1,De beste bakker van de stad was daar gevestigd 
 QUESTION34_ANSWER2,De prostituees
-QUESTION34_ANSWER3,C. De oudste beschermde boom van de stad staat daar 
+QUESTION34_ANSWER3,De oudste beschermde boom van de stad staat daar 
 QUESTION35_ANSWER1,1855
 QUESTION35_ANSWER2,1975
 QUESTION35_ANSWER3,1915
@@ -214,9 +214,9 @@ QUESTION48_ANSWER3,Edith Bosch
 QUESTION49_ANSWER1,Willem Alexander baan
 QUESTION49_ANSWER2,Beatrix baan
 QUESTION49_ANSWER3,Juliana baan
-QUESTION50_ANSWER1,Watersporten, Wielrennen en hardlopen
-QUESTION50_ANSWER2,Voetbal, Hockey en basketbal
-QUESTION50_ANSWER3,Fitness, hardlopen en basketbal
+QUESTION50_ANSWER1,Watersporten Wielrennen en hardlopen
+QUESTION50_ANSWER2,Voetbal Hockey en basketbal
+QUESTION50_ANSWER3,Fitness hardlopen en basketbal
 QUESTION51_ANSWER1,Rechtsback
 QUESTION51_ANSWER2,Linksback
 QUESTION51_ANSWER3,Linksbuiten

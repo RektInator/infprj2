@@ -38,7 +38,7 @@ QUESTION37,Which building symbolized the rebuilding of the city?
 QUESTION38,How many Jews lived in Rotterdam during the second world war?
 QUESTION39,What was the only way to get to the middle of Rotterdam which the Germans where trying to reach during the second world war?
 QUESTION40,Which architect(s) build the euromast?
-QUESTION41, After 1872, Pieter Caland had a plan to connect Rotterdam to the sea. What name did he give this connection?
+QUESTION41,After 1872 Pieter Caland had a plan to connect Rotterdam to the sea. What name did he give this connection?
 QUESTION42,In what year did Rotterdam receive its city rights?
 QUESTION43,What was the original name of the harbour of Rotterdam?
 QUESTION44,In what year did the Tour de France start in Rotterdam?                    
@@ -113,7 +113,7 @@ QUESTION15_ANSWER1,3 km
 QUESTION15_ANSWER2,5 km
 QUESTION15_ANSWER3,7 km
 QUESTION16_ANSWER1,Mullerpier
-QUESTION16_ANSWER2,Pier 
+QUESTION16_ANSWER2,Pier 80
 QUESTION16_ANSWER3,Schouwburgplein
 QUESTION17_ANSWER1,De Witte Aap
 QUESTION17_ANSWER2,Het NRC
@@ -214,9 +214,9 @@ QUESTION48_ANSWER3,Edith Bosch
 QUESTION49_ANSWER1,Willem Alexander track
 QUESTION49_ANSWER2,Beatrix track
 QUESTION49_ANSWER3,Juliana track
-QUESTION50_ANSWER1,Watersports, cycle racing and running
-QUESTION50_ANSWER2,Soccer, hockey and basketball
-QUESTION50_ANSWER3,Fitness, running and basketball
+QUESTION50_ANSWER1,Watersports cycle racing and running
+QUESTION50_ANSWER2,Soccer hockey and basketball
+QUESTION50_ANSWER3,Fitness running and basketball
 QUESTION51_ANSWER1,Right back
 QUESTION51_ANSWER2,Left back
 QUESTION51_ANSWER3,Left winger
@@ -323,7 +323,7 @@ QUESTIONANSWER46,HC Rotterdam
 QUESTIONANSWER47,Fitness
 QUESTIONANSWER48,Marhinde Verkerk
 QUESTIONANSWER49,Willem Alexander track
-QUESTIONANSWER50,Watersports, cycle racing and running
+QUESTIONANSWER50,Watersports cycle racing and running
 QUESTIONANSWER51,Left winger
 QUESTIONANSWER52,are closer to the goal line of the opponent than the ball and the second last opponent.
 QUESTIONANSWER53,The Castle
