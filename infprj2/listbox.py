@@ -19,6 +19,7 @@ class Listbox:
         self.onupdate = onupdate
         self.start_idx = 0                  # for future scrollbars
     def set_rows(self, cnt):
+        print("item_count set to {}".format(cnt))
         self.item_count = cnt
     def draw(self):
         
@@ -37,7 +38,7 @@ class Listbox:
             self.game.screen.blit(name, (column_width_start, self.y))
 
             # draw items in list
-            for idx in range(self.start_idx + self.item_count + 1):
+            for idx in range(self.start_idx + self.item_count):
         
                 # show a maximum of 15 values in the list
                 if idx >= 15:
@@ -47,6 +48,7 @@ class Listbox:
                 colval = self.ondraw(self.game, idx, column_idx)
                 collabel = colfont.render(colval, 1, (255,255,255))
                 self.game.screen.blit(collabel, (column_width_start, self.y + 24 + (22 * idx)))
+                # print("Entry {} is {}".format(idx, colval))
 
             # increment values
             column_width_start += col.width
@@ -70,9 +72,6 @@ def update(game):
 def create(game, x, y, width, item_count, columns, ondraw, onclick, onupdate):
     _box = Listbox(game, x, y, width, item_count, columns, ondraw, onclick, onupdate)
     listboxes.append(_box)
-
-def update(game):
-    pass
 
 def draw(game):
     for listbox in listboxes:

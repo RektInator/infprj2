@@ -65,6 +65,19 @@ class Game:
         # Set the resolution
         self.screen = pygame.display.set_mode((self.width, self.height))
 
+    def get_player_count(self):
+        cnt = 0
+        for x in self.players:
+            cnt += 1
+        return cnt
+
+    def get_player_by_index(self, index):
+        for x in self.players:
+            if x.index == index:
+                return x
+
+        return None
+
     def save(self):
         # save game information in the database
         sid = database.insert("INSERT INTO savegames (players, currentplayer) VALUES ('{}', '{}')".format(self.playercount, self.current_player))

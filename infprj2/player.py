@@ -19,6 +19,7 @@ class Position:
 
 class Player:
     def __init__(self, game):
+        self.index = -1
         self.game = game
         self.our_turn = False
         self.did_generate_question = False
@@ -33,6 +34,8 @@ class Player:
         self.moves_left = 0
         self.score = 0  
         self.direction = None
+    def setindex(self, index):
+        self.index = index
     def setpos(self, col, x, y):
         self.pos = Position(col, x, y)
     def setname(self, name):

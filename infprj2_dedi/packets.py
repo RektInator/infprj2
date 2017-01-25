@@ -46,6 +46,7 @@ def Packet_ClientConnect(srv,client,args):
 
     for x in srv.clients:
         client.send(Packet("playerconnected:{}".format(x.index)).get())
+        client.send(Packet("namechange:{}:{}".format(x.index, x.name)).get())
 
     # let others know about our presence
     srv.send_all(Packet("playerconnected:{}".format(client.index)).get())

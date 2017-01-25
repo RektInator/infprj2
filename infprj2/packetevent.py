@@ -1,5 +1,6 @@
 import socket
 import threading
+import player
 
 class PacketHandler:
     def __init__(self, pack, callback):
@@ -72,15 +73,39 @@ class Client:
 
         print("Connected to dedicated server at {}:{}!".format(host, port))
 
+def DoesPlayerExist(game, idx):
+    for x in game.players:
+        if x.index == idx:
+            return True
+
+    return False
+
 def OnConnectSuccess(client, data):
+    # clear existing players
+    client.game.players.clear()
+
+    # set game data
     client.game.set_state(8)
     client.game.index = int(data[1])
     client.game.name = ""
     client.game.lobbyname = data[2]
 
 def OnClientPresenceReceived(client, data):
-    if int(data[1]) != client.game.index:
+    if not DoesPlayerExist(client.game, int(data[1])):
+        # debug output
         print("Presence data for client {} received!".format(data[1]))
+
+        # create player entry
+        plr = player.Player(client.game)
+        plr.setindex(int(data[1]))
+
+        # append player
+        client.game.players.append(plr)
+
+def OnClientNameReceived(client, data):
+    if int(data[1]) != client.game.index:
+        if data[2]:
+            print("Name for client {} changed to {}.".format(data[1], data[2]))
 
 def init(game):
     # This packet sets the current game state to 8 (lobby) when connectsuccess has been received
@@ -89,6 +114,9 @@ def init(game):
 
     # This packet tells us that there's another client connected
     register_callback("playerconnected", OnClientPresenceReceived)
+    
+    # This packet will keep us up-to-date about other clients their names
+    register_callback("namechange", OnClientNameReceived)
 
     # this means that the lobby is full, and the match is about to begin.
     register_callback("startmatch", lambda client,data: client.game.set_state(9))
