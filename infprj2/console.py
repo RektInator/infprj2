@@ -2,11 +2,12 @@ import pygame
 import textbox
 
 def ExecuteCommand(game,box,isEnterPressed):
-    print(box.text)
+    if isEnterPressed:
+        # execute command
 
-    # close the console
-    remove(game)
-    game.drawconsole = False
+        # close console
+        remove(game)
+        game.drawconsole = False
 
 def init(game):
     textbox.create(game, 30, 30, 740, "", ExecuteCommand)

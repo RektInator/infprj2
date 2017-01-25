@@ -12,6 +12,7 @@ class Textbox:
         self.width = width
         self.height = 32
         self.font = pygame.font.Font(None, 20)
+        self.isFocussed = False
     def draw(self):
         pygame.draw.rect(self.game.screen, (0,0,0), (self.x-1, self.y-1, self.width+2, self.height+2))
         pygame.draw.rect(self.game.screen, self.color, (self.x, self.y, self.width, self.height))
@@ -23,23 +24,24 @@ class Textbox:
     def unfocus(self):
         self.isFocussed = False
     def key_pressed(self, event):
+
+        enterPressed = False
+
         # A-Z
         if event.key >= 65 and event.key <= 90:
             self.text += chr(event.key)
+
         # a-z
         if event.key >= 97 and event.key <= 122:
             self.text += chr(event.key)
 
-        # numeric values
-        if event.key >= 48 and event.key <= 57:
-            self.text += chr(event.key)
-
-        # other keys
-        if event.key == 32:
+        # special characters, numeric values
+        if event.key >= 32 and event.key <= 64:
             self.text += chr(event.key)
 
         # enter pressed
         if event.key == 13:
+            enterPressed = True
             self.isFocussed = False
 
         # backspace pressed
@@ -48,7 +50,7 @@ class Textbox:
                 self.text = self.text[0:len(self.text) - 1]
 
         # Execute textChanged callback
-        self.callback(self.game, self, True)
+        self.callback(self.game, self, enterPressed)
 
     def update(self):
         pass
