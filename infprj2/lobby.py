@@ -21,6 +21,12 @@ def update(game):
 
 # asks for the text for the current row / column combination
 def playerlist_gettext(game, row, column):
+    plrcount = game.get_player_count()
+    # print("Row {} Playercount {}".format(row, plrcount))
+
+    if row == plrcount:
+        return "<Unnamed player>"
+
     if not game.players[row].name:
         return "<Unnamed player>"
 
