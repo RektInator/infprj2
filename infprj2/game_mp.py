@@ -10,7 +10,6 @@ import textbox
 import player
 import checkbox
 import math
-import packetevent
 from game import correct_answer
 
 def update(game):
@@ -67,10 +66,61 @@ class GameLogic:
     def __init__(self):
         self.dice = Dice()
     def draw(self, game):
+        # draw players in rows
+        for plr in game.players:
+            plr.draw()
+
         pass
 
 gamelogic = GameLogic()
 
+# Networking callbacks
+def OnClientStart(client, data):
+    # get player by index
+    plr = client.game.get_player_by_index(int(data[1]))
+
+    # set position of current player
+    plr.setpos(int(data[2]), int(data[3]), int(data[4]))
+
+    # debug output
+    print("[DEBUG]: ClientStart packet received, client {} ({}) is starting at position {} {} {}.".format(plr.index, plr.name, plr.pos.col, plr.pos.x, plr.pos.y))
+
+def OnClientMove(client, data):
+    # get player by index
+    plr = client.game.get_player_by_index(int(data[1]))
+
+    # get direction
+    direction = data[2]
+
+    # get steps
+    steps = int(data[3])
+
+    # debug output
+    print("[DEBUG]: ClientMove packet received, client {} ({}) is moving {} steps in direction {}.".format(plr.index, plr.name, steps, direction))
+
+    # update data
+    plr.moves_left = steps
+
+    # loop through steps and update data
+    for x in range(steps):
+        if direction == "up":
+            plr.go_up()
+        elif direction == "left":
+            plr.go_left()
+        elif direction == "right":
+            plr.go_right()
+
+def OnSetPlayerIndex(client, data):
+    # get player by index
+    plr = client.game.get_player_by_index(int(data[1]))
+
+    # debug output
+    print("[DEBUG]: SetPlayerIndex packet received, it's now client {} ({})'s turn.".format(plr.index, plr.name))
+
+    # set current player index
+    client.game.current_player = int(data[1])
+
+# Main draw function
 def draw(game):
     # Background color
     pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))

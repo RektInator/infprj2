@@ -3,6 +3,7 @@ import client
 import commands
 import threading
 import packets
+from packet import Packet
 
 class Server:
     def __init__(self, host, port):
@@ -32,6 +33,7 @@ class Server:
 
     def clientcount(self):
         idx = 0
+
         for x in self.clients:
             idx += 1
         return idx
@@ -44,7 +46,15 @@ class Server:
 
     def start_match(self):
         # let the clients know that the match has been started.
-        self.send_all(bytes("startmatch", "utf-8"))
+        self.send_all(Packet("startmatch", "utf-8").get())
+        
+        # choose a start position for each client
+        for x in self.clients:
+            self.send_all(Packet("clientstart:{}:{}:0:0".format(x.index, idx).get()))
+
+        # tell the clients who's about to start.
+        self.send_all(Packet("setplayerindex:{}".format(self.clients[0].index)).get())
+
         pass
     def connection_loop(self):
         while self.isActive:

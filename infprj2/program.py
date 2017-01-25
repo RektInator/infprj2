@@ -113,7 +113,10 @@ class Game:
         self.isMP = False
 
     def get_current_player(self):
-        return self.players[self.current_player]
+        if not self.isMP:
+            return self.players[self.current_player]
+        else:
+            return self.get_player_by_index(self.current_player)
 
     def set_next_player(self):
 

@@ -1,6 +1,7 @@
 import socket
 import threading
 import player
+import game_mp
 
 class PacketHandler:
     def __init__(self, pack, callback):
@@ -135,6 +136,11 @@ def init(game):
 
     # this means that the lobby is full, and the match is about to begin.
     register_callback("startmatch", lambda client,data: client.game.set_state(9))
+
+    # Game logic callbacks go here
+    register_callback("setplayerindex", game_mp.OnSetPlayerIndex)
+    register_callback("clientmove", game_mp.OnClientMove)
+    register_callback("clientstart", game_mp.OnClientStart)
 
 def connect(game,ip,port):
     game.sockets.setgame(game)
