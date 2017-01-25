@@ -44,6 +44,7 @@ class Game:
         self.name = ""
         self.index = 0
         self.lobbyname = ""
+        self.sockets = packetevent.Client()
     
         # Start PyGame
         pygame.init()

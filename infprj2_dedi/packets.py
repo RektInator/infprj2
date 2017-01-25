@@ -20,6 +20,9 @@ def run(srv, client, args):
         if p.name == args[0]:
             return p.callback(srv, client, args)
 
+    print("[ERROR]: Packet {} is not found!".format(args[0]))
+    return False
+
 # Packet functions go here
 # Packets should return True if succeeded, if you return False, the client
 # that sent the packet, will be disconnected from the server.
@@ -28,6 +31,8 @@ def run(srv, client, args):
 # tell other clients about this change.
 def Packet_Setname(srv,client,args):
     client.name = args[1]
+
+    print("Setname packet received")
 
     # let other clients know about the namechange
     srv.send_all(Packet("namechange:{}:{}".format(client.index, client.name)).get())

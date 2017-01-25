@@ -27,22 +27,28 @@ def thread(serv,sock):
     while True:
         data = sock.recv(1024).decode("utf-8")
 
+        packetdata = data.split("{END}")
+
         # if there is no more data to receive, disconnect the client.
         if not data:
             # print("[INFO]: Client {} lost connection.".format(client.index))
             packets.Packet_Disconnect(serv, client, None)
             break
 
-        # run packet callbacks
-        args = []
-        if " " in data:
-            args = data.split(" ")
-        else:
-            args.append(data)
+        for p in packetdata:
+            if not p:
+                break
 
-        # run the packet
-        if not packets.run(serv, client, args):
-            break
+            # run packet callbacks
+            args = []
+            if ":" in p:
+                args = p.split(":")
+            else:
+                args.append(p)
+
+            # run the packet
+            if not packets.run(serv, client, args):
+                break
 
     # show disconnected client
     print("[INFO]: Client {} disconnected.".format(client.index))

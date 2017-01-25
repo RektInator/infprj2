@@ -72,8 +72,6 @@ class Client:
 
         print("Connected to dedicated server at {}:{}!".format(host, port))
 
-client = Client()
-
 def OnConnectSuccess(client, data):
     client.game.set_state(8)
     client.game.index = int(data[1])
@@ -96,11 +94,11 @@ def init(game):
     register_callback("startmatch", lambda client,data: client.game.set_state(9))
 
 def connect(game,ip,port):
-    client.setgame(game)
+    game.sockets.setgame(game)
 
     # connect to the dedicated server
-    client.connect(ip, port)
+    game.sockets.connect(ip, port)
 
     # send a connect command to the dedicated server, that way it knows we're a player and not a
     # serverlist update request.
-    client.send(bytes("connect", "utf-8"))
+    game.sockets.send(bytes("connect", "utf-8"))

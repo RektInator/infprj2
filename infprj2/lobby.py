@@ -1,14 +1,16 @@
 import pygame
 import textbox
+import packetevent
+from packet import Packet
 
 def draw(game):
     if game.name == "":
         textbox.draw(game)
-    pass
 
 def ExecuteCommand(game,box,isEnterPressed):
     if isEnterPressed:
         game.name = box.text
+        game.sockets.send(Packet("setname:{}".format(box.text)).get())
 
 def update(game):
     pass
