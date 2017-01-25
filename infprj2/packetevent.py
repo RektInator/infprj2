@@ -28,19 +28,25 @@ class Client:
                 print("Lost connection to the host.")
                 break
 
-            print("Received \"{}\" from host.".format(response))
+            print("[DEBUG]: Received \"{}\" from host.".format(response))
 
-            # split the packet data into arguments
-            data = []
-            if ":" in response:
-                data = response.split(":")
-            else:
-                data.append(response)
+            pks = response.split("{END}")
+            for packet in pks:
+                # check if packet even has data.
+                if not packet:
+                    continue
 
-            # run packet callback
-            for x in packets:
-                if x.packet == data[0]:
-                    x.callback(self, data)
+                # split the packet data into arguments
+                packetdata = []
+                if ":" in packet:
+                    packetdata = packet.split(":")
+                else:
+                    packetdata.append(packet)
+
+                # run packet callback
+                for x in packets:
+                    if x.packet == packetdata[0]:
+                        x.callback(self, packetdata)
             
     def disconnect(self):
         pass
@@ -75,7 +81,7 @@ def OnConnectSuccess(client, data):
 
 def OnClientPresenceReceived(client, data):
     if int(data[1]) != client.game.index:
-        print("Presence data for client {} received!", data[1])
+        print("Presence data for client {} received!".format(data[1]))
 
 def init(game):
     # This packet sets the current game state to 8 (lobby) when connectsuccess has been received

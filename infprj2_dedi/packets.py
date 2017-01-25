@@ -1,8 +1,9 @@
 import socket
 import inforequest
+from packet import Packet
 
 # packet class that holds packet information and callback
-class Packet:
+class PacketHandler:
     def __init__(self, name, callback):
         self.name = name
         self.callback = callback
@@ -11,7 +12,7 @@ packets = []
 
 # add a packet into the packets array
 def add(name, callback):
-    packets.append(Packet(name, callback))
+    packets.append(PacketHandler(name, callback))
 
 # run the correct packet module for the incoming data
 def run(srv, client, args):
@@ -29,20 +30,20 @@ def Packet_Setname(srv,client,args):
     client.name = args[1]
 
     # let other clients know about the namechange
-    srv.send_all(bytes("namechange:{}:{}".format(client.index, client.name), 'utf-8'))
+    srv.send_all(Packet("namechange:{}:{}".format(client.index, client.name)).get())
 
     return True
 
 # This packet means that a player has been connected to our lobby, let the other clients know.
 def Packet_ClientConnect(srv,client,args):
     # tell the client it has been accepted.
-    client.send(bytes("connectsuccess:{}".format(client.index), 'utf-8'))
+    client.send(Packet("connectsuccess:{}".format(client.index)).get())
 
     for x in srv.clients:
-        client.send(bytes("playerconnected:{}".format(client.index), 'utf-8'))
+        client.send(Packet("playerconnected:{}".format(x.index)).get())
 
     # let others know about our presence
-    srv.send_all(bytes("playerconnected:{}".format(client.index), 'utf-8'))
+    srv.send_all(Packet("playerconnected:{}".format(client.index)).get())
 
     # we should not get disconnected, so return True.
     return True
@@ -50,7 +51,7 @@ def Packet_ClientConnect(srv,client,args):
 # This packet is fired when a client leaves the game
 def Packet_Disconnect(srv,client,args):
     # let others know that we've been disconnected from the server
-    srv.send_all(bytes("playerdisconnect:{}".format(client.index), 'utf-8'))
+    srv.send_all(Packet("playerdisconnect:{}".format(client.index)).get())
 
     # Disconnect our shit
     return False
