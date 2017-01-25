@@ -145,7 +145,7 @@ class GameLogic:
                 game.get_current_player().go_right()
 
         # Draw dice
-        if game.get_current_player().did_choose_row and not game.get_current_player().direction == None:
+        if game.get_current_player().did_choose_row and not game.get_current_player().direction == None and not game.get_current_player().moves_left:
             if game.get_current_player().isAI:
                 pygame.display.flip()
                 if not game.get_current_player().did_roll:
@@ -166,9 +166,21 @@ def question_chosen(game, idx):
     if translate.translate(game.get_current_player().answers[idx-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
         game.get_current_player().score += 15
         game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
+        corrfont = pygame.font.Font(None, 72)
+        label_1 = corrfont.render("CORRECT!", 1, (0,255,0))
+        size = corrfont.size("CORRECT!")
+        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        pygame.display.flip()
+        time.sleep(0.7)
     else:
         game.get_current_player().score -= 10
         game.set_next_player()
+        corrfont = pygame.font.Font(None, 72)
+        label_1 = corrfont.render("INCORRECT!", 1, (255,0,0))
+        size = corrfont.size("INCORRECT!")
+        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        pygame.display.flip()
+        time.sleep(0.7)
 
 def start_chosen(game, idx):
     game.get_current_player().setpos(idx, 0, 0)
