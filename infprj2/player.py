@@ -42,6 +42,8 @@ class Player:
         self.name = name
     def setai(self, ai):
         self.isAI = ai
+    def setmp(self, mp):
+        self.isMP = mp
     def load(self, row):
         self.name = row["name"]
         self.our_turn = bool(row["ourturn"])

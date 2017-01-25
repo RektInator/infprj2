@@ -11,6 +11,7 @@ import player
 import checkbox
 import math
 import packetevent
+from game import correct_answer
 
 def update(game):
     pass
@@ -62,202 +63,34 @@ class Dice:
             game.screen.blit(label, (702 - self.size[0]/2, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
-def correct_answer(game):
-    for x in range(1,4):
-        if translate.translate(game.get_current_player().answers[x-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
-            return x
-            break
-
-    print("Question {} is incorrect!".format(game.question))
-    return 1
-
 class GameLogic:
     def __init__(self):
         self.dice = Dice()
     def draw(self, game):
-        # draw players in rows
-        for plr in game.players:
-            plr.draw()
-
-        # draw questions etc
-        if game.get_current_player().did_roll and not game.get_current_player().did_answer and not game.get_current_player().moves_left:
-            if not game.get_current_player().did_generate_question:
-
-                # remove existing answers
-                game.get_current_player().answers.clear()
-
-                # add new answers
-                game.get_current_player().answers.append("QUESTION{}_ANSWER1".format(game.question))
-                game.get_current_player().answers.append("QUESTION{}_ANSWER2".format(game.question))
-                game.get_current_player().answers.append("QUESTION{}_ANSWER3".format(game.question))
-                game.get_current_player().answers.append("QUESTION{}".format(game.question))
-
-                # do not re-generate question
-                game.get_current_player().did_generate_question = True
-
-            # draw question popup
-            if not game.get_current_player().isAI:
-                font = pygame.font.Font(None, 20)
-                pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
-                pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
-                game.screen.blit(font.render(translate.translate(game.get_current_player().answers[3]), 1, (255,255,255)), (32,17))
-                button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
-                button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
-                button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
-            else:
-                if random.randrange(1,4) == 2:
-                    question_chosen(game, correct_answer(game))
-                else:
-                    question_chosen(game, random.randrange(1, 4))
-        elif not game.get_current_player().did_roll and not game.get_current_player().did_choose_row:
-            # draw start buttons
-            if not game.get_current_player().isAI:
-                if 1 not in game.chosen:
-                    button.draw(game, 45, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 1))
-                if 2 not in game.chosen:
-                    button.draw(game, 175, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 2))
-                if 3 not in game.chosen:
-                    button.draw(game, 305, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 3))
-                if 4 not in game.chosen:
-                    button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
-            else:
-                time.sleep(0.4)
-                chosen = False
-                while not chosen:
-                    number = random.randrange(1,5)
-                    if not number in game.chosen:
-                        start_chosen(game,number)
-                        chosen = True
-        elif game.get_current_player().direction == None: 
-            if not game.get_current_player().isAI:
-                # draw movement buttons
-                button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().set_direction("up"))
-                button.draw_img(game, game.width - (145 + 40), game.height - 200, 80, 80, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: game.get_current_player().set_direction("left"))
-                button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().set_direction("right"))
-                # button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
-            else:
-                time.sleep(0.3)
-                game.get_current_player().set_direction("up")
-        elif game.get_current_player().moves_left:
-            if game.get_current_player().direction == "up":
-                game.get_current_player().go_up()
-            elif game.get_current_player().direction == "left":
-                game.get_current_player().go_left()
-            elif game.get_current_player().direction == "right":
-                game.get_current_player().go_right()
-
-        # Draw dice
-        if game.get_current_player().did_choose_row and not game.get_current_player().direction == None:
-            if game.get_current_player().isAI:
-                pygame.display.flip()
-                if not game.get_current_player().did_roll:
-                    pygame.display.flip()
-                    time.sleep(0.4)
-                    self.dice.onclick(game)
-    
-            self.dice.draw(game)
+        pass
 
 gamelogic = GameLogic()
 
-def question_chosen(game, idx):
-    # game.set_next_player()
-    # gamelogic.dice.image = "assets\img\die0.png"
-    # check if the question was answerred correctly
-    
-    # increment score for correct question, and set the amount of moves we can make.
-    if translate.translate(game.get_current_player().answers[idx-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
-        game.get_current_player().score += 15
-        game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
-    else:
-        game.get_current_player().score -= 10
-        game.set_next_player()
-
-def start_chosen(game, idx):
-    game.get_current_player().setpos(idx, 0, 0)
-    game.get_current_player().did_choose_row = True
-    game.chosen.append(idx)
-    game.set_next_player()
-
-def SetPlayerCount(game, idx):
-    if idx == 2:
-        game.players.append(player.Player(game))
-        game.players.append(player.Player(game))
-        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
-        checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
-    if idx == 3:
-        game.players.append(player.Player(game))
-        game.players.append(player.Player(game))
-        game.players.append(player.Player(game))
-        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game,game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: SetName(2, game, box))
-        checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
-        checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))
-    if idx == 4:
-        game.players.append(player.Player(game))
-        game.players.append(player.Player(game))
-        game.players.append(player.Player(game))
-        game.players.append(player.Player(game))
-        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: SetName(2, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.65, 250, "", lambda game,box,isEnterPressed: SetName(3, game, box))
-        checkbox.create(game, game.width * 0.7, game.height * 0.20, "AI", False, lambda game,box: SetAI(0, game, box))
-        checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
-        checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))
-        checkbox.create(game, game.width * 0.7, game.height * 0.65, "AI", False, lambda game,box: SetAI(3, game, box))
-
-    game.playercount = idx
-
-def StartGame(game):
-    
-    for x in range(0, game.playercount):
-        if not len(game.players[x].name):
-            return
-
-    game.has_started = True
-
 def draw(game):
-    # Make sure the playername boxes are gone
-    textbox.remove(game)
-    checkbox.remove(game)
-    # Achtergrond kleur
+    # Background color
     pygame.draw.rect(game.screen,(204,204,204),(600,0,game.width * 0.9,game.height * 1))
 
-    # Teken categorie kleur
+    # Paint category colors
     pygame.draw.rect(game.screen,(255,0,0),(32,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(255,239,0),(162,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(52,163,253),(292,32,110,game.height * 0.8))
     pygame.draw.rect(game.screen,(24,208,27),(422,32,110,game.height * 0.8))
     game.screen.blit(pygame.image.load("assets\img\dots.png"), (60, 98))
 
-    # Start onder categorie
-    font = pygame.font.Font(None, 48)
-    font2 = pygame.font.Font(None, 20)
-    font3 = pygame.font.Font(None, 28)
-    # label_1 = font.render("Start", 1, (255,255,255))
-    # size = font.size("Start")
-    # game.screen.blit(label_1,(45, game.height * 0.9))
-    # game.screen.blit(label_1,(175, game.height * 0.9))
-    # game.screen.blit(label_1,(305, game.height * 0.9))
-    # game.screen.blit(label_1,(435, game.height * 0.9))
+    # Alloc font
+    font = pygame.font.Font(None, 28)
 
     # Player turn info
-    turnlabel = font3.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
+    turnlabel = font.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
     game.screen.blit(turnlabel, (0, 0))
 
     # Gamelogic drawing
     gamelogic.draw(game)
-
-# This function is being called when the text in a name box changes
-def SetName(idx, game, box):
-    game.players[idx].setname(box.text)
-
-# This function is called when an AI checkbox is clicked.
-def SetAI(idx, game, box):
-    print("Player {} AI state is {}".format(idx, box.isChecked))
-    game.players[idx].setai(box.isChecked)
 
 def init(game):
     game.isMP = True

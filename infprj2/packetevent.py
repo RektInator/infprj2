@@ -98,6 +98,7 @@ def OnClientPresenceReceived(client, data):
         # create player entry
         plr = player.Player(client.game)
         plr.setindex(int(data[1]))
+        plr.setmp(True)
 
         # append player
         client.game.players.append(plr)
