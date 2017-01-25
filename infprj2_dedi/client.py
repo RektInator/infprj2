@@ -29,6 +29,8 @@ def thread(serv,sock):
 
         # if there is no more data to receive, disconnect the client.
         if not data:
+            # print("[INFO]: Client {} lost connection.".format(client.index))
+            packets.Packet_Disconnect(serv, client, None)
             break
 
         # run packet callbacks

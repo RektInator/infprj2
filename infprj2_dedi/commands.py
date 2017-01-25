@@ -20,8 +20,8 @@ def cmdthread(srv):
         
         cmddata = []
         if len(command):
-            if " " in command:
-                cmddata = command.split(" ")
+            if ":" in command:
+                cmddata = command.split(":")
             else:
                 cmddata.append(command)
 

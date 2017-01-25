@@ -17,10 +17,10 @@ def recv_async_single_thread(ip, port, command, callback, id):
     try:
         # send command and hope for a response
         sock.sendall(command)
-        resp = str(sock.recv(1024))
+        resp = sock.recv(1024).decode("utf-8")
 
-        # if "inforesponse" in resp:
-        callback(id)
+        if "inforesponse" in resp:
+            callback(id, resp)
     except:
         sock.close()
     finally:

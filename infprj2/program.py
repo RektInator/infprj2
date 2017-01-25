@@ -23,6 +23,7 @@ import serverlist
 import instructions
 import lobby
 import console
+import packetevent
 
 class Game:
     def __init__(self):
@@ -44,6 +45,7 @@ class Game:
         pygame.font.init()
 
 		# Init game funcs
+        packetevent.init()
         database.init()
         config.init()
         translate.init()

@@ -40,7 +40,7 @@ class Server:
         clnt.set_index(self.clientcount())
         self.clients.append(clnt)
         
-        print("[INFO]: Client {} connected to the server!".format(self.clientcount()))
+        print("[INFO]: Client {} connected to the server!".format(clnt.index))
 
     def start_match(self):
         # let the clients know that the match has been started.

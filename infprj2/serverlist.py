@@ -5,12 +5,15 @@ import database
 import clientsockets
 import datetime
 import translate
+import time
+
+getmsec = lambda: int(round(time.time() * 1000))
 
 class RawServerEntry:
     def __init__(self, ip, port):
         self.ip = ip
         self.port = port
-        self.starttime = datetime.datetime.now().microsecond
+        self.starttime = getmsec()
         self.received = False
         self.name = ""
         self.players = 0
@@ -20,16 +23,18 @@ servers = []
 
 # this function is called when a server response is received
 # entry contains the reference to the server entry
-def OnServerInfoReceived(entry):
-    curtime = datetime.datetime.now().microsecond
+def OnServerInfoReceived(entry, response):
+    curtime = getmsec()
 
     # if ping is lower than 1000, list server in serverlist
     print("Serverresponse received for server {}:{}!".format(entry.ip, entry.port))
     entry.received = True
 
-    entry.name = "Test lobby"
-    entry.players = 0
-    entry.ping = 10
+    data = response.split(":")
+
+    entry.name = data[1]
+    entry.players = data[2]
+    entry.ping = curtime - entry.starttime
 
 def update(game):
     pass

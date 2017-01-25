@@ -16,7 +16,7 @@ class Client:
         self.port = 0
     def recvthread(self, socket, packet):
         while True:
-            response = socket.recv().decode("utf-8")
+            response = socket.recv(1024).decode("utf-8")
 
             # stop if the connection has been lost
             if not response:
@@ -24,8 +24,8 @@ class Client:
 
             # split the packet data into arguments
             data = []
-            if " " in response:
-                data = response.split(" ")
+            if ":" in response:
+                data = response.split(":")
             else:
                 data.append(response)
 
@@ -39,3 +39,11 @@ class Client:
     def connect(self, host, port):
         self.host = host
         self.port = port
+
+client = None
+
+def init():
+    client = Client()
+
+def connect(ip,port):
+    client.connect(ip, port)
