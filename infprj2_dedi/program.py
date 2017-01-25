@@ -39,7 +39,7 @@ class Server:
     def add_client(self, clnt):
         clnt.set_index(self.clientcount())
         self.clients.append(clnt)
-
+        
         print("[INFO]: Client {} connected to the server!".format(self.clientcount()))
 
     def start_match(self):

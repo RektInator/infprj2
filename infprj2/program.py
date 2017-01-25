@@ -22,6 +22,7 @@ import listbox
 import serverlist
 import instructions
 import lobby
+import console
 
 class Game:
     def __init__(self):
@@ -36,6 +37,7 @@ class Game:
         self.question = 0
         self.chosen = []
         self.winner = ""
+        self.drawconsole = False
     
         # Start PyGame
         pygame.init()
@@ -197,6 +199,9 @@ class Game:
         elif self.state == 8:
             lobby.draw(self)
 
+        if self.drawconsole:
+            console.draw(self)
+
         # Flip buffer
         pygame.display.flip()
 
@@ -228,6 +233,14 @@ def process_events():
                 _game.state = 4
             elif _game.state == 4:
                 _game.state = 2
+        elif event.type == pygame.KEYDOWN and event.key == 96:
+            _game.drawconsole = not _game.drawconsole
+
+            if _game.drawconsole:
+                console.init(_game)
+            else:
+                console.remove(_game)
+
         elif event.type == pygame.KEYDOWN:
             textbox.key_event(event)
         

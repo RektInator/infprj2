@@ -19,16 +19,13 @@ class Client:
 def thread(serv,sock):
     # create client class
     client = Client(sock)
-
+    
     # add client to the server
     serv.add_client(client)
 
-    # let the others know about our presence
-    # serv.send_all(bytes("newclient {} {}{}".format(client.index, "Speler", client.index + 1), 'utf-8'))
-
     # start listening to client
     while True:
-        data = sock.recv().decode("utf-8")
+        data = sock.recv(1024).decode("utf-8")
 
         # if there is no more data to receive, disconnect the client.
         if not data:
@@ -44,6 +41,12 @@ def thread(serv,sock):
         # run the packet
         if not packets.run(serv, client, args):
             break
+
+    # show disconnected client
+    print("[INFO]: Client {} disconnected.".format(client.index))
+
+    # remove current client
+    serv.clients.remove(client)
 
     # disconnect the client
     sock.close()

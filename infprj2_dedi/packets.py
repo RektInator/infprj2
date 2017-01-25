@@ -33,7 +33,19 @@ def Packet_Setname(srv,client,args):
 
     return True
 
+# This packet means that a player has been connected to our lobby, let the other clients know.
+def Packet_ClientConnect(srv,client,args):
+    # let others know about our presence
+    srv.send_all(bytes("playerconnected {}".format(client.index), 'utf-8'))
+
+    # we should not get disconnected, so return True.
+    return True
+
 # init function, registers packet handlers
 def init():
+    # client data packets
+    add("connect", Packet_ClientConnect)
     add("setname", Packet_Setname)
+
+    # serverlist packets
     add("getinfo", inforequest.Packet_GetInfo)
