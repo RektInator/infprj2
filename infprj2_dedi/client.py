@@ -28,7 +28,7 @@ def thread(serv,sock):
 
     # start listening to client
     while True:
-        data = str(sock.recv(1024))
+        data = sock.recv().decode("utf-8")
 
         # if there is no more data to receive, disconnect the client.
         if not data:

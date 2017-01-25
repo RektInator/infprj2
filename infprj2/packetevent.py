@@ -18,13 +18,14 @@ class Client:
         while True:
             response = socket.recv().decode("utf-8")
 
+            # stop if the connection has been lost
             if not response:
                 break
 
             # split the packet data into arguments
             data = []
-            if ":" in response:
-                data = response.split(":")
+            if " " in response:
+                data = response.split(" ")
             else:
                 data.append(response)
 
@@ -38,12 +39,3 @@ class Client:
     def connect(self, host, port):
         self.host = host
         self.port = port
-
-def on_packet_received(packet):
-    pass
-
-def recv_thread(socket):
-    pass
-
-def connect():
-    pass

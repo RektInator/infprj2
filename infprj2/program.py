@@ -21,6 +21,7 @@ import highscores
 import listbox
 import serverlist
 import instructions
+import lobby
 
 class Game:
     def __init__(self):
@@ -143,7 +144,7 @@ class Game:
         elif self.state == 7:
             instructions.init(self)
         elif self.state == 8:
-            savegames.init(self)
+            lobby.init(self)
 
     # updates the game state
     def update(self):
@@ -169,7 +170,7 @@ class Game:
         elif self.state == 7:
             instructions.update(self)
         elif self.state == 8:
-            savegames.update(self)
+            lobby.update(self)
 
     # draws the current frame
     def draw(self):
@@ -194,7 +195,7 @@ class Game:
         elif self.state == 7:
             instructions.draw(self)
         elif self.state == 8:
-            savegames.draw(self)
+            lobby.draw(self)
 
         # Flip buffer
         pygame.display.flip()
