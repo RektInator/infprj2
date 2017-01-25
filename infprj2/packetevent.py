@@ -78,6 +78,7 @@ def OnConnectSuccess(client, data):
     client.game.set_state(8)
     client.game.index = int(data[1])
     client.game.name = ""
+    client.game.lobbyname = data[2]
 
 def OnClientPresenceReceived(client, data):
     if int(data[1]) != client.game.index:

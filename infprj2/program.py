@@ -43,6 +43,7 @@ class Game:
         self.isMP = False
         self.name = ""
         self.index = 0
+        self.lobbyname = ""
     
         # Start PyGame
         pygame.init()
@@ -182,7 +183,7 @@ class Game:
             instructions.update(self)
         elif self.state == 8:
             lobby.update(self)
-        elif self.stae == 9:
+        elif self.state == 9:
             game_mp.update(self)
 
     # draws the current frame

@@ -1,4 +1,5 @@
 import socket
+from packet import Packet
 
 def Packet_GetInfo(srv,client,args):
     # debug print
