@@ -41,13 +41,15 @@ class Game:
         self.winner = ""
         self.drawconsole = False
         self.isMP = False
+        self.name = ""
+        self.index = 0
     
         # Start PyGame
         pygame.init()
         pygame.font.init()
 
 		# Init game funcs
-        packetevent.init()
+        packetevent.init(self)
         database.init()
         config.init()
         translate.init()

@@ -35,6 +35,12 @@ def Packet_Setname(srv,client,args):
 
 # This packet means that a player has been connected to our lobby, let the other clients know.
 def Packet_ClientConnect(srv,client,args):
+    # tell the client it has been accepted.
+    client.send(bytes("connectsuccess:{}".format(client.index), 'utf-8'))
+
+    for x in srv.clients:
+        client.send(bytes("playerconnected:{}".format(client.index), 'utf-8'))
+
     # let others know about our presence
     srv.send_all(bytes("playerconnected:{}".format(client.index), 'utf-8'))
 
