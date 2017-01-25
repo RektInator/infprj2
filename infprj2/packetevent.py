@@ -103,9 +103,9 @@ def OnClientPresenceReceived(client, data):
         client.game.players.append(plr)
 
 def OnClientNameReceived(client, data):
-    if int(data[1]) != client.game.index:
-        if data[2]:
-            print("Name for client {} changed to {}.".format(data[1], data[2]))
+    plr = client.game.get_player_by_index(int(data[1]))
+    plr.name = data[2]
+    print("Name for client {} changed to {}.".format(data[1], data[2]))
 
 def init(game):
     # This packet sets the current game state to 8 (lobby) when connectsuccess has been received
