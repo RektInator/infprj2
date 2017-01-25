@@ -96,6 +96,8 @@
     <Content Include="assets\img\die4.png" />
     <Content Include="assets\img\die5.png" />
     <Content Include="assets\img\die6.png" />
+    <Content Include="assets\img\dots.png" />
+    <Content Include="assets\img\Lego_met_vlag4.png" />
     <Content Include="assets\instructions.txt" />
     <Content Include="assets\img\pijllinks.png" />
     <Content Include="assets\img\pijlomhoog.png" />

@@ -49,6 +49,15 @@ class Dice:
             game.screen.blit(label, (702 - self.size[0]/2, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
+def correct_answer(game):
+    for x in range(1,4):
+        if translate.translate(game.get_current_player().answers[x-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
+            return x
+            break
+
+    print("Question {} is incorrect!".format(game.question))
+    return 1
+
 class GameLogic:
     def __init__(self):
         self.dice = Dice()
@@ -83,7 +92,10 @@ class GameLogic:
                 button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
                 button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
             else:
-                question_chosen(game, random.randrange(1, 4))
+                if random.randrange(1,4) == 2:
+                    question_chosen(game, correct_answer(game))
+                else:
+                    question_chosen(game, random.randrange(1, 4))
         elif not game.get_current_player().did_roll and not game.get_current_player().did_choose_row:
             # draw start buttons
             if not game.get_current_player().isAI:
@@ -178,6 +190,7 @@ def SetPlayerCount(game, idx):
         textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
         textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: SetName(2, game, box))
         textbox.create(game, game.width * 0.3, game.height * 0.65, 250, "", lambda game,box,isEnterPressed: SetName(3, game, box))
+        checkbox.create(game, game.width * 0.7, game.height * 0.20, "AI", False, lambda game,box: SetAI(0, game, box))
         checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
         checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))
         checkbox.create(game, game.width * 0.7, game.height * 0.65, "AI", False, lambda game,box: SetAI(3, game, box))

@@ -15,8 +15,8 @@ def draw(game):
     font = pygame.font.Font(None, 72)
 
     # Termination screen text + colour
-    label_1 = font.render(translate.translate("PLAYER_WON"), 1, (212,175,55))
-    size = font.size(translate.translate("PLAYER_WON"))
+    label_1 = font.render(game.winner + " " + translate.translate("PLAYER_WON"), 1, (212,175,55))
+    size = font.size(game.winner + translate.translate("PLAYER_WON"))
 
     # Placement text in screen
     game.screen.blit(label_1,(int(game.width/2 - (size[0]/2)), game.height*0.1 - (size[1]/2)))

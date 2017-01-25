@@ -34,6 +34,7 @@ class Game:
         self.has_started = False
         self.question = 0
         self.chosen = []
+        self.winner = ""
     
         # Start PyGame
         pygame.init()

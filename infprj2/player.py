@@ -98,6 +98,9 @@ class Player:
             self.game.set_next_player()
 
         self.pos.y += 1
+        if self.pos.y >= 14:
+            self.game.winner = self.name
+            self.game.set_state(3)
 
     # player draw func
     def draw(self):
