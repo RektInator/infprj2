@@ -56,6 +56,13 @@ def Packet_ClientConnect(srv,client,args):
 
 # This packet is fired when a client leaves the game
 def Packet_Disconnect(srv,client,args):
+
+    # close the socket
+    client.sock.close()
+
+    # set disconnecting to true
+    client.isDisconnecting = True
+
     # let others know that we've been disconnected from the server
     srv.send_all(Packet("playerdisconnect:{}".format(client.index)).get())
 

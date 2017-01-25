@@ -26,9 +26,9 @@ class Server:
 
     # sends a message to all clients
     def send_all(self, command):
-        for client in self.clients:
-            if not client.sock._closed:
-                client.send(command)            
+        for cli in self.clients:
+            if not cli.sock._closed and not cli.isDisconnecting:
+                cli.send(command)            
 
     def clientcount(self):
         idx = 0

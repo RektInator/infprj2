@@ -9,12 +9,47 @@ class Client:
         self.name = ""
         self.score = 0
         self.index = -1
+        self.isDisconnecting = False
+
         # sets the index of the current client
     def set_index(self, idx):
         self.index = idx
         # sends the command to the current client
     def send(self, command):
         self.sock.send(command)
+
+def isReceiving(serv, client):
+    try:
+        data = client.sock.recv(1024).decode("utf-8")
+    except:
+        packets.Packet_Disconnect(serv, client, None)
+        return
+
+    # No error occured? client is still active.
+    packetdata = data.split("{END}")
+
+    # if there is no more data to receive, disconnect the client.
+    if not data:
+        # print("[INFO]: Client {} lost connection.".format(client.index))
+        packets.Packet_Disconnect(serv, client, None)
+        return False
+
+    for p in packetdata:
+        if not p:
+            break
+
+        # run packet callbacks
+        args = []
+        if ":" in p:
+            args = p.split(":")
+        else:
+            args.append(p)
+
+        # run the packet
+        if not packets.run(serv, client, args):
+            return False
+
+    return True
 
 def thread(serv,sock):
     # create client class
@@ -24,31 +59,8 @@ def thread(serv,sock):
     serv.add_client(client)
 
     # start listening to client
-    while True:
-        data = sock.recv(1024).decode("utf-8")
-
-        packetdata = data.split("{END}")
-
-        # if there is no more data to receive, disconnect the client.
-        if not data:
-            # print("[INFO]: Client {} lost connection.".format(client.index))
-            packets.Packet_Disconnect(serv, client, None)
-            break
-
-        for p in packetdata:
-            if not p:
-                break
-
-            # run packet callbacks
-            args = []
-            if ":" in p:
-                args = p.split(":")
-            else:
-                args.append(p)
-
-            # run the packet
-            if not packets.run(serv, client, args):
-                break
+    while isReceiving(serv, client):
+        pass
 
     # show disconnected client
     print("[INFO]: Client {} disconnected.".format(client.index))
