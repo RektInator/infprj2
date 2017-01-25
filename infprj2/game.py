@@ -39,7 +39,18 @@ class Dice:
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
         self.image = "assets\img\die{}.png".format(game.get_current_player().dice_roll)
 
-        game.question = random.randrange(1,70)
+        	#Entertainment questions
+        if game.get_current_player().pos.get_col() == 1:
+             game.question = random.randrange(1,31)
+				#History questions
+        elif game.get_current_player().pos.get_col() == 2:
+             game.question = random.randrange(31,44)
+				#Sport questions
+        elif game.get_current_player().pos.get_col() == 3:
+             game.question = random.randrange(44,59)
+				#Geography questions
+        elif game.get_current_player().pos.get_col() == 4:
+             game.question = random.randrange(59,70)
         
     def draw(self,game):
         # dit tekent de die
