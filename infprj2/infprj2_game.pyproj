@@ -55,6 +55,9 @@
     <Compile Include="lobby.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="packet.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="packetevent.py">
       <SubType>Code</SubType>
     </Compile>
