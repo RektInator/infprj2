@@ -40,6 +40,13 @@ class Server:
                 max = x.index
 
         return max
+    def cli_min_index(self):
+        min = self.cli_max_index()
+        for x in self.clients:
+            if x.index < min:
+                min = x.index
+
+        return min
 
     # sends a message to all clients
     def send_all(self, command):
@@ -68,6 +75,11 @@ class Server:
         if self.has_started:
             return
 
+        # set started to true
+        self.has_started = True
+
+        print("[INFO]: Match started.")
+
         # let the clients know that the match has been started.
         self.send_all(Packet("startmatch").get())
         
@@ -92,6 +104,8 @@ class Server:
         self.clients.clear()
         self.emulateablepackets.clear()
         self.current_player = 0
+
+        print("[INFO]: Match stopped.")
 
     def connection_loop(self):
         while self.isActive:

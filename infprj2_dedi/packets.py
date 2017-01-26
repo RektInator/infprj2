@@ -86,7 +86,7 @@ def Packet_Playermove(srv,client,args):
 # This packet is fired when a player is done with his turn
 def Packet_Playermovedone(srv,client,args):
     if client.index == srv.cli_max_index():
-        srv.current_player = 0
+        srv.current_player = srv.cli_min_index()
     else:
         srv.current_player += 1
 
