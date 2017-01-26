@@ -54,6 +54,12 @@ def Cmd_Setname_f(srv, args):
 def Cmd_Stop_f(srv, args):
     srv.stop_match()
 
+# Exit dedicated server
+def Cmd_Exit_f(srv, args):
+    srv.isActive = False
+    srv.sock.close()
+    sys.exit()
+
 # register commands here
 def init():
     add("start", Cmd_Start_f)
@@ -61,3 +67,4 @@ def init():
     add("clientmove", Cmd_Move_f)
     add("setname", Cmd_Setname_f)
     add("stop", Cmd_Stop_f)
+    add("exit", Cmd_Exit_f)
