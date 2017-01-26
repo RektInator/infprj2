@@ -73,8 +73,10 @@ class Player:
     # player movement funcs
     def go_left(self):
         self.moves_left -= 1
-        if not self.moves_left:
+        if not self.ismp and not self.moves_left:
             self.game.set_next_player()
+        if self.ismp and not self.moves_left:
+            return
 
         if self.pos.get_col() == 1 and self.pos.get_x() == 0:
             self.pos.col = 4
@@ -86,8 +88,10 @@ class Player:
             self.pos.x -= 1
     def go_right(self):
         self.moves_left -= 1
-        if not self.moves_left:
+        if not self.ismp and not self.moves_left:
             self.game.set_next_player()
+        if self.ismp and not self.moves_left:
+            return
 
         if self.pos.get_col() == 4 and self.pos.get_x() == 1:
             self.pos.col = 1
@@ -99,8 +103,10 @@ class Player:
             self.pos.x += 1
     def go_up(self):
         self.moves_left -= 1
-        if not self.moves_left:
+        if not self.ismp and not self.moves_left:
             self.game.set_next_player()
+        if self.ismp and not self.moves_left:
+            return
 
         self.pos.y += 1
         if self.pos.y >= 14:

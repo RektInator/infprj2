@@ -205,8 +205,9 @@ def draw(game):
     font = pygame.font.Font(None, 28)
 
     # Player turn info
-    turnlabel = font.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
-    game.screen.blit(turnlabel, (0, 0))
+    if game.get_current_player() is not None:
+        turnlabel = font.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
+        game.screen.blit(turnlabel, (0, 0))
 
     # Gamelogic drawing
     gamelogic.draw(game)
