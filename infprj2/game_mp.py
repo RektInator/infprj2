@@ -218,7 +218,7 @@ def draw(game):
     if game.get_current_player() is not None:
         turnlabel = font.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
         game.screen.blit(turnlabel, (0, 0))
-    if devmode:
+    if config.get("developer_mode"):
         textbox.draw(game)
 
     # Gamelogic drawing
@@ -231,6 +231,5 @@ def callback(game,box,isEnterPressed):
             box.text = ""
 
 def init(game):
-    devmode = config.get("developer_mode")
     textbox.create(game, 32, 550, 300, "", lambda game,box,isEnterPressed: callback(game,box,isEnterPressed))
     game.isMP = True
