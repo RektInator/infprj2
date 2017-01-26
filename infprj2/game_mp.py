@@ -177,14 +177,14 @@ def OnClientMove(client, data):
         corrfont = pygame.font.Font(None, 72)
         label_1 = corrfont.render("CORRECT!", 1, (0,255,0))
         size = corrfont.size("CORRECT!")
-        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        client.game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
         pygame.display.flip()
         time.sleep(0.7)
     else:
         corrfont = pygame.font.Font(None, 72)
         label_1 = corrfont.render("INCORRECT!", 1, (255,0,0))
         size = corrfont.size("INCORRECT!")
-        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        client.game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
         pygame.display.flip()
         time.sleep(0.7)
 
@@ -209,7 +209,7 @@ def OnSetPlayerIndex(client, data):
 
     # set current player index
     client.game.current_player = int(data[1])
-    client.game.get_current_player().our_turn = True
+    plr.our_turn = True
 
 # Main draw function
 def draw(game):
