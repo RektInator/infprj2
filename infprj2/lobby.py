@@ -3,6 +3,7 @@ import textbox
 import packetevent
 import listbox
 import button
+import translate
 from packet import Packet
 
 def draw(game):
