@@ -49,3 +49,4 @@ def Cmd_Move_f(srv, args):
 def init():
     add("start", Cmd_Start_f)
     add("kick", Cmd_Kick_f)
+    add("clientmove", Cmd_Move_f)
