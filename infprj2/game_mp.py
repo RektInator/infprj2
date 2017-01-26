@@ -10,6 +10,7 @@ import textbox
 import player
 import checkbox
 import math
+from packet import Packet
 from game import correct_answer
 
 def update(game):
@@ -62,6 +63,15 @@ class Dice:
             game.screen.blit(label, (702 - self.size[0]/2, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
+def question_chosen(game, idx):
+    if correct_answer(game) == idx:
+        # let the other clients know that we've answerred the question correctly,
+        # therefore update our location
+        game.sockets.send(Packet("playermove:{}:{}".format(game.get_current_player().direction, game.get_current_player().moves_left)).get())
+    
+    # tell the dedicated server that we should move on to the next player
+    game.sockets.send(Packet("movedone").get())
+
 class GameLogic:
     def __init__(self):
         self.dice = Dice()
@@ -69,6 +79,43 @@ class GameLogic:
         # draw players in rows
         for plr in game.players:
             plr.draw()
+
+        # check if its our turn
+        if game.index == game.current_player:
+            if game.get_current_player().did_roll and not game.get_current_player().did_answer and not game.get_current_player().moves_left:
+                if not game.get_current_player().did_generate_question:
+                    # remove existing answers
+                    game.get_current_player().answers.clear()
+
+                    # add new answers
+                    game.get_current_player().answers.append("QUESTION{}_ANSWER1".format(game.question))
+                    game.get_current_player().answers.append("QUESTION{}_ANSWER2".format(game.question))
+                    game.get_current_player().answers.append("QUESTION{}_ANSWER3".format(game.question))
+                    game.get_current_player().answers.append("QUESTION{}".format(game.question))
+
+                    # do not re-generate question
+                    game.get_current_player().did_generate_question = True
+
+                # draw question popup
+                font = pygame.font.Font(None, 20)
+                pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
+                pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
+                game.screen.blit(font.render(translate.translate(game.get_current_player().answers[3]), 1, (255,255,255)), (32,17))
+                button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
+                button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
+                button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
+            elif game.get_current_player().direction == None: 
+                # paint direction buttons
+                button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().set_direction("up"))
+                button.draw_img(game, game.width - (145 + 40), game.height - 200, 80, 80, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: game.get_current_player().set_direction("left"))
+                button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().set_direction("right"))
+
+            # paint dice
+            self.dice.draw()
+        else:
+            # not our turn
+            pass
+        
 
         pass
 

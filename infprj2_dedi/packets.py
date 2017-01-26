@@ -67,12 +67,35 @@ def Packet_Disconnect(srv,client,args):
     # Disconnect our shit
     return False
 
+# This packet is fired when a client moves its position on the board
+def Packet_Playermove(srv,client,args):
+    # obtain data from packet
+    direction = args[1]
+    moves = int(args[2])
+
+    # tell the others about our movement
+    srv.send_all(Packet("clientmove:{}:{}:{}".format(client.index, direction, moves)).get())
+
+    return True
+
+# This packet is fired when a player is done with his turn
+def Packet_Playermovedone(srv,client,args):
+    if client.index == srv.cli_max_index():
+        srv.current_player = 0
+    else:
+        srv.current_player += 1
+
+    # update the player index
+    srv.send_all(Packet("setplayerindex:{}".format(srv.current_player)).get())
+
 # init function, registers packet handlers
 def init():
     # client data packets
     add("connect", Packet_ClientConnect)
     add("setname", Packet_Setname)
     add("disconnect", Packet_Disconnect)
+    add("playermove", Packet_Playermove)
+    add("movedone", Packet_Playermovedone)
 
     # serverlist packets
     add("getinfo", inforequest.Packet_GetInfo)

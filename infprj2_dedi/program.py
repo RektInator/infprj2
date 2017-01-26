@@ -25,6 +25,18 @@ class Server:
         # Server name
         self.name = ""
 
+        # Current turn
+        self.current_player = 0
+
+    # client related shit
+    def cli_max_index(self):
+        max = 0
+        for x in self.clients:
+            if x.index > max:
+                max = x.index
+
+        return max
+
     # sends a message to all clients
     def send_all(self, command):
         for cli in self.clients:
@@ -46,14 +58,17 @@ class Server:
 
     def start_match(self):
         # let the clients know that the match has been started.
-        self.send_all(Packet("startmatch", "utf-8").get())
+        self.send_all(Packet("startmatch").get())
         
         # choose a start position for each client
+        idx = 1
         for x in self.clients:
-            self.send_all(Packet("clientstart:{}:{}:0:0".format(x.index, idx).get()))
+            self.send_all(Packet("clientstart:{}:{}:0:0".format(x.index, idx)).get())
+            idx += 1
 
         # tell the clients who's about to start.
-        self.send_all(Packet("setplayerindex:{}".format(self.clients[0].index)).get())
+        self.current_player = self.clients[0].index
+        self.send_all(Packet("setplayerindex:{}".format(self.current_player)).get())
 
         pass
     def connection_loop(self):
