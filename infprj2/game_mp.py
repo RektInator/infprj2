@@ -177,14 +177,14 @@ def OnClientMove(client, data):
         corrfont = pygame.font.Font(None, 72)
         label_1 = corrfont.render("CORRECT!", 1, (0,255,0))
         size = corrfont.size("CORRECT!")
-        client.game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        client.game.screen.blit(label_1,(int(client.game.width/2 - (size[0]/2 + 45)), client.game.height/5 - (size[1]/2)))
         pygame.display.flip()
         time.sleep(0.7)
     else:
         corrfont = pygame.font.Font(None, 72)
         label_1 = corrfont.render("INCORRECT!", 1, (255,0,0))
         size = corrfont.size("INCORRECT!")
-        client.game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        client.game.screen.blit(label_1,(int(client.game.width/2 - (size[0]/2 + 45)), client.game.height/5 - (size[1]/2)))
         pygame.display.flip()
         time.sleep(0.7)
 
