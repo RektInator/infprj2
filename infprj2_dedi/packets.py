@@ -90,6 +90,11 @@ def Packet_Playermovedone(srv,client,args):
 
     return True
 
+def Packet_Startgame(srv,client,args):
+    srv.start_match()
+
+    return True
+
 # init function, registers packet handlers
 def init():
     # client data packets
@@ -98,6 +103,7 @@ def init():
     add("disconnect", Packet_Disconnect)
     add("playermove", Packet_Playermove)
     add("movedone", Packet_Playermovedone)
+    add("startgame", Packet_Startgame)
 
     # serverlist packets
     add("getinfo", inforequest.Packet_GetInfo)

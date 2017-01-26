@@ -2,6 +2,7 @@ import pygame
 import textbox
 import packetevent
 import listbox
+import button
 from packet import Packet
 
 def draw(game):
@@ -9,6 +10,8 @@ def draw(game):
         textbox.draw(game)
     else:
         listbox.draw(game)
+        if game.players[0].name == game.name:
+            button.draw(game, 32, 32, 100, 32, translate.translate("START_GAME"), 20, (0,0,0), (255,255,255), lambda game: game.sockets.send(Packet("startgame").get()))
 
 def Setname(game,box,isEnterPressed):
     if isEnterPressed:
