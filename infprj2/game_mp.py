@@ -201,7 +201,7 @@ def OnClientMove(client, data):
 
 def OnSetPlayerIndex(client, data):
     # get player by index   
-    client.game.current_player.our_turn = False
+    client.game.get_current_player().our_turn = False
     plr = client.game.get_player_by_index(int(data[1]))
 
     # debug output
@@ -209,7 +209,7 @@ def OnSetPlayerIndex(client, data):
 
     # set current player index
     client.game.current_player = int(data[1])
-    client.game.current_player.our_turn = True
+    client.game.get_current_player().our_turn = True
 
 # Main draw function
 def draw(game):
