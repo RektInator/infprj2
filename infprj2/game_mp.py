@@ -95,6 +95,7 @@ def question_chosen(game, idx):
     plr.did_answer = False
     plr.moves_left = 0
     plr.did_generate_question = False
+    plr.direction = None
 
     # tell the dedicated server that we should move on to the next player
     game.sockets.send(Packet("movedone").get())
@@ -173,29 +174,15 @@ def OnClientMove(client, data):
     # update data
     plr.moves_left = steps
 
-    if steps != 0:
-        corrfont = pygame.font.Font(None, 72)
-        label_1 = corrfont.render("CORRECT!", 1, (0,255,0))
-        size = corrfont.size("CORRECT!")
-        client.game.screen.blit(label_1,(int(client.game.width/2 - (size[0]/2 + 45)), client.game.height/5 - (size[1]/2)))
-        pygame.display.flip()
-        time.sleep(0.7)
-    else:
-        corrfont = pygame.font.Font(None, 72)
-        label_1 = corrfont.render("INCORRECT!", 1, (255,0,0))
-        size = corrfont.size("INCORRECT!")
-        client.game.screen.blit(label_1,(int(client.game.width/2 - (size[0]/2 + 45)), client.game.height/5 - (size[1]/2)))
-        pygame.display.flip()
-        time.sleep(0.7)
-
     # loop through steps and update data
-    for x in range(steps + 1):
-        if direction == "up":
-            plr.go_up()
-        elif direction == "left":
-            plr.go_left()
-        elif direction == "right":
-            plr.go_right()  
+    if steps != 0:
+        for x in range(steps + 1):
+            if direction == "up":
+                plr.go_up()
+            elif direction == "left":
+                plr.go_left()
+            elif direction == "right":
+                plr.go_right()  
 
     plr.moves_left = 0
 
