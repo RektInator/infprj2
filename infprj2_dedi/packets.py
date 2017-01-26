@@ -105,6 +105,11 @@ def Packet_NameChange(srv,client,args):
 
     return True
 
+def Packet_StopMatch(srv,client,args):
+    srv.stop_match()
+
+    return True
+
 # init function, registers packet handlers
 def init():
     # client data packets
@@ -115,6 +120,7 @@ def init():
     add("movedone", Packet_Playermovedone)
     add("startgame", Packet_Startgame)
     add("namechange", Packet_NameChange)
+    add("stopmatch", Packet_StopMatch)
 
     # serverlist packets
     add("getinfo", inforequest.Packet_GetInfo)
