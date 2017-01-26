@@ -11,7 +11,6 @@ import player
 import checkbox
 import math
 from packet import Packet
-from game import correct_answer
 
 def update(game):
     pass
@@ -35,24 +34,28 @@ class Dice:
             pygame.display.flip()
             time.sleep(0.05)
 
+        # get our player index
+        plr = game.get_current_player()
+
         # dit pakt een random nummer van 1 t/m 6 en slaat het op in game.dice_roll
-        game.get_current_player().dice_roll = random.randrange(1, 7)
-        game.get_current_player().did_roll = True
+        plr.dice_roll = random.randrange(1, 7)
+        plr.did_roll = True
+        plr.moves_left = math.ceil(plr.dice_roll / 2)
 
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
-        self.image = "assets\img\die{}.png".format(game.get_current_player().dice_roll)
+        self.image = "assets\img\die{}.png".format(plr.dice_roll)
 
         # Entertainment questions
-        if game.get_current_player().pos.get_col() == 1:
+        if plr.pos.get_col() == 1:
              game.question = random.randrange(1,31)
 		# History questions
-        elif game.get_current_player().pos.get_col() == 2:
+        elif plr.pos.get_col() == 2:
              game.question = random.randrange(31,44)
 		# Sport questions
-        elif game.get_current_player().pos.get_col() == 3:
+        elif plr.pos.get_col() == 3:
              game.question = random.randrange(44,59)
 		# Geography questions
-        elif game.get_current_player().pos.get_col() == 4:
+        elif plr.pos.get_col() == 4:
              game.question = random.randrange(59,70)
         
     def draw(self,game):
@@ -63,12 +66,33 @@ class Dice:
             game.screen.blit(label, (702 - self.size[0]/2, 515))
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
+def correct_answer(plr, qix):
+    for x in range(1,4):
+        if translate.translate(plr.answers[x-1]) == translate.translate("QUESTIONANSWER{}".format(qix)):
+            return x
+
+    print("Question {} is incorrect!".format(qix))
+    return 1
+
 def question_chosen(game, idx):
-    if correct_answer(game) == idx:
+
+    # get current player
+    plr = game.get_current_player()
+
+    correct = correct_answer(plr, game.question)
+    print("[DEBUG]: Answer {} selected, {} is the correct answer.".format(idx, correct))
+
+    if correct == idx:
         # let the other clients know that we've answerred the question correctly,
         # therefore update our location
-        game.sockets.send(Packet("playermove:{}:{}".format(game.get_current_player().direction, game.get_current_player().moves_left)).get())
+        game.sockets.send(Packet("playermove:{}:{}".format(plr.direction, plr.moves_left)).get())
     
+    # reset player data
+    plr.did_roll = False
+    plr.did_answer = False
+    plr.moves_left = 0
+    plr.did_generate_question = False
+
     # tell the dedicated server that we should move on to the next player
     game.sockets.send(Packet("movedone").get())
 
@@ -116,9 +140,6 @@ class GameLogic:
         else:
             # not our turn
             pass
-        
-
-        pass
 
 gamelogic = GameLogic()
 

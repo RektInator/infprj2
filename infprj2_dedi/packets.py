@@ -88,6 +88,8 @@ def Packet_Playermovedone(srv,client,args):
     # update the player index
     srv.send_all(Packet("setplayerindex:{}".format(srv.current_player)).get())
 
+    return True
+
 # init function, registers packet handlers
 def init():
     # client data packets
