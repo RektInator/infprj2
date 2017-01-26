@@ -42,16 +42,16 @@ class Dice:
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
         self.image = "assets\img\die{}.png".format(game.get_current_player().dice_roll)
 
-        	#Entertainment questions
+        # Entertainment questions
         if game.get_current_player().pos.get_col() == 1:
              game.question = random.randrange(1,31)
-				#History questions
+		# History questions
         elif game.get_current_player().pos.get_col() == 2:
              game.question = random.randrange(31,44)
-				#Sport questions
+		# Sport questions
         elif game.get_current_player().pos.get_col() == 3:
              game.question = random.randrange(44,59)
-				#Geography questions
+		# Geography questions
         elif game.get_current_player().pos.get_col() == 4:
              game.question = random.randrange(59,70)
         
@@ -82,36 +82,37 @@ class GameLogic:
 
         # check if its our turn
         if game.index == game.current_player:
-            if game.get_current_player().did_roll and not game.get_current_player().did_answer and not game.get_current_player().moves_left:
-                if not game.get_current_player().did_generate_question:
+            plr = game.get_current_player()
+            if plr.did_roll and not plr.did_answer and not plr.moves_left:
+                if not plr.did_generate_question:
                     # remove existing answers
-                    game.get_current_player().answers.clear()
+                    plr.answers.clear()
 
                     # add new answers
-                    game.get_current_player().answers.append("QUESTION{}_ANSWER1".format(game.question))
-                    game.get_current_player().answers.append("QUESTION{}_ANSWER2".format(game.question))
-                    game.get_current_player().answers.append("QUESTION{}_ANSWER3".format(game.question))
-                    game.get_current_player().answers.append("QUESTION{}".format(game.question))
+                    plr.answers.append("QUESTION{}_ANSWER1".format(game.question))
+                    plr.answers.append("QUESTION{}_ANSWER2".format(game.question))
+                    plr.answers.append("QUESTION{}_ANSWER3".format(game.question))
+                    plr.answers.append("QUESTION{}".format(game.question))
 
                     # do not re-generate question
-                    game.get_current_player().did_generate_question = True
+                    plr.did_generate_question = True
 
                 # draw question popup
                 font = pygame.font.Font(None, 20)
                 pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
                 pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
-                game.screen.blit(font.render(translate.translate(game.get_current_player().answers[3]), 1, (255,255,255)), (32,17))
-                button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
-                button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
-                button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
-            elif game.get_current_player().direction == None: 
+                game.screen.blit(font.render(translate.translate(plr.answers[3]), 1, (255,255,255)), (32,17))
+                button.draw(game, game.width * 0.25,162,300,60, translate.translate(plr.answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
+                button.draw(game, game.width * 0.25,252,300,60, translate.translate(plr.answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
+                button.draw(game, game.width * 0.25,342,300,60, translate.translate(plr.answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
+            elif plr.direction == None: 
                 # paint direction buttons
-                button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: game.get_current_player().set_direction("up"))
-                button.draw_img(game, game.width - (145 + 40), game.height - 200, 80, 80, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: game.get_current_player().set_direction("left"))
-                button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: game.get_current_player().set_direction("right"))
+                button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: plr.set_direction("up"))
+                button.draw_img(game, game.width - (145 + 40), game.height - 200, 80, 80, "", 0, "assets/img/pijllinks.png", (0,0,0), lambda game: plr.set_direction("left"))
+                button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: plr.set_direction("right"))
 
             # paint dice
-            self.dice.draw()
+            self.dice.draw(game)
         else:
             # not our turn
             pass
