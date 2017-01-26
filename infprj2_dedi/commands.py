@@ -1,4 +1,5 @@
 import socket
+from packet import Packet
 
 # command class
 class Command:
@@ -36,8 +37,13 @@ def cmdthread(srv):
 def Cmd_Start_f(srv, args):
     srv.start_match()
 
+# maybe later...
 def Cmd_Kick_f(srv, args):
     pass
+
+# move command
+def Cmd_Move_f(srv, args):
+    srv.send_all(Packet("clientmove:{}:{}:{}".format(args[1], args[2], args[3])).get())
 
 # register commands here
 def init():
