@@ -100,6 +100,11 @@ def Packet_Startgame(srv,client,args):
 
     return True
 
+def Packet_NameChange(srv,client,args):
+    srv.send_all(Packet("namechange:{}:{}".format(args[1], args[2])).get())
+
+    return True
+
 # init function, registers packet handlers
 def init():
     # client data packets
@@ -109,6 +114,7 @@ def init():
     add("playermove", Packet_Playermove)
     add("movedone", Packet_Playermovedone)
     add("startgame", Packet_Startgame)
+    add("namechange", Packet_NameChange)
 
     # serverlist packets
     add("getinfo", inforequest.Packet_GetInfo)
