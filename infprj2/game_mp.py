@@ -10,6 +10,7 @@ import textbox
 import player
 import checkbox
 import math
+import config
 from packet import Packet
 
 def update(game):
@@ -217,9 +218,19 @@ def draw(game):
     if game.get_current_player() is not None:
         turnlabel = font.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
         game.screen.blit(turnlabel, (0, 0))
+    if devmode:
+        textbox.draw(game)
 
     # Gamelogic drawing
     gamelogic.draw(game)
 
+def callback(game,box,isEnterPressed):
+    if isEnterPressed:
+        if box.text != "":
+            game.sockets.send(Packet(box.text.replace("-",":")).get())
+            box.text = ""
+
 def init(game):
+    devmode = config.get("developer_mode")
+    textbox.create(game, 32, 550, 300, "", lambda game,box,isEnterPressed: callback(game,box,isEnterPressed))
     game.isMP = True
