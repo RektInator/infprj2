@@ -131,7 +131,7 @@ def init():
         srv = Server("localhost", 61022)
 
     except socket.error as err:
-        sock.close()
+        srv.sock.close()
         print("[ERROR]: Dedicated server init failed, socket could not be created. Errorcode is {}.".format(err))
         quit()
 
