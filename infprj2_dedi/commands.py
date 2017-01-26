@@ -1,4 +1,5 @@
 import socket
+import sys
 from packet import Packet
 
 # command class
@@ -57,7 +58,14 @@ def Cmd_Stop_f(srv, args):
 # Exit dedicated server
 def Cmd_Exit_f(srv, args):
     srv.isActive = False
-    srv.sock.close()
+    
+    # connect a fake client so accept gets #triggered
+    dummy = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    dummy.connect(("", 61022))    
+    dummy.close()
+
+    #srv.sock.close()
+
     sys.exit()
 
 # register commands here
