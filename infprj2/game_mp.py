@@ -40,7 +40,6 @@ class Dice:
         # dit pakt een random nummer van 1 t/m 6 en slaat het op in game.dice_roll
         plr.dice_roll = random.randrange(1, 7)
         plr.did_roll = True
-        plr.moves_left = math.ceil(plr.dice_roll / 2)
 
         # dit zet het plaatje van de die naar hetgeen wat gegooid is
         self.image = "assets\img\die{}.png".format(plr.dice_roll)
@@ -78,6 +77,7 @@ def question_chosen(game, idx):
 
     # get current player
     plr = game.get_current_player()
+    plr.moves_left = math.ceil(plr.dice_roll / 2)
 
     correct = correct_answer(plr, game.question)
     print("[DEBUG]: Answer {} selected, {} is the correct answer.".format(idx, correct))
