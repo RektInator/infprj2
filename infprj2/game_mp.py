@@ -86,6 +86,9 @@ def question_chosen(game, idx):
         # let the other clients know that we've answerred the question correctly,
         # therefore update our location
         game.sockets.send(Packet("playermove:{}:{}".format(plr.direction, plr.moves_left)).get())
+    else:
+        # send 0 steps so the client knows he got it wrong
+        game.sockets.send(Packet("playermove:{}:0".format(plr.direction)).get())
     
     # reset player data
     plr.did_roll = False
@@ -170,6 +173,21 @@ def OnClientMove(client, data):
     # update data
     plr.moves_left = steps
 
+    if steps != 0:
+        corrfont = pygame.font.Font(None, 72)
+        label_1 = corrfont.render("CORRECT!", 1, (0,255,0))
+        size = corrfont.size("CORRECT!")
+        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        pygame.display.flip()
+        time.sleep(0.7)
+    else:
+        corrfont = pygame.font.Font(None, 72)
+        label_1 = corrfont.render("INCORRECT!", 1, (255,0,0))
+        size = corrfont.size("INCORRECT!")
+        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        pygame.display.flip()
+        time.sleep(0.7)
+
     # loop through steps and update data
     for x in range(steps + 1):
         if direction == "up":
@@ -182,7 +200,8 @@ def OnClientMove(client, data):
     plr.moves_left = 0
 
 def OnSetPlayerIndex(client, data):
-    # get player by index
+    # get player by index   
+    client.game.current_player.our_turn = False
     plr = client.game.get_player_by_index(int(data[1]))
 
     # debug output
@@ -190,6 +209,7 @@ def OnSetPlayerIndex(client, data):
 
     # set current player index
     client.game.current_player = int(data[1])
+    client.game.current_player.our_turn = True
 
 # Main draw function
 def draw(game):
