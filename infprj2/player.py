@@ -30,6 +30,7 @@ class Player:
         self.pos = Position(0, 0, 0)
         self.name = ""
         self.isAI = False
+        self.isMP = False
         self.did_choose_row = False
         self.moves_left = 0
         self.score = 0  
