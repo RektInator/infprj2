@@ -27,6 +27,10 @@ class Server:
 
         # Current turn
         self.current_player = 0
+        self.has_started = False
+
+        # packets that should be emulated for new clients
+        self.emulateablepackets = []
 
     # client related shit
     def cli_max_index(self):
@@ -41,7 +45,10 @@ class Server:
     def send_all(self, command):
         for cli in self.clients:
             if not cli.sock._closed and not cli.isDisconnecting:
-                cli.send(command)            
+                cli.send(command)
+
+        # for the newbies that are connecting at a later point
+        self.emulateablepackets.append(command) 
 
     def clientcount(self):
         idx = 0
@@ -57,6 +64,10 @@ class Server:
         print("[INFO]: Client {} connected to the server!".format(clnt.index))
 
     def start_match(self):
+        # Don't attempt to start a match if its already started
+        if self.has_started:
+            return
+
         # let the clients know that the match has been started.
         self.send_all(Packet("startmatch").get())
         
@@ -71,6 +82,17 @@ class Server:
         self.send_all(Packet("setplayerindex:{}".format(self.current_player)).get())
 
         pass
+
+    def stop_match(self):
+        self.has_started = False
+        
+        for x in self.clients:
+            x.disconnect()
+
+        self.clients.clear()
+        self.emulateablepackets.clear()
+        self.current_player = 0
+
     def connection_loop(self):
         while self.isActive:
             conn, addr = self.accept()

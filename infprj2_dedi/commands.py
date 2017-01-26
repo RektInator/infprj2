@@ -45,8 +45,19 @@ def Cmd_Kick_f(srv, args):
 def Cmd_Move_f(srv, args):
     srv.send_all(Packet("clientmove:{}:{}:{}".format(args[1], args[2], args[3])).get())
 
+# set name command
+def Cmd_Setname_f(srv, args):
+    print("[DEBUG]: Changed name of client {} to {}".format(args[1], args[2]))
+    srv.send_all(Packet("namechange:{}:{}".format(args[1], args[2])).get())
+
+# Stop the current match command
+def Cmd_Stop_f(srv, args):
+    srv.stop_match()
+
 # register commands here
 def init():
     add("start", Cmd_Start_f)
     add("kick", Cmd_Kick_f)
     add("clientmove", Cmd_Move_f)
+    add("setname", Cmd_Setname_f)
+    add("stop", Cmd_Stop_f)

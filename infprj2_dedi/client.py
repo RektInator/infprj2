@@ -17,6 +17,9 @@ class Client:
         # sends the command to the current client
     def send(self, command):
         self.sock.send(command)
+    def disconnect(self):
+        self.isDisconnecting = True
+        self.sock.close()
 
 def isReceiving(serv, client):
     try:

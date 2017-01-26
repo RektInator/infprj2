@@ -35,6 +35,11 @@ def Packet_Setname(srv,client,args):
     # let other clients know about the namechange
     srv.send_all(Packet("namechange:{}:{}".format(client.index, client.name)).get())
 
+    # if the match has already started, let the player connect to the board
+    if srv.has_started:
+        for x in srv.emulateablepackets:
+            client.send(x)
+
     return True
 
 # This packet means that a player has been connected to our lobby, let the other clients know.
