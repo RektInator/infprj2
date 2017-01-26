@@ -171,7 +171,7 @@ def OnClientMove(client, data):
     plr.moves_left = steps
 
     # loop through steps and update data
-    for x in range(steps):
+    for x in range(steps + 1):
         if direction == "up":
             plr.go_up()
         elif direction == "left":
