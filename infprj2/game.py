@@ -141,6 +141,10 @@ class GameLogic:
                             game.get_current_player().set_direction("left")
                         if game.get_current_player().pos.get_col() == plr.pos.get_col() - 1 and game.get_current_player().pos.get_y() == plr.pos.get_y() and plr != game.get_current_player():
                             game.get_current_player().set_direction("right")
+                        if game.get_current_player().pos.get_col() == plr.pos.get_col() + 2 and plr.pos.get_x() == 0 and game.get_current_player().pos.get_y() == plr.pos.get_y() and plr != game.get_current_player():
+                            game.get_current_player().set_direction("left")
+                        if game.get_current_player().pos.get_col() == plr.pos.get_col() - 2 and plr.pos.get_x() == 1 and game.get_current_player().pos.get_y() == plr.pos.get_y() and plr != game.get_current_player():
+                            game.get_current_player().set_direction("right")
                         if game.get_current_player().pos.get_col() == plr.pos.get_col() and game.get_current_player().pos.get_y() == plr.pos.get_y() and game.get_current_player().pos.get_x() == plr.pos.get_x() - 1 and plr != game.get_current_player():
                             game.get_current_player().set_direction("right")
                         if game.get_current_player().pos.get_col() == plr.pos.get_col() and game.get_current_player().pos.get_y() == plr.pos.get_y() and game.get_current_player().pos.get_x() == plr.pos.get_x() + 1 and plr != game.get_current_player():
