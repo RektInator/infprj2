@@ -1,5 +1,6 @@
 import pygame
 import database
+import time
 
 # constant variables
 row_xoff = [32, 162, 292, 422]
@@ -16,6 +17,8 @@ class Position:
         return self.y
     def get_col(self):
         return self.col
+    def get_pos(self):
+        return (self.col, self.x, self.y)
 
 class Player:
     def __init__(self, game):
@@ -72,13 +75,8 @@ class Player:
         database.execute_query("INSERT INTO savegames_player " + cols + " VALUES " + vals)
 
     # player movement funcs
-    def go_left(self):
+    def go_left(self, game):
         self.moves_left -= 1
-        if not self.isMP and not self.moves_left:
-            self.game.set_next_player()
-        if self.isMP and not self.moves_left:
-            return
-
         if self.pos.get_col() == 1 and self.pos.get_x() == 0:
             self.pos.col = 4
             self.pos.x = 1
@@ -87,13 +85,18 @@ class Player:
             self.pos.x = 1
         else:
             self.pos.x -= 1
-    def go_right(self):
-        self.moves_left -= 1
+
         if not self.isMP and not self.moves_left:
+            for player in game.players:
+                if self.pos.get_pos() == player.pos.get_pos() and player != self:
+                    player.move_down(game, 6)
+            self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
             return
 
+    def go_right(self, game):
+        self.moves_left -= 1
         if self.pos.get_col() == 4 and self.pos.get_x() == 1:
             self.pos.col = 1
             self.pos.x = 0
@@ -102,9 +105,23 @@ class Player:
             self.pos.x = 0
         else:
             self.pos.x += 1
-    def go_up(self):
+
+        if not self.isMP and not self.moves_left:
+            for player in game.players:
+                if self.pos.get_pos() == player.pos.get_pos() and player != self:
+                    player.move_down(game, 6)
+            self.direction = None
+            self.game.set_next_player()
+        if self.isMP and not self.moves_left:
+            return
+
+    def go_up(self, game):
         self.moves_left -= 1
         if not self.isMP and not self.moves_left:
+            for player in game.players:
+                if self.pos.get_pos() == player.pos.get_pos() and player != self:
+                    player.move_down(game, 6)
+            self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
             return
@@ -113,6 +130,14 @@ class Player:
         if self.pos.y > 14:
             self.game.winner = self.name
             self.game.set_state(3)
+
+    def move_down(self, game, steps):
+        if not self.isMP and not self.moves_left:
+            for x in range(steps):
+                if self.pos.y > 0:
+                    self.pos.y -= 1
+        if self.isMP and not self.moves_left:
+            return
 
     # player draw func
     def draw(self):

@@ -135,14 +135,27 @@ class GameLogic:
                 # button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             else:
                 time.sleep(0.3)
-                game.get_current_player().set_direction("up")
+                if game.get_current_player().pos.get_y() != 0 and game.get_current_player().pos.get_y() < 13:
+                    for plr in game.players:
+                        if game.get_current_player().pos.get_col() == plr.pos.get_col() + 1 and game.get_current_player().pos.get_y() == plr.pos.get_y() and plr != game.get_current_player():
+                            game.get_current_player().set_direction("left")
+                        if game.get_current_player().pos.get_col() == plr.pos.get_col() - 1 and game.get_current_player().pos.get_y() == plr.pos.get_y() and plr != game.get_current_player():
+                            game.get_current_player().set_direction("right")
+                        if game.get_current_player().pos.get_col() == plr.pos.get_col() and game.get_current_player().pos.get_y() == plr.pos.get_y() and game.get_current_player().pos.get_x() == plr.pos.get_x() - 1 and plr != game.get_current_player():
+                            game.get_current_player().set_direction("right")
+                        if game.get_current_player().pos.get_col() == plr.pos.get_col() and game.get_current_player().pos.get_y() == plr.pos.get_y() and game.get_current_player().pos.get_x() == plr.pos.get_x() + 1 and plr != game.get_current_player():
+                            game.get_current_player().set_direction("left")
+                if game.get_current_player().direction == None:
+                    game.get_current_player().set_direction("up")
         elif game.get_current_player().moves_left:
             if game.get_current_player().direction == "up":
-                game.get_current_player().go_up()
+                game.get_current_player().go_up(game)
             elif game.get_current_player().direction == "left":
-                game.get_current_player().go_left()
+                game.get_current_player().go_left(game)
             elif game.get_current_player().direction == "right":
-                game.get_current_player().go_right()
+                game.get_current_player().go_right(game)
+            elif game.get_current_player().direction == "down":
+                game.get_current_player().go_down(game)
 
         # Draw dice
         if game.get_current_player().did_choose_row and not game.get_current_player().direction == None and not game.get_current_player().moves_left:
@@ -174,6 +187,7 @@ def question_chosen(game, idx):
         time.sleep(0.7)
     else:
         game.get_current_player().score -= 10
+        game.get_current_player().set_direction(None)
         game.set_next_player()
         corrfont = pygame.font.Font(None, 72)
         label_1 = corrfont.render("INCORRECT!", 1, (255,0,0))
