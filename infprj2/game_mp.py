@@ -67,10 +67,12 @@ class Dice:
         button.draw_img(game, game.width - 130, game.height - 70, 64, 64, "", 0, self.image, (0,0,0), self.onclick)
 
 def correct_answer(plr, qix):
+    # loops through the 3 options and checks if it is the same text as the answer
     for x in range(1,4):
         if translate.translate(plr.answers[x-1]) == translate.translate("QUESTIONANSWER{}".format(qix)):
+            # returns the index of the answer
             return x
-
+    # normally breaks the loop when it returns the index, when it didn't find an answer it will go through this
     print("Question {} is incorrect!".format(qix))
     return 1
 
@@ -225,11 +227,14 @@ def draw(game):
     gamelogic.draw(game)
 
 def callback(game,box,isEnterPressed):
+    # callback for the console that sends a packet containing the text of the textbox
     if isEnterPressed:
         if box.text != "":
+            # has .replace("-",":") because our textboxes don't support shift keys
             game.sockets.send(Packet(box.text.replace("-",":")).get())
             box.text = ""
 
 def init(game):
     textbox.create(game, 32, 550, 300, "", lambda game,box,isEnterPressed: callback(game,box,isEnterPressed))
+    # makes it clear for players that the move functions have to behave differently
     game.isMP = True

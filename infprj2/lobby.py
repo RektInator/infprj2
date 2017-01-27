@@ -7,14 +7,17 @@ import translate
 from packet import Packet
 
 def draw(game):
+    # only draws the textbox for name if you haven't set it yet
     if game.name == "":
         textbox.draw(game)
     else:
         listbox.draw(game)
+        # if you are the first in the list, draw button that sends startgame packet on callback
         if game.players[0].name == game.name:
            button.draw(game, 670, 32, 100, 32, translate.translate("START_GAME"), 20, (0,0,0), (255,255,255), lambda game: game.sockets.send(Packet("startgame").get()))
 
 def Setname(game,box,isEnterPressed):
+    # sets the name when enter is pressed
     if isEnterPressed:
         game.name = box.text
         game.sockets.send(Packet("setname:{}".format(box.text)).get())
@@ -42,6 +45,7 @@ def playerlist_click(game, row, column):
 
 # this is being called when the serverlist should update itself
 def playerlist_update(game, box):
+    # gets the amount of players
     box.item_count = game.get_player_count()
 
 def init(game):
