@@ -110,6 +110,11 @@ def Packet_StopMatch(srv,client,args):
 
     return True
 
+def Packet_ThrowDown(srv,client,args):
+    srv.send_all(Packet("clientmove:{}:{}:{}".format(args[1], "down", args[2]).get()))
+
+    return True
+
 # init function, registers packet handlers
 def init():
     # client data packets
@@ -121,6 +126,7 @@ def init():
     add("startgame", Packet_Startgame)
     add("namechange", Packet_NameChange)
     add("stopmatch", Packet_StopMatch)
+    add("throwdown", Packet_ThrowDown)
 
     # serverlist packets
     add("getinfo", inforequest.Packet_GetInfo)

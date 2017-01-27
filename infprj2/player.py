@@ -1,6 +1,7 @@
 import pygame
 import database
 import time
+from packet import Packet
 
 # constant variables
 row_xoff = [32, 162, 292, 422]
@@ -93,6 +94,9 @@ class Player:
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
+            for player in game.players:
+                if self.pos.get_pos() == player.pos.get_pos() and player != self:
+                    game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
 
     def go_right(self, game):
@@ -113,6 +117,9 @@ class Player:
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
+            for player in game.players:
+                if self.pos.get_pos() == player.pos.get_pos() and player != self:
+                    game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
 
     def go_up(self, game):
@@ -124,12 +131,26 @@ class Player:
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
+            for player in game.players:
+                if self.pos.get_pos() == player.pos.get_pos() and player != self:
+                    game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
 
         self.pos.y += 1
         if self.pos.y > 14:
             self.game.winner = self.name
             self.game.set_state(3)
+
+    def go_down(self, game):
+        self.moves_left -= 1
+        if not self.isMP and not self.moves_left:
+            self.direction = None
+            self.game.set_next_player()
+        if self.isMP and not self.moves_left:
+            return
+
+        if self.pos.y > 0:
+            self.pos.y -= 1
 
     def move_down(self, game, steps):
         if not self.isMP and not self.moves_left:
