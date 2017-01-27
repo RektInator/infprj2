@@ -27,6 +27,10 @@ class Server:
 
         # Current turn
         self.current_player = 0
+        self.has_started = False
+
+        # packets that should be emulated for new clients
+        self.emulateablepackets = []
 
     # client related shit
     def cli_max_index(self):
@@ -36,12 +40,22 @@ class Server:
                 max = x.index
 
         return max
+    def cli_min_index(self):
+        min = self.cli_max_index()
+        for x in self.clients:
+            if x.index < min:
+                min = x.index
+
+        return min
 
     # sends a message to all clients
     def send_all(self, command):
         for cli in self.clients:
             if not cli.sock._closed and not cli.isDisconnecting:
-                cli.send(command)            
+                cli.send(command)
+
+        # for the newbies that are connecting at a later point
+        self.emulateablepackets.append(command) 
 
     def clientcount(self):
         idx = 0
@@ -57,6 +71,15 @@ class Server:
         print("[INFO]: Client {} connected to the server!".format(clnt.index))
 
     def start_match(self):
+        # Don't attempt to start a match if its already started
+        if self.has_started:
+            return
+
+        # set started to true
+        self.has_started = True
+
+        print("[INFO]: Match started.")
+
         # let the clients know that the match has been started.
         self.send_all(Packet("startmatch").get())
         
@@ -71,6 +94,19 @@ class Server:
         self.send_all(Packet("setplayerindex:{}".format(self.current_player)).get())
 
         pass
+
+    def stop_match(self):
+        self.has_started = False
+        
+        for x in self.clients:
+            x.disconnect()
+
+        self.clients.clear()
+        self.emulateablepackets.clear()
+        self.current_player = 0
+
+        print("[INFO]: Match stopped.")
+
     def connection_loop(self):
         while self.isActive:
             conn, addr = self.accept()
@@ -95,7 +131,7 @@ def init():
         srv = Server("localhost", 61022)
 
     except socket.error as err:
-        sock.close()
+        srv.sock.close()
         print("[ERROR]: Dedicated server init failed, socket could not be created. Errorcode is {}.".format(err))
         quit()
 

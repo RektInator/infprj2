@@ -27,6 +27,7 @@ class Client:
 
             # stop if the connection has been lost
             if not response:
+                self.game.set_state(0)
                 print("Lost connection to the host.")
                 break
 

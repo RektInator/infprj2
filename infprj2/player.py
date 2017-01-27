@@ -110,7 +110,7 @@ class Player:
             return
 
         self.pos.y += 1
-        if self.pos.y >= 14:
+        if self.pos.y > 14:
             self.game.winner = self.name
             self.game.set_state(3)
 

@@ -28,13 +28,20 @@ def onLanguageChanged(game,box):
         translate.clear()
         translate.init()
 
+def onDeveloperChanged(game,box):
+    if config.get("developer_mode") == "1":
+        config.set("developer_mode", "0")
+    else:
+        config.set("developer_mode", "1")
+
 def textChanged(game, box, enterPressed):
     pass
 
 def init(game):
     # add checkboxes for settings here
-    checkbox.create(game, game.width * 0.3 , game.height * 0.4, translate.translate("MUSIC"), int(config.get("snd_enabled")), onBackgroundMusicChanged) 
-    checkbox.create(game, game.width * 0.3, game.height * 0.55, translate.translate("LANGUAGE"), int(config.get("lang_select")), onLanguageChanged)
+    checkbox.create(game, game.width * 0.3 , game.height * 0.325, translate.translate("MUSIC"), int(config.get("snd_enabled")), onBackgroundMusicChanged) 
+    checkbox.create(game, game.width * 0.3, game.height * 0.475, translate.translate("LANGUAGE"), int(config.get("lang_select")), onLanguageChanged)
+    checkbox.create(game, game.width * 0.3, game.height * 0.625, "Dev mode", int(config.get("developer_mode")), onDeveloperChanged)
 
 def draw(game):
     pygame.draw.rect(game.screen,(255,255,255),(game.width * 0.2,game.height * 0.2,game.width * 0.55,game.height * 0.6))

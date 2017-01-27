@@ -35,6 +35,11 @@ def Packet_Setname(srv,client,args):
     # let other clients know about the namechange
     srv.send_all(Packet("namechange:{}:{}".format(client.index, client.name)).get())
 
+    # if the match has already started, let the player connect to the board
+    if srv.has_started:
+        for x in srv.emulateablepackets:
+            client.send(x)
+
     return True
 
 # This packet means that a player has been connected to our lobby, let the other clients know.
@@ -81,7 +86,7 @@ def Packet_Playermove(srv,client,args):
 # This packet is fired when a player is done with his turn
 def Packet_Playermovedone(srv,client,args):
     if client.index == srv.cli_max_index():
-        srv.current_player = 0
+        srv.current_player = srv.cli_min_index()
     else:
         srv.current_player += 1
 
@@ -95,6 +100,16 @@ def Packet_Startgame(srv,client,args):
 
     return True
 
+def Packet_NameChange(srv,client,args):
+    srv.send_all(Packet("namechange:{}:{}".format(args[1], args[2])).get())
+
+    return True
+
+def Packet_StopMatch(srv,client,args):
+    srv.stop_match()
+
+    return True
+
 # init function, registers packet handlers
 def init():
     # client data packets
@@ -104,6 +119,8 @@ def init():
     add("playermove", Packet_Playermove)
     add("movedone", Packet_Playermovedone)
     add("startgame", Packet_Startgame)
+    add("namechange", Packet_NameChange)
+    add("stopmatch", Packet_StopMatch)
 
     # serverlist packets
     add("getinfo", inforequest.Packet_GetInfo)

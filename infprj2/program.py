@@ -264,13 +264,13 @@ def process_events():
                 _game.state = 4
             elif _game.state == 4:
                 _game.state = 2
-        elif event.type == pygame.KEYDOWN and event.key == 96:
-            _game.drawconsole = not _game.drawconsole
+        # elif event.type == pygame.KEYDOWN and event.key == 96:
+        #    _game.drawconsole = not _game.drawconsole
 
-            if _game.drawconsole:
-                console.init(_game)
-            else:
-                console.remove(_game)
+        #    if _game.drawconsole:
+        #        console.init(_game)
+        #    else:
+        #        console.remove(_game)
 
         elif event.type == pygame.KEYDOWN:
             textbox.key_event(event)
