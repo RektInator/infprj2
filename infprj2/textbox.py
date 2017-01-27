@@ -44,6 +44,15 @@ class Textbox:
             enterPressed = True
             self.isFocussed = False
 
+        if event.key == pygame.K_F1:
+            self.text += "("
+
+        if event.key == pygame.K_F2:
+            self.text += ")"
+
+        if event.key == pygame.K_F3:
+            self.text += '"'
+
         # backspace pressed
         if event.key == 8:
             if len(self.text) >= 1:
