@@ -134,7 +134,19 @@ class GameLogic:
                 # draw question popup
                 font = pygame.font.Font(None, 20)
                 pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
-                pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
+				# change popup according to category
+                # entertainment question popup
+                if game.get_current_player().pos.get_col() == 1: 
+                     pygame.draw.rect(game.screen,(255,0,0),(25,10,game.width*0.8,game.height * 0.9))
+				# history question popup 
+                elif game.get_current_player().pos.get_col() == 2:
+                     pygame.draw.rect(game.screen,(200,200,0),(25,10,game.width*0.8,game.height * 0.9))
+				# sport question popup
+                elif game.get_current_player().pos.get_col() == 3:
+                     pygame.draw.rect(game.screen,(52,163,253),(25,10,game.width*0.8,game.height * 0.9))
+				# geography question popup
+                elif game.get_current_player().pos.get_col() == 4:
+                     pygame.draw.rect(game.screen,(24,208,27),(25,10,game.width*0.8,game.height * 0.9))
                 game.screen.blit(font.render(translate.translate(plr.answers[3]), 1, (255,255,255)), (32,17))
                 button.draw(game, game.width * 0.25,162,300,60, translate.translate(plr.answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
                 button.draw(game, game.width * 0.25,252,300,60, translate.translate(plr.answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
@@ -150,7 +162,8 @@ class GameLogic:
                 button.draw_img(game, game.width - (145 - 40), game.height - 200, 80, 80, "", 0, "assets/img/pijlrechts.png", (0,0,0), lambda game: plr.set_direction("right"))
 
             # paint dice
-            self.dice.draw(game)
+            if plr.direction != None:
+                self.dice.draw(game)
         else:
             # not our turn
             pass

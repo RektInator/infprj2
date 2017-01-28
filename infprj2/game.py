@@ -99,16 +99,17 @@ class GameLogic:
                 font = pygame.font.Font(None, 20)
                 pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
 
-				# Change popup according to category
-                if game.get_current_player().pos.get_col() == 1: #Entertainment question popup
+				# change popup according to category
+                # entertainment question popup
+                if game.get_current_player().pos.get_col() == 1: 
                      pygame.draw.rect(game.screen,(255,0,0),(25,10,game.width*0.8,game.height * 0.9))
-				#History question popup 
+				# history question popup 
                 elif game.get_current_player().pos.get_col() == 2:
                      pygame.draw.rect(game.screen,(200,200,0),(25,10,game.width*0.8,game.height * 0.9))
-				#Sport question popup
+				# sport question popup
                 elif game.get_current_player().pos.get_col() == 3:
                      pygame.draw.rect(game.screen,(52,163,253),(25,10,game.width*0.8,game.height * 0.9))
-				#Geography question popup
+				# geography question popup
                 elif game.get_current_player().pos.get_col() == 4:
                      pygame.draw.rect(game.screen,(24,208,27),(25,10,game.width*0.8,game.height * 0.9))
 
@@ -179,7 +180,7 @@ class GameLogic:
             elif game.get_current_player().direction == "down":
                 game.get_current_player().go_down()
 
-        # Draw dice
+        # draw die
         if game.get_current_player().did_choose_row and not game.get_current_player().direction == None and not game.get_current_player().moves_left:
             if game.get_current_player().isAI:
                 pygame.display.flip()
