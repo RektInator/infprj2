@@ -98,7 +98,20 @@ class GameLogic:
             if not game.get_current_player().isAI:
                 font = pygame.font.Font(None, 20)
                 pygame.draw.rect(game.screen,(255,255,255),(24,9,game.width*0.8 + 2,game.height * 0.9 + 2))
-                pygame.draw.rect(game.screen,(153,146,245),(25,10,game.width*0.8,game.height * 0.9))
+
+				# Change popup according to category
+                if game.get_current_player().pos.get_col() == 1: #Entertainment question popup
+                     pygame.draw.rect(game.screen,(255,0,0),(25,10,game.width*0.8,game.height * 0.9))
+				#History question popup 
+                elif game.get_current_player().pos.get_col() == 2:
+                     pygame.draw.rect(game.screen,(255,239,0),(25,10,game.width*0.8,game.height * 0.9))
+				#Sport question popup
+                elif game.get_current_player().pos.get_col() == 3:
+                     pygame.draw.rect(game.screen,(52,163,253),(25,10,game.width*0.8,game.height * 0.9))
+				#Geography question popup
+                elif game.get_current_player().pos.get_col() == 4:
+                     pygame.draw.rect(game.screen,(24,208,27),(25,10,game.width*0.8,game.height * 0.9))
+
                 game.screen.blit(font.render(translate.translate(game.get_current_player().answers[3]), 1, (255,255,255)), (32,17))
                 button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
                 button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
