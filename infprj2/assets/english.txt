@@ -348,7 +348,7 @@ LANGUAGE,Language
 OPTIONS,Options
 BACK,Back
 QUIT,Quit
-PLAYER_WON,YOU WON!!
+PLAYER_WON,has won!!
 REFRESH,Refresh
 PLAYER,PLAYER
 ROLL,Roll the dice!!

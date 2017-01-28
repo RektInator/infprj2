@@ -91,13 +91,13 @@ class Player:
         if not self.isMP and not self.moves_left:
             for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
-                    player.move_down(game, 6)
+                    player.move_down(6)
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
-            for player in self.game.players:
-                if self.pos.get_pos() == player.pos.get_pos() and player != self:
-                    game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
+            #for player in self.game.players:
+            #    if self.pos.get_pos() == player.pos.get_pos() and player != self:
+            #        game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
 
     def go_right(self):
@@ -114,13 +114,13 @@ class Player:
         if not self.isMP and not self.moves_left:
             for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
-                    player.move_down(game, 6)
+                    player.move_down(6)
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
-            for player in self.game.players:
-                if self.pos.get_pos() == player.pos.get_pos() and player != self:
-                    game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
+            #for player in self.game.players:
+            #    if self.pos.get_pos() == player.pos.get_pos() and player != self:
+            #        game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
 
     def go_up(self):
@@ -128,13 +128,13 @@ class Player:
         if not self.isMP and not self.moves_left:
             for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
-                    player.move_down(game, 6)
+                    player.move_down(6)
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
-            for player in self.game.players:
-                if self.pos.get_pos() == player.pos.get_pos() and player != self:
-                    game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
+            #for player in self.game.players:
+            #    if self.pos.get_pos() == player.pos.get_pos() and player != self:
+            #        game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
 
         self.pos.y += 1
@@ -153,7 +153,7 @@ class Player:
         if self.pos.y > 0:
             self.pos.y -= 1
 
-    def move_down(self, game, steps):
+    def move_down(self, steps):
         if not self.isMP and not self.moves_left:
             for x in range(steps):
                 if self.pos.y > 0:

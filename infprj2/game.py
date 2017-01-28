@@ -210,12 +210,15 @@ def question_chosen(game, idx):
         pygame.display.flip()
         time.sleep(0.7)
     elif translate.translate(game.get_current_player().answers[idx-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
-        game.get_current_player().score += 15
         game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
+        game.get_current_player().score += (15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)
         corrfont = pygame.font.Font(None, 72)
         label_1 = corrfont.render("CORRECT!", 1, (0,255,0))
+        label_2 = (pygame.font.Font(None, 30)).render("+" + str((15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)) + " score", 1, (0,255,0))
         size = corrfont.size("CORRECT!")
-        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        size2 =  (pygame.font.Font(None, 30)).size("+" + str((15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)) + " score")
+        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5.5 - (size[1]/2)))
+        game.screen.blit(label_2,(int(game.width/2 - (size[0]/2 - 25)), game.height/5 - (size[1]/2) + 35))
         pygame.display.flip()
         time.sleep(0.7)
     else:
@@ -224,8 +227,11 @@ def question_chosen(game, idx):
         game.set_next_player()
         corrfont = pygame.font.Font(None, 72)
         label_1 = corrfont.render("INCORRECT!", 1, (255,0,0))
+        label_2 = (pygame.font.Font(None, 30)).render("-10 score", 1, (255,0,0))
         size = corrfont.size("INCORRECT!")
-        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        size2 =  (pygame.font.Font(None, 30)).size("-10 score")
+        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5.5 - (size[1]/2)))
+        game.screen.blit(label_2,(int(game.width/2 - (size[0]/2 - 50)), game.height/5 - (size[1]/2) + 35))
         pygame.display.flip()
         time.sleep(0.7)
 
@@ -304,6 +310,9 @@ def draw(game):
         # Player turn info
         turnlabel = font3.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
         game.screen.blit(turnlabel, (0, 0))
+        game.screen.blit(font.render("SCORES:", 1, (0,0,0)), (700 - font.size("SCORES:")[0]/2, 10))
+        for x in range(game.playercount):
+            game.screen.blit(font3.render(str(game.players[x].name) + ": " + str(game.players[x].score), 1, (0,0,0)), (700 - font3.size(str(game.players[x].name) + ": " + str(game.players[x].score))[0]/2, 50 + x*25))
 
         # Gamelogic drawing
         gamelogic.draw(game)
