@@ -158,13 +158,13 @@ class GameLogic:
                     game.get_current_player().set_direction("up")
         elif game.get_current_player().moves_left:
             if game.get_current_player().direction == "up":
-                game.get_current_player().go_up(game)
+                game.get_current_player().go_up()
             elif game.get_current_player().direction == "left":
-                game.get_current_player().go_left(game)
+                game.get_current_player().go_left()
             elif game.get_current_player().direction == "right":
-                game.get_current_player().go_right(game)
+                game.get_current_player().go_right()
             elif game.get_current_player().direction == "down":
-                game.get_current_player().go_down(game)
+                game.get_current_player().go_down()
 
         # Draw dice
         if game.get_current_player().did_choose_row and not game.get_current_player().direction == None and not game.get_current_player().moves_left:

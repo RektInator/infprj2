@@ -77,7 +77,7 @@ class Player:
         database.execute_query("INSERT INTO savegames_player " + cols + " VALUES " + vals)
 
     # player movement funcs
-    def go_left(self, game):
+    def go_left(self):
         self.moves_left -= 1
         if self.pos.get_col() == 1 and self.pos.get_x() == 0:
             self.pos.col = 4
@@ -89,18 +89,18 @@ class Player:
             self.pos.x -= 1
 
         if not self.isMP and not self.moves_left:
-            for player in game.players:
+            for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
                     player.move_down(game, 6)
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
-            for player in game.players:
+            for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
                     game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
 
-    def go_right(self, game):
+    def go_right(self):
         self.moves_left -= 1
         if self.pos.get_col() == 4 and self.pos.get_x() == 1:
             self.pos.col = 1
@@ -112,27 +112,27 @@ class Player:
             self.pos.x += 1
 
         if not self.isMP and not self.moves_left:
-            for player in game.players:
+            for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
                     player.move_down(game, 6)
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
-            for player in game.players:
+            for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
                     game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
 
-    def go_up(self, game):
+    def go_up(self):
         self.moves_left -= 1
         if not self.isMP and not self.moves_left:
-            for player in game.players:
+            for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
                     player.move_down(game, 6)
             self.direction = None
             self.game.set_next_player()
         if self.isMP and not self.moves_left:
-            for player in game.players:
+            for player in self.game.players:
                 if self.pos.get_pos() == player.pos.get_pos() and player != self:
                     game.sockets.send(Packet("throwdown:{}:6".format(plr.index)).get())
             return
@@ -142,7 +142,7 @@ class Player:
             self.game.winner = self.name
             self.game.set_state(3)
 
-    def go_down(self, game):
+    def go_down(self):
         self.moves_left -= 1
         if not self.isMP and not self.moves_left:
             self.direction = None
