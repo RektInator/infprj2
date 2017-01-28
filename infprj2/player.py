@@ -39,6 +39,7 @@ class Player:
         self.moves_left = 0
         self.score = 0  
         self.direction = None
+        self.turn_start = 0
     def setindex(self, index):
         self.index = index
     def setpos(self, col, x, y):

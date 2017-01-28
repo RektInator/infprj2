@@ -357,3 +357,4 @@ LOAD,Laad
 AMOUNT,Kies aantal spelers:
 MAKE,Maak nieuwe spelers:
 START_GAME,Start spel
+OVERTIME, TIJD IS OM!

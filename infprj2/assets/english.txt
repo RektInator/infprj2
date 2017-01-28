@@ -357,3 +357,4 @@ LOAD,Load
 AMOUNT,Choose amount of players:
 MAKE,Make new players:
 START_GAME,Start game
+OVERTIME,TIME IS UP!

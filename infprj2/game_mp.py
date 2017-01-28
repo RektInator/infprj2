@@ -57,6 +57,7 @@ class Dice:
 		# Geography questions
         elif plr.pos.get_col() == 4:
              game.question = random.randrange(59,70)
+        game.get_current_player().turn_start = time.clock()
         
     def draw(self,game):
         # dit tekent de die
@@ -85,7 +86,9 @@ def question_chosen(game, idx):
     correct = correct_answer(plr, game.question)
     print("[DEBUG]: Answer {} selected, {} is the correct answer.".format(idx, correct))
 
-    if correct == idx:
+    if idx == 5:
+        game.sockets.send(Packet("movedone".format(plr.direction)).get())
+    elif correct == idx:
         # let the other clients know that we've answerred the question correctly,
         # therefore update our location
         game.sockets.send(Packet("playermove:{}:{}".format(plr.direction, plr.moves_left)).get())
@@ -136,6 +139,10 @@ class GameLogic:
                 button.draw(game, game.width * 0.25,162,300,60, translate.translate(plr.answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
                 button.draw(game, game.width * 0.25,252,300,60, translate.translate(plr.answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
                 button.draw(game, game.width * 0.25,342,300,60, translate.translate(plr.answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
+                if math.floor((time.clock() - game.get_current_player().turn_start) / 2) < 11:
+                    game.screen.blit(pygame.image.load("assets\img\hourglass{}.png".format(math.floor((time.clock() - game.get_current_player().turn_start) / 2))), (600, 40))
+                else:
+                    question_chosen(game, 5)
             elif plr.direction == None: 
                 # paint direction buttons
                 button.draw_img(game, game.width - 145, game.height - 264, 80, 80, "", 0, "assets/img/pijlomhoog.png", (0,0,0), lambda game: plr.set_direction("up"))

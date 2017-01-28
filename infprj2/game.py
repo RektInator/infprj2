@@ -51,6 +51,7 @@ class Dice:
 				#Geography questions
         elif game.get_current_player().pos.get_col() == 4:
              game.question = random.randrange(59,70)
+        game.get_current_player().turn_start = time.clock()
         
     def draw(self,game):
         # dit tekent de die
@@ -102,6 +103,10 @@ class GameLogic:
                 button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
                 button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
                 button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
+                if math.floor((time.clock() - game.get_current_player().turn_start) / 2) < 11:
+                    game.screen.blit(pygame.image.load("assets\img\hourglass{}.png".format(math.floor((time.clock() - game.get_current_player().turn_start) / 2))), (600, 40))
+                else:
+                    question_chosen(game, 5)
             else:
                 if random.randrange(1,4) == 2:
                     question_chosen(game, correct_answer(game))
@@ -178,9 +183,20 @@ def question_chosen(game, idx):
     # game.set_next_player()
     # gamelogic.dice.image = "assets\img\die0.png"
     # check if the question was answerred correctly
-    
     # increment score for correct question, and set the amount of moves we can make.
-    if translate.translate(game.get_current_player().answers[idx-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
+    game.get_current_player().turn_start = 0
+
+    if idx == 5:
+        game.get_current_player().score -= 10
+        game.get_current_player().set_direction(None)
+        game.set_next_player()
+        corrfont = pygame.font.Font(None, 72)
+        label_1 = corrfont.render(translate.translate("OVERTIME"), 1, (255,0,0))
+        size = corrfont.size(translate.translate("OVERTIME"))
+        game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
+        pygame.display.flip()
+        time.sleep(0.7)
+    elif translate.translate(game.get_current_player().answers[idx-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
         game.get_current_player().score += 15
         game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
         corrfont = pygame.font.Font(None, 72)
