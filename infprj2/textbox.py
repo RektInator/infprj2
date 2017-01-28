@@ -1,5 +1,7 @@
 # Import pygame
 import pygame
+import time
+import math
 
 class Textbox:
     def __init__(self, game, x, y, width, text, callback):
@@ -13,10 +15,13 @@ class Textbox:
         self.height = 32
         self.font = pygame.font.Font(None, 20)
         self.isFocussed = False
+        self.timer = time.clock()
     def draw(self):
         pygame.draw.rect(self.game.screen, (0,0,0), (self.x-1, self.y-1, self.width+2, self.height+2))
         pygame.draw.rect(self.game.screen, self.color, (self.x, self.y, self.width, self.height))
         textsize = self.font.size(self.text)
+        if self.isFocussed == True and math.floor(((time.clock() - self.timer) / 0.5) % 2) == 0:
+            pygame.draw.line(self.game.screen, (0,0,0), (self.x + textsize[0] + 5, self.y + 7), (self.x + textsize[0] + 5, self.y + 22))
         self.btn_text = self.font.render(self.text, 1, (0,0,0))
         self.game.screen.blit(self.btn_text, (self.x + 3, self.y + self.height/2 - (textsize[1]/2)))
     def click(self):
@@ -26,6 +31,7 @@ class Textbox:
     def key_pressed(self, event):
 
         enterPressed = False
+        self.timer = time.clock()
 
         # A-Z
         if event.key >= 65 and event.key <= 90:
@@ -75,9 +81,6 @@ def click(pos):
             if pos[1] > btn.y and pos[1] < btn.height + btn.y:
                 # execute button callback
                 btn.click()
-
-                # Buttons shouldn't overlap. Break loop to increase performance
-                break
             else:
                 btn.unfocus()
         else:
