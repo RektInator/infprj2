@@ -151,7 +151,7 @@ class GameLogic:
                 button.draw(game, game.width * 0.25,162,300,60, translate.translate(plr.answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
                 button.draw(game, game.width * 0.25,252,300,60, translate.translate(plr.answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
                 button.draw(game, game.width * 0.25,342,300,60, translate.translate(plr.answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
-                if math.floor((time.clock() - game.get_current_player().turn_start) / 2) < 11:
+                if math.floor((time.clock() - game.get_current_player().turn_start) / 2) < 12:
                     game.screen.blit(pygame.image.load("assets\img\hourglass{}.png".format(math.floor((time.clock() - game.get_current_player().turn_start) / 2))), (600, 40))
                 else:
                     question_chosen(game, 5)
@@ -207,7 +207,7 @@ def OnClientMove(client, data):
             elif direction == "right":
                 plr.go_right()
             elif direction == "down":
-                plr.go_down() 
+                plr.go_down()
 
     plr.moves_left = 0
 

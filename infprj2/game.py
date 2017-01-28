@@ -117,7 +117,7 @@ class GameLogic:
                 button.draw(game, game.width * 0.25,162,300,60, translate.translate(game.get_current_player().answers[0]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 1))
                 button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
                 button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
-                if math.floor((time.clock() - game.get_current_player().turn_start) / 2) < 11:
+                if math.floor((time.clock() - game.get_current_player().turn_start) / 2) < 12:
                     game.screen.blit(pygame.image.load("assets\img\hourglass{}.png".format(math.floor((time.clock() - game.get_current_player().turn_start) / 2))), (600, 40))
                 else:
                     question_chosen(game, 5)
@@ -154,7 +154,7 @@ class GameLogic:
                 # button.draw(game, 435, game.height * 0.9, 100, 32, "Start", 20, (0,0,0), (255,255,255), lambda game: start_chosen(game, 4))
             else:
                 time.sleep(0.3)
-                if game.get_current_player().pos.get_y() != 0 and game.get_current_player().pos.get_y() < 13:
+                if game.get_current_player().pos.get_y() > 2 and game.get_current_player().pos.get_y() < 13:
                     for plr in game.players:
                         if game.get_current_player().pos.get_col() == plr.pos.get_col() + 1 and game.get_current_player().pos.get_y() == plr.pos.get_y() and plr != game.get_current_player():
                             game.get_current_player().set_direction("left")

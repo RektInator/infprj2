@@ -79,7 +79,12 @@ class Player:
     # player movement funcs
     def go_left(self):
         self.moves_left -= 1
-        if self.pos.get_col() == 1 and self.pos.get_x() == 0:
+        if self.pos.y > 10:
+            if self.pos.col != 1:
+                self.pos.col -= 1
+            else:
+                self.pos.col = 4
+        elif self.pos.get_col() == 1 and self.pos.get_x() == 0:
             self.pos.col = 4
             self.pos.x = 1
         elif self.pos.x == 0:
@@ -102,7 +107,12 @@ class Player:
 
     def go_right(self):
         self.moves_left -= 1
-        if self.pos.get_col() == 4 and self.pos.get_x() == 1:
+        if self.pos.y > 10:
+            if self.pos.col != 4:
+                self.pos.col += 1
+            else:
+                self.pos.col = 1
+        elif self.pos.get_col() == 4 and self.pos.get_x() == 1:
             self.pos.col = 1
             self.pos.x = 0
         elif self.pos.x == 1:
@@ -138,6 +148,8 @@ class Player:
             return
 
         self.pos.y += 1
+        if self.pos.x == 1 and self.pos.y == 10:
+            self.pos.x = 0
         if self.pos.y > 14:
             self.game.winner = self.name
             self.game.set_state(3)
@@ -167,6 +179,8 @@ class Player:
             # player coordinates
             xpos = row_xoff[self.pos.col - 1] + row_xoff_s[self.pos.x]
             ypos = (480 - (self.pos.y * 27))
+            if self.pos.y > 9:
+                xpos += 18
 
             # draw player name
             font = pygame.font.Font(None, 20)
