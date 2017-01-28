@@ -192,7 +192,9 @@ def OnClientMove(client, data):
             elif direction == "left":
                 plr.go_left()
             elif direction == "right":
-                plr.go_right()  
+                plr.go_right()
+            elif direction == "down":
+                plr.go_right() 
 
     plr.moves_left = 0
 
