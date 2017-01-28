@@ -104,7 +104,7 @@ class GameLogic:
                      pygame.draw.rect(game.screen,(255,0,0),(25,10,game.width*0.8,game.height * 0.9))
 				#History question popup 
                 elif game.get_current_player().pos.get_col() == 2:
-                     pygame.draw.rect(game.screen,(255,239,0),(25,10,game.width*0.8,game.height * 0.9))
+                     pygame.draw.rect(game.screen,(200,200,0),(25,10,game.width*0.8,game.height * 0.9))
 				#Sport question popup
                 elif game.get_current_player().pos.get_col() == 3:
                      pygame.draw.rect(game.screen,(52,163,253),(25,10,game.width*0.8,game.height * 0.9))
@@ -204,7 +204,7 @@ def question_chosen(game, idx):
         game.get_current_player().set_direction(None)
         game.set_next_player()
         corrfont = pygame.font.Font(None, 72)
-        label_1 = corrfont.render(translate.translate("OVERTIME"), 1, (255,0,0))
+        label_1 = corrfont.render(translate.translate("OVERTIME"), 1, (200,0,0))
         size = corrfont.size(translate.translate("OVERTIME"))
         game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5 - (size[1]/2)))
         pygame.display.flip()
@@ -213,8 +213,8 @@ def question_chosen(game, idx):
         game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
         game.get_current_player().score += (15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)
         corrfont = pygame.font.Font(None, 72)
-        label_1 = corrfont.render("CORRECT!", 1, (0,255,0))
-        label_2 = (pygame.font.Font(None, 30)).render("+" + str((15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)) + " score", 1, (0,255,0))
+        label_1 = corrfont.render("CORRECT!", 1, (0,200,0))
+        label_2 = (pygame.font.Font(None, 30)).render("+" + str((15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)) + " score", 1, (0,200,0))
         size = corrfont.size("CORRECT!")
         size2 =  (pygame.font.Font(None, 30)).size("+" + str((15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)) + " score")
         game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5.5 - (size[1]/2)))
@@ -226,8 +226,8 @@ def question_chosen(game, idx):
         game.get_current_player().set_direction(None)
         game.set_next_player()
         corrfont = pygame.font.Font(None, 72)
-        label_1 = corrfont.render("INCORRECT!", 1, (255,0,0))
-        label_2 = (pygame.font.Font(None, 30)).render("-10 score", 1, (255,0,0))
+        label_1 = corrfont.render("INCORRECT!", 1, (200,0,0))
+        label_2 = (pygame.font.Font(None, 30)).render("-10 score", 1, (200,0,0))
         size = corrfont.size("INCORRECT!")
         size2 =  (pygame.font.Font(None, 30)).size("-10 score")
         game.screen.blit(label_1,(int(game.width/2 - (size[0]/2 + 45)), game.height/5.5 - (size[1]/2)))
