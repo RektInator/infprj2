@@ -312,8 +312,9 @@ def draw(game):
         turnlabel = font3.render("It's \"{}'s\" turn.".format(game.get_current_player().name), 1, (255,255,255))
         game.screen.blit(turnlabel, (0, 0))
         game.screen.blit(font.render("SCORES:", 1, (0,0,0)), (700 - font.size("SCORES:")[0]/2, 10))
+        sortedlist = sorted(game.players, key=lambda x: x.score, reverse=True)
         for x in range(game.playercount):
-            game.screen.blit(font3.render(str(game.players[x].name) + ": " + str(game.players[x].score), 1, (0,0,0)), (700 - font3.size(str(game.players[x].name) + ": " + str(game.players[x].score))[0]/2, 50 + x*25))
+            game.screen.blit(font3.render(str(sortedlist[x].name) + ": " + str(sortedlist[x].score), 1, (0,0,0)), (700 - font3.size(str(sortedlist[x].name) + ": " + str(sortedlist[x].score))[0]/2, 50 + x*25))
 
         # Gamelogic drawing
         gamelogic.draw(game)
