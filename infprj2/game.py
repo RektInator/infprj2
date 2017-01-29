@@ -242,20 +242,28 @@ def start_chosen(game, idx):
     game.chosen.append(idx)
     game.set_next_player()
 
+def TBcallback(game, box, isEnterPressed, id, next):
+    SetName(id, game, box)
+    if isEnterPressed == True and next != None:
+        textbox.textfields[id].isFocussed = False
+        textbox.textfields[next].isFocussed = True
+    elif isEnterPressed == True and next == None:
+        textbox.textfields[id].isFocussed = False
+
 def SetPlayerCount(game, idx):
     if idx == 2:
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
-        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 0, 1))
+        textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 1, None))
         checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
     if idx == 3:
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
-        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game,game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: SetName(2, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 0, 1))
+        textbox.create(game,game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 1, 2))
+        textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 2, None))
         checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
         checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))
     if idx == 4:
@@ -263,10 +271,10 @@ def SetPlayerCount(game, idx):
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
-        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: SetName(0, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: SetName(1, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: SetName(2, game, box))
-        textbox.create(game, game.width * 0.3, game.height * 0.65, 250, "", lambda game,box,isEnterPressed: SetName(3, game, box))
+        textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 0, 1))
+        textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 1, 2))
+        textbox.create(game, game.width * 0.3, game.height * 0.50, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 2, 3))
+        textbox.create(game, game.width * 0.3, game.height * 0.65, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 3, None))
         checkbox.create(game, game.width * 0.7, game.height * 0.20, "AI", False, lambda game,box: SetAI(0, game, box))
         checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
         checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))

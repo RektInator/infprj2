@@ -48,7 +48,8 @@ class Textbox:
         # enter pressed
         if event.key == 13:
             enterPressed = True
-            self.isFocussed = False
+            if self.game.state != 2:
+                self.isFocussed = False
 
         if event.key == pygame.K_F1:
             self.text += "("
