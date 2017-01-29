@@ -79,7 +79,7 @@ class Player:
     # player movement funcs
     def go_left(self):
         self.moves_left -= 1
-        if self.pos.y > 10:
+        if self.pos.y > 9:
             if self.pos.col != 1:
                 self.pos.col -= 1
             else:
@@ -107,7 +107,7 @@ class Player:
 
     def go_right(self):
         self.moves_left -= 1
-        if self.pos.y > 10:
+        if self.pos.y > 9:
             if self.pos.col != 4:
                 self.pos.col += 1
             else:
@@ -135,12 +135,7 @@ class Player:
 
     def go_up(self):
         self.moves_left -= 1
-        if not self.isMP and not self.moves_left:
-            for player in self.game.players:
-                if self.pos.get_pos() == player.pos.get_pos() and player != self:
-                    player.move_down(6)
-            self.direction = None
-            self.game.set_next_player()
+
         if self.isMP and not self.moves_left:
             #for player in self.game.players:
             #    if self.pos.get_pos() == player.pos.get_pos() and player != self:
@@ -150,6 +145,14 @@ class Player:
         self.pos.y += 1
         if self.pos.x == 1 and self.pos.y == 10:
             self.pos.x = 0
+
+        if not self.isMP and not self.moves_left:
+            for player in self.game.players:
+                if self.pos.get_pos() == player.pos.get_pos() and player != self:
+                    player.move_down(6)
+            self.direction = None
+            self.game.set_next_player()
+
         if self.pos.y > 14:
             self.game.winner = self.name
             self.game.set_state(3)
