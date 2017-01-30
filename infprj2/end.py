@@ -2,12 +2,13 @@
 import pygame
 import button
 import translate
+import menumusic
 
 def update(game):
     pass
 
 def init(game):
-    pass
+    menumusic.yay_snd.play()
 
 def draw(game):
     # Termination screen colour

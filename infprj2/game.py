@@ -9,6 +9,7 @@ import textbox
 import player
 import checkbox
 import math
+import menumusic
 
 def update(game):
     pass
@@ -217,6 +218,8 @@ def question_chosen(game, idx):
         pygame.display.flip()
         time.sleep(0.7)
     elif translate.translate(game.get_current_player().answers[idx-1]) == translate.translate("QUESTIONANSWER{}".format(game.question)):
+        #correct sound
+        menumusic.correct_snd.play()
         game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
         game.get_current_player().score += (15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)
         corrfont = pygame.font.Font(None, 72)
@@ -229,6 +232,8 @@ def question_chosen(game, idx):
         pygame.display.flip()
         time.sleep(0.7)
     else:
+		#incorrect sound
+        menumusic.wrong_snd.play()
         game.get_current_player().score -= 10
         game.get_current_player().set_direction(None)
         game.set_next_player()
