@@ -272,7 +272,7 @@ def process_events():
         #        console.remove(_game)
 
         elif event.type == pygame.KEYDOWN:
-            textbox.key_event(event)
+            textbox.key_event(event, pygame.event.get())
         
     return True
 

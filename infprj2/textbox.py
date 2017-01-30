@@ -35,15 +35,15 @@ class Textbox:
     def unfocus(self):
         self.isFocussed = False
         self.focuspos = len(self.text)
-    def key_pressed(self, event):
+    def key_pressed(self, event, events):
 
         enterPressed = False
         self.timer = time.clock()
 
-        # A-Z
-        if event.key >= 65 and event.key <= 90:
-            self.text = self.text[0:self.focuspos] + chr(event.key) + self.text[self.focuspos:]
-            self.focuspos += 1
+        ## A-Z
+        #if event.key >= 97 and event.key <= 122 and (pygame.K_RSHIFT in events or pygame.K_LSHIFT in events):
+        #    self.text = self.text[0:self.focuspos] + chr(event.key - 32) + self.text[self.focuspos:]
+        #    self.focuspos += 1
 
         # a-z
         if event.key >= 97 and event.key <= 122:
@@ -111,10 +111,10 @@ def click(pos):
             btn.unfocus()
 
 # trigger keyevent for the focussed textfield
-def key_event(event):
+def key_event(event, events):
     for btn in textfields:
         if btn.isFocussed:
-            btn.key_pressed(event)
+            btn.key_pressed(event, events)
             break
 
 # creates a text field
