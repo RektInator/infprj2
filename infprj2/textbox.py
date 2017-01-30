@@ -28,7 +28,7 @@ class Textbox:
     def click(self, pos):
         self.isFocussed = True
         for x in range(len(self.text)):
-            if abs(self.font.size(self.text[:x])[0] + self.x - pos[0] + 1) < 4:
+            if abs(self.font.size(self.text[:x])[0] + self.x - pos[0] + 3) < 4:
                 self.focuspos = x
         if self.font.size(self.text)[0] + self.x - pos[0] < 0:
             self.focuspos = len(self.text)
