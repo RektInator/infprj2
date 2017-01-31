@@ -10,6 +10,7 @@ import player
 import checkbox
 import math
 import menumusic
+import score
 
 def update(game):
     pass
@@ -222,6 +223,10 @@ def question_chosen(game, idx):
         menumusic.correct_snd.play()
         game.get_current_player().moves_left = math.ceil(game.get_current_player().dice_roll / 2)
         game.get_current_player().score += (15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)
+
+        # update score in database
+        score.update(game.get_current_player().name, game.get_current_player().score)
+
         corrfont = pygame.font.Font(None, 72)
         label_1 = corrfont.render("CORRECT!", 1, (0,200,0))
         label_2 = (pygame.font.Font(None, 30)).render("+" + str((15 * game.get_current_player().moves_left) + ((game.get_current_player().moves_left * 10) - 10)) + " score", 1, (0,200,0))
