@@ -16,18 +16,6 @@ CREATE DATABASE IF NOT EXISTS `opseilen` /*!40100 DEFAULT CHARACTER SET latin1 *
 USE `opseilen`;
 
 
--- Dumping structure for table opseilen.accounts
-DROP TABLE IF EXISTS `accounts`;
-CREATE TABLE IF NOT EXISTS `accounts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user id',
-  `username` varchar(64) NOT NULL DEFAULT '0' COMMENT 'username',
-  `password` varchar(64) NOT NULL DEFAULT '0' COMMENT 'hashed pw',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Data exporting was unselected.
-
-
 -- Dumping structure for table opseilen.savegames
 DROP TABLE IF EXISTS `savegames`;
 CREATE TABLE IF NOT EXISTS `savegames` (
@@ -68,6 +56,7 @@ DROP TABLE IF EXISTS `score`;
 CREATE TABLE IF NOT EXISTS `score` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `score` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
