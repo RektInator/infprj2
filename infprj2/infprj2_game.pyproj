@@ -122,6 +122,8 @@
     <Content Include="assets\img\hourglass8.png" />
     <Content Include="assets\img\hourglass9.png" />
     <Content Include="assets\img\Lego_met_vlag4.png" />
+    <Content Include="assets\img\party1.png" />
+    <Content Include="assets\img\party3.png" />
     <Content Include="assets\instructions.txt" />
     <Content Include="assets\img\pijllinks.png" />
     <Content Include="assets\img\pijlomhoog.png" />

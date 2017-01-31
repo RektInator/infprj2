@@ -268,12 +268,14 @@ def TBcallback(game, box, isEnterPressed, id, next):
 
 def SetPlayerCount(game, idx):
     if idx == 2:
+        menumusic.hello_snd.play()
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 0, 1))
         textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 1, None))
         checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
     if idx == 3:
+        menumusic.hello_snd.play()
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
@@ -283,6 +285,7 @@ def SetPlayerCount(game, idx):
         checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
         checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))
     if idx == 4:
+        menumusic.hello_snd.play()
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
@@ -305,6 +308,7 @@ def StartGame(game):
             return
 
     game.has_started = True
+    menumusic.start_snd.play()
 
 def draw(game):
     if game.has_started:
