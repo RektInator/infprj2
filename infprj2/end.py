@@ -8,9 +8,9 @@ def update(game):
     pass
 
 def init(game):
-    menumusic.yay_snd.play(-1)
-    menumusic.applause_snd.play(-1)
-    menumusic.crowd_snd.play(-1)
+    menumusic.yay_snd.play()
+    menumusic.applause_snd.play()
+    menumusic.crowd_snd.play()
 
 def draw(game):
     # Termination screen colour
