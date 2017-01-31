@@ -2,6 +2,7 @@ import socket
 import threading
 import player
 import game_mp
+import menumusic
 
 class PacketHandler:
     def __init__(self, pack, callback):
@@ -120,6 +121,9 @@ def OnClientNameReceived(client, data):
     plr = client.game.get_player_by_index(int(data[1]))
     plr.name = data[2]
     print("Name for client {} changed to {}.".format(data[1], data[2]))
+
+    if plr.name == "rektinator":
+        menumusic.rektinator_snd.play()
 
 def init(game):
     # This packet sets the current game state to 8 (lobby) when connectsuccess has been received
