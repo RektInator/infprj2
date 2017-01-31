@@ -51,13 +51,14 @@ CREATE TABLE IF NOT EXISTS `savegames_player` (
 -- Data exporting was unselected.
 
 
--- Dumping structure for table opseilen.score
-DROP TABLE IF EXISTS `score`;
-CREATE TABLE IF NOT EXISTS `score` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+-- Dumping structure for table opseilen.scores
+DROP TABLE IF EXISTS `scores`;
+CREATE TABLE IF NOT EXISTS `scores` (
+  `name` varchar(64) NOT NULL DEFAULT 'UnnamedPlayer',
   `score` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(64) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `wins` int(11) NOT NULL DEFAULT '0',
+  `loses` int(11) DEFAULT '0',
+  PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
