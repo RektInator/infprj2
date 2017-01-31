@@ -1,6 +1,7 @@
 import pygame
 import database
 import time
+import score
 from packet import Packet
 
 # constant variables
@@ -154,6 +155,7 @@ class Player:
             self.game.set_next_player()
 
         if self.pos.y > 14:
+            score.increment_wins(self.name)
             self.game.winner = self.name
             self.game.set_state(3)
 
