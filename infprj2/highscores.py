@@ -24,7 +24,7 @@ def refresh(game):
     scores.clear()
 
     # Fetch new scores
-    res = database.execute_query("SELECT accounts.username as name, score.score as score FROM score,accounts WHERE score.id = accounts.id ORDER BY score.score DESC")
+    res = database.execute_query("SELECT * FROM scores ORDER BY score DESC")
 
     # Add scores to list
     for row in res:
