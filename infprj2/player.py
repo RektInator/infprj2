@@ -155,7 +155,15 @@ class Player:
             self.game.set_next_player()
 
         if self.pos.y > 14:
+            # increment own win
             score.increment_wins(self.name)
+
+            # increment other players loses
+            for x in self.game.players:
+                if x is not self:
+                    score.increment_loses(x.name)
+
+            # show end screen
             self.game.winner = self.name
             self.game.set_state(3)
 
