@@ -19,7 +19,6 @@ class Listbox:
         self.onupdate = onupdate
         self.start_idx = 0                  # for future scrollbars
     def set_rows(self, cnt):
-        print("item_count set to {}".format(cnt))
         self.item_count = cnt
     def draw(self):
         

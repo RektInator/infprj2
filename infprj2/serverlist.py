@@ -76,7 +76,7 @@ def serverlist_click(game, row, column):
 
 # this is being called when the serverlist should update itself
 def serverlist_update(game, box):
-    serverbox.set_rows(GetOnlineServerCount())
+    box.set_rows(GetOnlineServerCount())
 
 def init(game):
     # create the serverlist 
