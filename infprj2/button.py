@@ -3,6 +3,7 @@
 
 # Import pygame
 import pygame
+import menumusic
 
 # button array
 buttons = []
@@ -44,6 +45,7 @@ def click(pos):
         # check if mouse position is within our range of interest
         if pos[0] > btn.x and pos[0] < btn.width + btn.x:
             if pos[1] > btn.y and pos[1] < btn.height + btn.y:
+                menumusic.click_snd.play()
                 # execute button callback
                 btn.click()
 
