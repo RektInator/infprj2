@@ -202,7 +202,22 @@ class Player:
             else:
                 playername = font.render(self.name, 1, (255,255,255))
             size = font.size(self.name)
+
+            # draw player 
+            for x in range(self.game.playercount):
+                if self.game.players[x] == self:
+                    if x == 0:
+                         icon1 = pygame.image.load("assets/img/13.png")
+                         self.game.screen.blit(icon1,(xpos - 10,ypos - 10))
+                    if x == 1:
+                         icon2 = pygame.image.load("assets/img/4.png")
+                         self.game.screen.blit(icon2,(xpos - 10,ypos - 10))
+                    if x == 2:
+                         icon3 = pygame.image.load("assets/img/6.png")
+                         self.game.screen.blit(icon3,(xpos - 10,ypos - 10))
+                    if x == 3:
+                         icon4 = pygame.image.load("assets/img/7.png")
+                         self.game.screen.blit(icon4,(xpos - 10,ypos - 10))
+
             self.game.screen.blit(playername, (xpos - size[0]/2, ypos - 22))
 
-            # draw player circle
-            pygame.draw.circle(self.game.screen, (0, 0, 0), (xpos, ypos), 10, 10)
