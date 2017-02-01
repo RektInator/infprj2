@@ -6,9 +6,10 @@ import database
 
 
 class ScoreDef:
-    def __init__(self, name, score):
+    def __init__(self, name, score, wlratio):
         self.name = name
         self.score = score
+        self.wlratio = wlratio
 
 scores = []
 
@@ -24,11 +25,18 @@ def refresh(game):
     scores.clear()
 
     # Fetch new scores
-    res = database.execute_query("SELECT * FROM scores ORDER BY score DESC")
+    res = database.execute_query("SELECT * FROM scores ORDER BY score DESC LIMIT 10")
 
     # Add scores to list
     for row in res:
-        idx = ScoreDef(row["name"], row["score"])
+        wins = row["wins"];
+        loses = row["loses"];
+        wlratio = wins;
+
+        if loses > 0:
+            wlratio = wins / loses;
+
+        idx = ScoreDef(row["name"], str(row["score"]), str(wlratio))
         scores.append(idx)
 
 def draw(game):
@@ -40,12 +48,13 @@ def draw(game):
 
     name = font.render(translate.translate("PLAYER"), 1, (255,255,255))
     score = font.render("SCORE", 1, (255,255,255))
+    wl = font.render("W/L", 1, (255,255,255))
 
-    pygame.draw.line(game.screen,(255,255,255),(180,91),(320,91))
-    pygame.draw.line(game.screen,(255,255,255),(480,91),(610,91))
+    pygame.draw.line(game.screen,(255,255,255),(180,91),(610,91))
 
     game.screen.blit(name, (200, 64))
-    game.screen.blit(score, (500, 64))
+    game.screen.blit(score, (400, 64))
+    game.screen.blit(wl, (500, 64))
 
     idx = 0;
     for x in scores:
@@ -53,9 +62,11 @@ def draw(game):
             break
 
         uname = font2.render(x.name, 1, (255,255,255))
-        pscore = font2.render(str(x.score), 1, (255,255,255))
+        pscore = font2.render(x.score, 1, (255,255,255))
+        wlratio = font2.render(x.wlratio, 1, (255,255,255))
 
         game.screen.blit(uname, (200, 100 + (idx * 28)))
-        game.screen.blit(pscore, (500, 100 + (idx * 28)))
+        game.screen.blit(pscore, (400, 100 + (idx * 28)))
+        game.screen.blit(wlratio, (500, 100 + (idx * 28)))
 
         idx += 1
