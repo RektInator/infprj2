@@ -34,7 +34,7 @@ def refresh(game):
         wlratio = wins;
 
         if loses > 0:
-            wlratio = wins / loses;
+            wlratio = "%.2f" % (wins / loses);
 
         idx = ScoreDef(row["name"], str(row["score"]), str(wlratio))
         scores.append(idx)
