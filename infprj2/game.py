@@ -120,6 +120,7 @@ class GameLogic:
                 button.draw(game, game.width * 0.25,252,300,60, translate.translate(game.get_current_player().answers[1]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 2))
                 button.draw(game, game.width * 0.25,342,300,60, translate.translate(game.get_current_player().answers[2]), 20, (0,0,0), (255,255,255), lambda game: question_chosen(game, 3))
                 if math.floor((time.clock() - game.get_current_player().turn_start) / 2) < 12:
+                    menumusic.timer_snd.play(1)
                     game.screen.blit(pygame.image.load("assets\img\hourglass{}.png".format(math.floor((time.clock() - game.get_current_player().turn_start) / 2))), (600, 40))
                 else:
                     question_chosen(game, 5)
@@ -206,6 +207,7 @@ def question_chosen(game, idx):
     # gamelogic.dice.image = "assets\img\die0.png"
     # check if the question was answerred correctly
     # increment score for correct question, and set the amount of moves we can make.
+    menumusic.timer_snd.stop()
     game.get_current_player().turn_start = 0
 
     if idx == 5:
@@ -268,14 +270,12 @@ def TBcallback(game, box, isEnterPressed, id, next):
 
 def SetPlayerCount(game, idx):
     if idx == 2:
-        menumusic.hello_snd.play()
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         textbox.create(game, game.width * 0.3, game.height * 0.2, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 0, 1))
         textbox.create(game, game.width * 0.3, game.height * 0.35, 250, "", lambda game,box,isEnterPressed: TBcallback(game, box, isEnterPressed, 1, None))
         checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
     if idx == 3:
-        menumusic.hello_snd.play()
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
@@ -285,7 +285,6 @@ def SetPlayerCount(game, idx):
         checkbox.create(game, game.width * 0.7, game.height * 0.35, "AI", False, lambda game,box: SetAI(1, game, box))
         checkbox.create(game, game.width * 0.7, game.height * 0.50, "AI", False, lambda game,box: SetAI(2, game, box))
     if idx == 4:
-        menumusic.hello_snd.play()
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
         game.players.append(player.Player(game))
@@ -308,7 +307,7 @@ def StartGame(game):
             return
 
     game.has_started = True
-    menumusic.start_snd.play()
+    
 
 def draw(game):
     if game.has_started:
