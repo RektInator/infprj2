@@ -11,6 +11,12 @@ def init(game):
     menumusic.yay_snd.play()
     menumusic.applause_snd.play()
     menumusic.crowd_snd.play()
+ 
+def rot_center(image, rect, angle):
+        """rotate an image while keeping its center"""
+        rot_image = pygame.transform.rotate(image, angle)
+        rot_rect = rot_image.get_rect(center=rect.center)
+        return rot_image,rot_rect
 
 def draw(game):
     # Termination screen colour
@@ -36,9 +42,17 @@ def draw(game):
     bg = pygame.image.load("assets/img/Lego_met_vlag4.png")
     game.screen.blit(bg,(game.width/2.4 ,game.height*0.2 ))
     party1 = pygame.image.load("assets/img/party1.png")
-    game.screen.blit(party1,(game.width/1.7 ,game.height*0.2))
+    game.angle += 1
+    if game.angle >= 360:
+        game.angle = 0
+    rot_party1 = rot_center(party1,party1.get_rect(), game.angle)[0]
+    game.screen.blit(rot_party1,(game.width/1.4 ,game.height*0.2))
     party3 = pygame.image.load("assets/img/party3.png")
-    game.screen.blit(party3,(game.width/15.0 ,game.height*0.2))
+    game.angle1 -= 1
+    if game.angle1 >= 360:
+        game.angle1 = 0
+    rot_party3 = rot_center(party3, party3.get_rect(), game.angle1)[0]
+    game.screen.blit(rot_party3,(game.width/15.0 ,game.height*0.2))
    
     
     # button variables

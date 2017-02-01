@@ -45,6 +45,8 @@ class Game:
         self.index = 0
         self.lobbyname = ""
         self.sockets = packetevent.Client()
+        self.angle = 0
+        self.angle1 = 0
     
         # Start PyGame
         pygame.init()
@@ -57,6 +59,7 @@ class Game:
         translate.init()
         menumusic.init()
         questions.init()
+        
 
         # Initiate the game window
         self.width = 800
