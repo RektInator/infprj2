@@ -23,9 +23,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="background.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="button.py" />
     <Compile Include="checkbox.py">
       <SubType>Code</SubType>
@@ -82,6 +79,7 @@
     <Compile Include="mainmenu.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="score.py" />
     <Compile Include="serverlist.py" />
     <Compile Include="textbox.py">
       <SubType>Code</SubType>

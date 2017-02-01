@@ -12,7 +12,6 @@ import translate
 import menumusic
 import config
 import database
-import background
 import questions
 import checkbox
 import textbox
